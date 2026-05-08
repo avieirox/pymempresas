@@ -21,7 +21,6 @@ const {
   index = 0,
 } = Astro.props;
 
-const safeSlug = slug.replace(/[^a-z0-9-]/g, '');
 const dateStr = date.toLocaleDateString('es-ES', {
   year: 'numeric',
   month: 'long',
@@ -31,11 +30,11 @@ const dateStr = date.toLocaleDateString('es-ES', {
 
 <article class="card" style={`--i: ${index}`}>
   {image ? (
-    <a href={`/${slug}/`} class="card-media" style={`view-transition-name: article-img-${safeSlug}`}>
+    <a href={`/${slug}/`} class="card-media">
       <img src={image} alt={title} loading="lazy" decoding="async" class="card-img" />
     </a>
   ) : (
-    <a href={`/${slug}/`} class="card-media card-media-empty" style={`view-transition-name: article-img-${safeSlug}`}>
+    <a href={`/${slug}/`} class="card-media card-media-empty">
       <span class="card-media-letter">{title.charAt(0)}</span>
     </a>
   )}

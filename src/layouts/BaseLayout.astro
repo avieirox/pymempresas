@@ -4,7 +4,6 @@ import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieBanner from '../components/CookieBanner.astro';
-import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
   metaTitle: string;
@@ -28,7 +27,6 @@ const bodyClass = bodyTheme === 'light'
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <ViewTransitions />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <!-- Google Fonts: preconnect + async CSS to avoid render-blocking -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

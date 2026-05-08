@@ -11,7 +11,6 @@ interface Props {
 
 const { title, slug, image, tags = [], date, author, authorImage } = Astro.props;
 
-const safeImageId = slug.replace(/[^a-z0-9-]/g, '');
 const dateStr = date.toLocaleDateString('es-ES', {
   year: 'numeric', month: 'long', day: 'numeric',
 });
@@ -24,7 +23,6 @@ const initials = author.split(' ').map(w => w.charAt(0)).join('').slice(0, 2).to
       <img
         src={image} alt={title}
         class="article-hero-img" decoding="async"
-        style={`view-transition-name: article-img-${safeImageId}`}
       />
     </div>
   ) : null}

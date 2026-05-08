@@ -280,10 +280,6 @@ h1, h2, h3 {
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  ::view-transition-old(*),
-  ::view-transition-new(*) {
-    animation: none !important;
-  }
   .scroll-reveal {
     opacity: 1;
     transform: none;
