@@ -1,0 +1,41 @@
+---
+import { CONTACT } from '../lib/constants';
+---
+
+<section class="section bg-black" id="sobre-nosotros">
+  <div class="container">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="text-orange text-sm font-semibold uppercase tracking-wider">Sobre Nosotros</span>
+        <h2 class="text-3xl font-bold text-white mt-2 mb-6">Agencia SEO local en el corazón de Asturias</h2>
+        <div class="space-y-4 text-white/70 leading-relaxed">
+          <p>
+            En <strong class="text-white">PYMEMPRESAS</strong> ayudamos a negocios locales
+            a conseguir más clientes a través de estrategias de posicionamiento web y SEO local.
+            Trabajamos desde Gijón para toda Asturias.
+          </p>
+          <p>
+            Nuestro enfoque combina <strong class="text-white">SEO técnico, optimización de Google Business Profile
+            e inteligencia artificial</strong> para que tu negocio aparezca donde tus clientes te buscan.
+          </p>
+          <p>
+            Sin fórmulas mágicas. Solo trabajo constante, datos reales y estrategias personalizadas
+            adaptadas a tu sector y zona geográfica.
+          </p>
+        </div>
+        <a href="/contacto/" class="inline-flex items-center gap-2 text-orange font-semibold text-sm mt-6 hover:gap-3 transition-all">
+          Conoce más sobre nosotros
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="bg-card rounded-xl p-8 border border-white/5">
+        <h3 class="text-lg font-bold text-white mb-6">Ficha verificada en Google My Business</h3>
+        <div class="aspect-[4/3] bg-black/50 rounded-lg flex items-center justify-center mb-4">
+          <span class="text-white/40 text-sm">Mapa — {CONTACT.address}</span>
+        </div>
+        <p class="text-sm text-white/50">{CONTACT.address}</p>
+      </div>
+    </div>
+  </div>
+</section>

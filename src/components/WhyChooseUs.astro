@@ -1,0 +1,35 @@
+---
+import { WHY_CHOOSE_US } from '../lib/constants';
+
+const iconMap: Record<string, string> = {
+  eye: '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>',
+  users: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>',
+  chart: '<path d="M18 20V10M12 20V4M6 20v-6"/>',
+  clock: '<circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/>',
+  star: '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>',
+  'map-pin': '<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>',
+};
+---
+
+<section class="section bg-black" id="por-que-elegirnos">
+  <div class="container">
+    <div class="text-center mb-14">
+      <span class="text-orange text-sm font-semibold uppercase tracking-wider">Por Qué Elegirnos</span>
+      <h2 class="text-3xl font-bold text-white mt-2">Razones para confiar en nosotros</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {WHY_CHOOSE_US.map((item) => (
+        <div class="bg-card rounded-xl p-6 border border-white/5 hover:border-orange/30 transition-all duration-300">
+          <div class="w-10 h-10 bg-orange/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <Fragment set:html={iconMap[item.icon] ?? iconMap.star} />
+            </svg>
+          </div>
+          <h3 class="font-bold text-white mb-2">{item.title}</h3>
+          <p class="text-sm text-white/60 leading-relaxed">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

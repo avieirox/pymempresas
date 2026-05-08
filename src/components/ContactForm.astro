@@ -1,0 +1,302 @@
+---
+const n8nUrl = 'https://n8n.vieirox.es/webhook/contact-form';
+---
+
+<form id="contact-form" class="contact-form" method="POST">
+  <div class="form-row">
+    <div class="form-group">
+      <label for="nombre" class="form-label">Nombre <span class="form-required">*</span></label>
+      <input type="text" id="nombre" name="nombre" required
+        class="form-input"
+        placeholder="Tu nombre completo" />
+    </div>
+    <div class="form-group">
+      <label for="email" class="form-label">Email <span class="form-required">*</span></label>
+      <input type="email" id="email" name="email" required
+        class="form-input"
+        placeholder="tu@email.com" />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="telefono" class="form-label">Teléfono</label>
+    <input type="tel" id="telefono" name="telefono"
+      class="form-input"
+      placeholder="+34 600 000 000" />
+  </div>
+
+  <div class="form-group">
+    <label for="asunto" class="form-label">Asunto <span class="form-required">*</span></label>
+    <input type="text" id="asunto" name="asunto" required
+      class="form-input"
+      placeholder="Cuéntanos en qué podemos ayudarte" />
+  </div>
+
+  <div class="form-group">
+    <label for="mensaje" class="form-label">Mensaje <span class="form-required">*</span></label>
+    <textarea id="mensaje" name="mensaje" rows="5" required
+      class="form-input form-textarea"
+      placeholder="Describe tu proyecto, objetivos o cualquier detalle relevante..."></textarea>
+  </div>
+
+  <div class="form-legal">
+    <label class="form-checkbox-label">
+      <input type="checkbox" id="privacy" name="privacy" required class="form-checkbox" />
+      <span class="form-checkbox-mark"></span>
+      <span class="form-checkbox-text">
+        He leído y acepto la <a href="/politica-privacidad/" target="_blank" class="form-legal-link">política de privacidad</a> y consiento el tratamiento de mis datos para ser contactado. <span class="form-required">*</span>
+      </span>
+    </label>
+  </div>
+
+  <button type="submit" class="form-submit">
+    <span class="form-submit-text">Enviar Mensaje</span>
+    <svg class="form-submit-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+    </svg>
+  </button>
+
+  <div id="form-status" class="form-status" style="display:none;"></div>
+</form>
+
+<style is:global>
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a1a1a;
+    letter-spacing: 0.01em;
+  }
+
+  .form-required {
+    color: #F5A623;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 15px;
+    font-family: inherit;
+    color: #1a1a1a;
+    background: #F8F9FA;
+    border: 1.5px solid #E2E4E9;
+    border-radius: 12px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    box-sizing: border-box;
+  }
+
+  .form-input::placeholder {
+    color: #A0A5AE;
+  }
+
+  .form-input:focus {
+    border-color: #F5A623;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(245, 166, 35, 0.08);
+  }
+
+  .form-input:hover:not(:focus) {
+    border-color: #CDD1D9;
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+  }
+
+  .form-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 14px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    color: #fff;
+    background: linear-gradient(135deg, #F5A623 0%, #E8960F 100%);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    margin-top: 4px;
+  }
+
+  .form-submit:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(245, 166, 35, 0.35);
+  }
+
+  .form-submit:active {
+    transform: translateY(0);
+  }
+
+  .form-submit-icon {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.2s ease;
+  }
+
+  .form-submit:hover .form-submit-icon {
+    transform: translateX(3px) translateY(-3px);
+  }
+
+  .form-status {
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    padding: 12px 16px;
+    border-radius: 10px;
+  }
+
+  .form-status-success {
+    color: #15803D;
+    background: #F0FDF4;
+    display: block !important;
+  }
+
+  .form-status-error {
+    color: #DC2626;
+    background: #FEF2F2;
+    display: block !important;
+  }
+
+  /* Privacy checkbox */
+  .form-legal {
+    margin-top: 0;
+  }
+
+  .form-checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .form-checkbox {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .form-checkbox-mark {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid #CDD1D9;
+    border-radius: 6px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+    margin-top: 1px;
+  }
+
+  .form-checkbox-mark::after {
+    content: '';
+    width: 6px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) translateY(-1px);
+    opacity: 0;
+    transition: opacity 0.1s ease;
+  }
+
+  .form-checkbox:checked + .form-checkbox-mark {
+    background: #F5A623;
+    border-color: #F5A623;
+  }
+
+  .form-checkbox:checked + .form-checkbox-mark::after {
+    opacity: 1;
+  }
+
+  .form-checkbox:focus-visible + .form-checkbox-mark {
+    box-shadow: 0 0 0 4px rgba(245, 166, 35, 0.15);
+    border-color: #F5A623;
+  }
+
+  .form-checkbox-text {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.5;
+  }
+
+  .form-legal-link {
+    color: #F5A623;
+    text-decoration: underline;
+    font-weight: 500;
+  }
+
+  .form-legal-link:hover {
+    color: #E8960F;
+  }
+
+  @media (max-width: 768px) {
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const status = document.getElementById('form-status')!;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.style.display = 'none';
+
+    const data = Object.fromEntries(new FormData(form));
+    const url = '${n8nUrl}';
+
+    if (!url) {
+      status.textContent = 'Error de configuración. Contacta por email.';
+      status.className = 'form-status form-status-error';
+      return;
+    }
+
+    try {
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...data, origen: window.location.href }),
+      });
+
+      if (res.ok) {
+        status.textContent = 'Mensaje enviado. Te responderemos en menos de 24 horas.';
+        status.className = 'form-status form-status-success';
+        form.reset();
+      } else {
+        throw new Error('Server error');
+      }
+    } catch {
+      status.textContent = 'Error al enviar. Inténtalo de nuevo o escríbenos a info@pymempresas.com.';
+      status.className = 'form-status form-status-error';
+    }
+  });
+</script>

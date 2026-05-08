@@ -1,0 +1,104 @@
+{
+  "name": "PYMEMPRESAS — Consultoría Form → Email",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "consultoria-form",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook — Recibe formulario consultoría",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Formatea los datos del formulario para el email\nconst data = $input.first().json;\n\nconst fecha = new Date(data.fecha).toLocaleDateString('es-ES', {\n  year: 'numeric', month: 'long', day: 'numeric',\n  hour: '2-digit', minute: '2-digit'\n});\n\nconst html = `\n<!DOCTYPE html>\n<html>\n<head><meta charset=\"utf-8\"></head>\n<body style=\"font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; background: #F8F9FA; padding: 40px 0;\">\n<div style=\"max-width: 600px; margin: 0 auto; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06);\">\n  \n  <div style=\"background: linear-gradient(135deg, #F5A623, #E8960F); padding: 28px 32px;\">\n    <h2 style=\"color: #fff; margin: 0; font-size: 20px; font-weight: 700;\">Nueva solicitud de consultoría</h2>\n    <p style=\"color: rgba(255,255,255,0.85); margin: 6px 0 0; font-size: 14px;\">${fecha}</p>\n  </div>\n\n  <div style=\"padding: 32px;\">\n    <table style=\"width: 100%; border-collapse: collapse;\">\n      <tr>\n        <td style=\"padding: 12px 16px; border-bottom: 1px solid #F0F1F3; font-size: 12px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.05em; width: 120px;\">Nombre</td>\n        <td style=\"padding: 12px 16px; border-bottom: 1px solid #F0F1F3; font-size: 15px; color: #1A1A1A; font-weight: 500;\">${data.nombre}</td>\n      </tr>\n      <tr>\n        <td style=\"padding: 12px 16px; border-bottom: 1px solid #F0F1F3; font-size: 12px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.05em;\">Email</td>\n        <td style=\"padding: 12px 16px; border-bottom: 1px solid #F0F1F3; font-size: 15px; color: #1A1A1A;\"><a href=\"mailto:${data.email}\" style=\"color: #F5A623; text-decoration: none;\">${data.email}</a></td>\n      </tr>\n      <tr>\n        <td style=\"padding: 12px 16px; border-bottom: 1px solid #F0F1F3; font-size: 12px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.05em;\">Teléfono</td>\n        <td style=\"padding: 12px 16px; border-bottom: 1px solid #F0F1F3; font-size: 15px; color: #1A1A1A;\"><a href=\"tel:${data.telefono}\" style=\"color: #F5A623; text-decoration: none;\">${data.telefono}</a></td>\n      </tr>\n      <tr>\n        <td style=\"padding: 12px 16px; border-bottom: 1px solid #F0F1F3; font-size: 12px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.05em;\">Ciudad</td>\n        <td style=\"padding: 12px 16px; border-bottom: 1px solid #F0F1F3; font-size: 15px; color: #1A1A1A;\">${data.ciudad}</td>\n      </tr>\n      <tr>\n        <td style=\"padding: 12px 16px; border-bottom: 1px solid #F0F1F3; font-size: 12px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.05em;\">Negocio</td>\n        <td style=\"padding: 12px 16px; border-bottom: 1px solid #F0F1F3; font-size: 15px; color: #1A1A1A; font-weight: 500;\">${data.negocio}</td>\n      </tr>\n      <tr>\n        <td style=\"padding: 12px 16px; border-bottom: 1px solid #F0F1F3; font-size: 12px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.05em;\">Web</td>\n        <td style=\"padding: 12px 16px; border-bottom: 1px solid #F0F1F3; font-size: 15px; color: #1A1A1A;\"><a href=\"${data.web}\" style=\"color: #F5A623; text-decoration: none;\">${data.web}</a></td>\n      </tr>\n    </table>\n\n    <div style=\"margin-top: 24px; padding: 20px; background: #FFF8E8; border-left: 3px solid #F5A623; border-radius: 0 8px 8px 0;\">\n      <p style=\"margin: 0 0 6px; font-size: 12px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.05em;\">Mayor reto</p>\n      <p style=\"margin: 0; font-size: 15px; color: #1A1A1A; line-height: 1.6;\">${data.reto}</p>\n    </div>\n\n    <div style=\"margin-top: 20px; padding: 12px 16px; background: #F8F9FA; border-radius: 8px;\">\n      <p style=\"margin: 0; font-size: 12px; color: #AAA;\">Origen: <a href=\"${data.origen}\" style=\"color: #888;\">${data.origen}</a></p>\n    </div>\n  </div>\n\n  <div style=\"padding: 20px 32px; background: #F8F9FA; border-top: 1px solid #EAECEF;\">\n    <p style=\"margin: 0; font-size: 12px; color: #AAA;\">PYMEMPRESAS — Sistema automático de consultoría</p>\n  </div>\n</div>\n</body>\n</html>`;\n\nconst subject = `[PYMEMPRESAS] Nueva consultoría — ${data.negocio} (${data.ciudad})`;\n\nreturn {\n  subject,\n  html,\n  to: 'avieiros@gmail.com',\n  from: data.nombre,\n  replyTo: data.email\n};"
+      },
+      "id": "format-email",
+      "name": "Formatear email HTML",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [500, 300]
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "authentication": "oAuth2",
+        "fromEmail": "",
+        "toEmail": "avieiros@gmail.com",
+        "subject": "={{ $json.subject }}",
+        "emailType": "html",
+        "message": "={{ $json.html }}",
+        "options": {
+          "replyTo": "={{ $json.replyTo }}"
+        }
+      },
+      "id": "send-email",
+      "name": "Enviar email a avieiros@gmail.com",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [750, 300],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "dYf4b9b9QiLUD45M",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ ok: true, mensaje: 'Solicitud recibida. Te contactaremos en menos de 24 horas.' }) }}",
+        "options": {}
+      },
+      "id": "response",
+      "name": "Responder OK al formulario",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1000, 300]
+    }
+  ],
+  "connections": {
+    "Webhook — Recibe formulario consultoría": {
+      "main": [
+        [
+          {
+            "node": "Formatear email HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Formatear email HTML": {
+      "main": [
+        [
+          {
+            "node": "Enviar email a avieiros@gmail.com",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar email a avieiros@gmail.com": {
+      "main": [
+        [
+          {
+            "node": "Responder OK al formulario",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "callerPolicy": "workflowsFromSameOwner"
+  }
+}

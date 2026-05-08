@@ -1,0 +1,92 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BlogHero from '../components/blog/BlogHero.astro';
+import BlogGrid from '../components/blog/BlogGrid.astro';
+import FeaturedCard from '../components/blog/FeaturedCard.astro';
+import ArticleCard from '../components/blog/ArticleCard.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import { SITE } from '../lib/constants';
+
+const posts = await getCollection('blog');
+const sorted = posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const blogListingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'Blog de PYMEMPRESAS',
+  description: 'Artículos sobre SEO, marketing digital, IA y automatizaciones para empresas.',
+  url: `${SITE.url}/blog/`,
+  blogPost: sorted.map((p) => ({
+    '@type': 'BlogPosting',
+    headline: p.data.title,
+    description: p.data.description,
+    datePublished: p.data.date.toISOString(),
+    url: `${SITE.url}/${p.slug}/`,
+    author: { '@type': 'Organization', name: p.data.author },
+  })),
+};
+---
+
+<BaseLayout
+  metaTitle="Blog — PYMEMPRESAS"
+  metaDescription="Artículos sobre SEO, marketing digital, IA y automatizaciones para empresas en Asturias."
+  canonicalURL={`${SITE.url}/blog/`}
+  schema={blogListingSchema}
+  bodyTheme="light"
+>
+  <BlogHero />
+
+  {sorted.length > 0 ? (
+    <BlogGrid>
+      {sorted.map((post, i) =>
+        i === 0 ? (
+          <FeaturedCard
+            slug={post.slug}
+            title={post.data.title}
+            description={post.data.description}
+            image={post.data.image}
+            tags={post.data.tags}
+            date={post.data.date}
+            author={post.data.author}
+          />
+        ) : (
+          <ArticleCard
+            index={i}
+            slug={post.slug}
+            title={post.data.title}
+            description={post.data.description}
+            image={post.data.image}
+            tags={post.data.tags}
+            date={post.data.date}
+            author={post.data.author}
+          />
+        )
+      )}
+    </BlogGrid>
+  ) : (
+    <section class="blog-empty-section">
+      <div class="blog-empty-inner">
+        <p class="blog-empty-text">Próximamente publicaremos artículos. ¡Vuelve pronto!</p>
+      </div>
+    </section>
+  )}
+
+  <FinalCTA />
+</BaseLayout>
+
+<style>
+  .blog-empty-section {
+    padding: 80px 20px;
+    background: #F8F9FA;
+  }
+  .blog-empty-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .blog-empty-text {
+    color: #888;
+    font-size: 16px;
+  }
+</style>

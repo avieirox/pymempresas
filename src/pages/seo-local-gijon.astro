@@ -1,0 +1,1987 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://pymempresas.com/seo-local-gijon/#service",
+      "serviceType": "SEO Local",
+      "name": "SEO Local en Gijón",
+      "description": "Posicionamiento SEO local para negocios en Gijón y Asturias. Optimización de Google My Business, gestión de reseñas y directorios locales.",
+      "url": "https://pymempresas.com/seo-local-gijon/",
+      "provider": {
+        "@id": "https://pymempresas.com/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Gijón"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Asturias"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Planes de SEO Local",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Plan Básico SEO Local"
+            },
+            "price": "297",
+            "priceCurrency": "EUR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Plan Profesional SEO Local"
+            },
+            "price": "497",
+            "priceCurrency": "EUR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Plan Premium SEO Local"
+            },
+            "price": "897",
+            "priceCurrency": "EUR"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://pymempresas.com/seo-local-gijon/#webpage",
+      "url": "https://pymempresas.com/seo-local-gijon/",
+      "name": "SEO Local Gijón - Posiciona tu Negocio | PYMEMPRESAS",
+      "description": "Especialistas en SEO Local para negocios en Gijón. Google My Business, directorios locales y posicionamiento web. Desde 297€/mes.",
+      "inLanguage": "es-ES",
+      "isPartOf": {
+        "@id": "https://pymempresas.com/#website"
+      },
+      "about": {
+        "@id": "https://pymempresas.com/seo-local-gijon/#service"
+      },
+      "breadcrumb": {
+        "@id": "https://pymempresas.com/seo-local-gijon/#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://pymempresas.com/seo-local-gijon/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://pymempresas.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "SEO Local Gijón",
+          "item": "https://pymempresas.com/seo-local-gijon/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://pymempresas.com/seo-local-gijon/#faqpage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es el SEO Local y por qué mi negocio en Gijón lo necesita?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El SEO Local posiciona tu negocio en el mapa de Google y búsquedas locales. El 46% de búsquedas en Google son locales, si no estás visible, tus clientes van a la competencia."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tiempo tardaré en ver resultados?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Los primeros cambios se notan desde el mes 3. Con Google Business Profile optimizado, verás aumento en llamadas en las primeras semanas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué diferencia hay entre SEO normal y SEO Local?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El SEO Local se centra en tráfico geolocalizado en Gijón: proximidad, reseñas locales y directorios asturianos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Tengo permanencia con vuestros planes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Nuestros planes desde 297€/mes funcionan mes a mes, sin permanencia."
+          }
+        }
+      ]
+    }
+  ]
+};
+---
+
+<BaseLayout
+  metaTitle="SEO Local Gijón - Posiciona tu Negocio | PYMEMPRESAS"
+  metaDescription="Especialistas en SEO Local para negocios en Gijón. Google My Business, directorios locales y posicionamiento web. Desde 297€/mes."
+  canonicalURL="https://pymempresas.com/seo-local-gijon/"
+  schema={schema}
+>
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <!-- HERO SECTION -->
+  <div class="hero-pymempresas-wrapper">
+    <div class="hero-pymempresas seo-hero-light">
+      <div class="hero-content hero-content-center">
+        <div class="hero-badge seo-badge">
+          <svg class="hero-badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>Especialistas en Gijón, Asturias</span>
+        </div>
+
+        <h1 class="hero-title seo-title">SEO Local en <span class="text-highlight">Gijón para Negocios y PYMES</span></h1>
+
+        <p class="hero-subtitle seo-subtitle">El SEO local en Gijón no va de tecnicismos ni de postureo digital. Va de algo mucho más simple: que cuando alguien saque el móvil y busque “fisioterapeuta en Gijón” o el servicio que sea, aparezcas tú. En Google Maps. Arriba. El primero. Esto es para <strong>negocios físicos, profesionales y empresas</strong> que viven de la gente de su zona, no de likes y me gustas falsos. Con SEO local consigues visibilidad inmediata, más llamadas, más visitas y más clientes que te encuentran justo cuando ya han decidido comprar.</p>
+
+        <div class="hero-buttons">
+          <a href="/consultoria/" class="hero-btn-primary seo-btn-primary">Solicitar Consulta Gratis</a>
+          <a href="#precios" class="hero-btn-secondary seo-btn-secondary">Ver Precios</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUÉ ES EL SEO LOCAL -->
+  <section class="about-pymempresas seo-what-is">
+    <div class="advantages-container">
+      <div class="seo-intro-header">
+        <h2 class="advantages-title">¿Qué es el <span class="text-highlight">SEO Local</span> en Gijón?</h2>
+        <p class="advantages-subtitle">El SEO Local es una estrategia de posicionamiento web diseñada específicamente para negocios que atienden a clientes en una ubicación geográfica concreta.</p>
+      </div>
+
+      <div class="seo-content-grid-new">
+        <div class="seo-text-content">
+          <p>Para los negocios consigan clientes por Internet, usar <strong>Google negocios</strong> es fundamental para aparecer en las búsquedas que incluyen términos como &ldquo;cerca de mí&rdquo;, &ldquo;en Gijón&rdquo; o &ldquo;Asturias&rdquo;.</p>
+
+          <p>Cuando un usuario busca &ldquo;restaurante italiano Gijón&rdquo; o &ldquo;fontanero cerca de mí&rdquo; desde Gijón, Google muestra resultados locales relevantes. El SEO Local asegura que tu negocio aparezca en esos resultados.</p>
+
+          <p>Esto incluye optimización de tu perfil de <strong>Google My Business</strong>, posicionamiento en el &ldquo;pack local&rdquo; de Google Maps, y estrategias de contenido enfocadas en tu área de servicio.</p>
+        </div>
+
+        <div class="seo-example-card">
+          <div class="seo-example-header">
+            <svg class="seo-example-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+            <h3>Ejemplo de búsqueda local</h3>
+          </div>
+
+          <div class="seo-example-content">
+            <p class="seo-example-label">Usuario busca:</p>
+            <div class="seo-search-box">&ldquo;Fontanero en Gijón&rdquo;</div>
+
+            <div class="seo-example-steps">
+              <div class="seo-step">
+                <svg class="check-icon check-icon-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Tu negocio aparece en el pack de 3 de Google Maps</span>
+              </div>
+              <div class="seo-step">
+                <svg class="check-icon check-icon-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Muestras reseñas, horarios y ubicación</span>
+              </div>
+              <div class="seo-step">
+                <svg class="check-icon check-icon-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>El cliente te contacta directamente</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="advantages-pymempresas benefits-seo-section">
+    <div class="advantages-container">
+      <div class="advantages-header">
+        <h2 class="advantages-title">Beneficios del <span class="text-highlight">SEO Local</span></h2>
+        <p class="advantages-subtitle">Descubre cómo el SEO Local puede transformar la visibilidad de tu negocio en Gijón</p>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <h3 class="benefit-title">Más Clientes Locales</h3>
+          <p class="benefit-description">Atrae a clientes de Gijón que buscan activamente tus servicios. El 46% de las búsquedas en Google tienen intención local.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+          </div>
+          <h3 class="benefit-title">Mayor Credibilidad</h3>
+          <p class="benefit-description">Aparecer en los primeros resultados genera confianza. El 75% de los usuarios nunca pasa de la primera página de Google.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 3v18h18"></path>
+              <path d="M18 17V9"></path>
+              <path d="M13 17V5"></path>
+              <path d="M8 17v-3"></path>
+            </svg>
+          </div>
+          <h3 class="benefit-title">ROI Medible</h3>
+          <p class="benefit-description">El SEO local ofrece uno de los mejores retornos de inversión en marketing digital, con resultados medibles y sostenibles.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+              <polyline points="17 6 23 6 23 12"></polyline>
+            </svg>
+          </div>
+          <h3 class="benefit-title">Ventaja Competitiva</h3>
+          <p class="benefit-description">Supera a tu competencia en Gijón posicionándote primero cuando los clientes buscan tus productos o servicios.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERT TASKS -->
+  <section class="about-pymempresas expert-section">
+    <div class="advantages-container">
+      <div class="advantages-header">
+        <h2 class="advantages-title">¿Qué hace un <span class="text-highlight">Experto en SEO Local</span>?</h2>
+        <p class="advantages-subtitle">Un especialista en SEO Local realiza múltiples tareas para mejorar tu posicionamiento en búsquedas locales</p>
+      </div>
+
+      <div class="expert-tasks-grid">
+        <div class="expert-task-box">
+          <svg class="expert-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Investigación de palabras clave locales específicas de Gijón</span>
+        </div>
+
+        <div class="expert-task-box">
+          <svg class="expert-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Optimización completa de tu perfil de Google My Business</span>
+        </div>
+
+        <div class="expert-task-box">
+          <svg class="expert-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Creación y optimización de páginas de aterrizaje locales</span>
+        </div>
+
+        <div class="expert-task-box">
+          <svg class="expert-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Gestión de citas NAP en directorios de Asturias</span>
+        </div>
+
+        <div class="expert-task-box">
+          <svg class="expert-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Implementación de Schema markup LocalBusiness</span>
+        </div>
+
+        <div class="expert-task-box">
+          <svg class="expert-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Estrategia de contenido enfocado en Gijón</span>
+        </div>
+
+        <div class="expert-task-box">
+          <svg class="expert-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Monitorización y respuesta a reseñas</span>
+        </div>
+
+        <div class="expert-task-box">
+          <svg class="expert-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Análisis de competidores locales</span>
+        </div>
+
+        <div class="expert-task-box">
+          <svg class="expert-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Optimización para búsquedas &ldquo;cerca de mí&rdquo;</span>
+        </div>
+
+        <div class="expert-task-box">
+          <svg class="expert-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Informes de rendimiento y visibilidad local</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 TYPES OF SEO -->
+  <section class="advantages-pymempresas seo-types-section">
+    <div class="advantages-container">
+      <div class="advantages-header">
+        <h2 class="advantages-title">Los 4 Tipos de <span class="text-highlight">SEO</span></h2>
+        <p class="advantages-subtitle">Cada tipo de SEO tiene un rol específico. Para negocios en Gijón, el SEO Local es especialmente crucial.</p>
+      </div>
+
+      <div class="seo-types-grid">
+        <!-- SEO On-Page -->
+        <div class="seo-type-card">
+          <div class="seo-type-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+          </div>
+          <h3 class="seo-type-title">SEO On-Page</h3>
+          <p class="seo-type-description">Optimización del contenido, meta etiquetas, estructura de URLs y palabras clave dentro de tu sitio web.</p>
+          <ul class="seo-type-features">
+            <li>
+              <svg class="feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Optimización de títulos y meta descripciones</span>
+            </li>
+            <li>
+              <svg class="feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Estructura de encabezados H1-H6</span>
+            </li>
+            <li>
+              <svg class="feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Contenido optimizado para palabras clave locales</span>
+            </li>
+            <li>
+              <svg class="feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>URLs amigables y semánticas</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- SEO Off-Page -->
+        <div class="seo-type-card">
+          <div class="seo-type-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+            </svg>
+          </div>
+          <h3 class="seo-type-title">SEO Off-Page</h3>
+          <p class="seo-type-description">Construcción de autoridad mediante enlaces externos, menciones y presencia en directorios locales.</p>
+          <ul class="seo-type-features">
+            <li>
+              <svg class="feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Link building de calidad</span>
+            </li>
+            <li>
+              <svg class="feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Citas locales (NAP)</span>
+            </li>
+            <li>
+              <svg class="feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Reseñas en Google My Business</span>
+            </li>
+            <li>
+              <svg class="feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Presencia en directorios de Gijón</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- SEO Técnico -->
+        <div class="seo-type-card">
+          <div class="seo-type-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M12 1v6m0 6v6m5.2-13.2l-4.2 4.2m0 6l4.2 4.2M23 12h-6m-6 0H1m18.2 5.2l-4.2-4.2m0-6l4.2-4.2"></path>
+            </svg>
+          </div>
+          <h3 class="seo-type-title">SEO Técnico</h3>
+          <p class="seo-type-description">Mejora del rendimiento técnico del sitio: velocidad, indexación y experiencia de usuario.</p>
+          <ul class="seo-type-features">
+            <li>
+              <svg class="feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Optimización de velocidad de carga</span>
+            </li>
+            <li>
+              <svg class="feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Diseño responsive móvil</span>
+            </li>
+            <li>
+              <svg class="feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Schema markup local</span>
+            </li>
+            <li>
+              <svg class="feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Corrección de errores de rastreo</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- SEO Local - DESTACADO -->
+        <div class="seo-type-card seo-local-featured">
+          <div class="seo-type-icon seo-local-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <div class="seo-type-header">
+            <h3 class="seo-type-title">SEO Local</h3>
+            <span class="recommended-badge">Recomendado</span>
+          </div>
+          <p class="seo-type-description">Estrategias específicas para posicionar tu negocio en búsquedas locales de Gijón y Asturias.</p>
+          <ul class="seo-type-features">
+            <li>
+              <svg class="feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Optimización Google My Business</span>
+            </li>
+            <li>
+              <svg class="feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Geo-targeting para Gijón</span>
+            </li>
+            <li>
+              <svg class="feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Palabras clave locales</span>
+            </li>
+            <li>
+              <svg class="feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Estrategia de contenido local</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section" id="precios">
+    <div class="advantages-container">
+      <div class="advantages-header">
+        <h2 class="advantages-title">Precios de <span class="text-highlight">SEO Local</span> en Gijón</h2>
+        <p class="advantages-subtitle">Planes adaptados a las necesidades de cada negocio. Sin permanencia, resultados garantizados.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Plan Básico -->
+        <div class="pricing-card">
+          <h3 class="pricing-plan-name">Básico</h3>
+          <div class="pricing-price">
+            <span class="price-currency">&euro;</span>
+            <span class="price-amount">297</span>
+            <span class="price-period">/mes</span>
+          </div>
+          <p class="pricing-description">Ideal para pequeños negocios que inician en SEO</p>
+
+          <ul class="pricing-features">
+            <li>
+              <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Auditoría SEO inicial</span>
+            </li>
+            <li>
+              <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Optimización Google My Business</span>
+            </li>
+            <li>
+              <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>5 palabras clave locales</span>
+            </li>
+            <li>
+              <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Informe mensual básico</span>
+            </li>
+            <li>
+              <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Soporte por email</span>
+            </li>
+          </ul>
+
+          <a href="#contacto" class="pricing-btn pricing-btn-outline">Solicitar Plan</a>
+        </div>
+
+        <!-- Plan Profesional - DESTACADO -->
+        <div class="pricing-card pricing-card-featured">
+          <div class="pricing-badge">Más Popular</div>
+
+          <h3 class="pricing-plan-name">Profesional</h3>
+          <div class="pricing-price">
+            <span class="price-currency">&euro;</span>
+            <span class="price-amount">497</span>
+            <span class="price-period">/mes</span>
+          </div>
+          <p class="pricing-description">Para negocios que buscan crecimiento sostenido</p>
+
+          <ul class="pricing-features">
+            <li>
+              <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Todo lo del plan Básico</span>
+            </li>
+            <li>
+              <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>15 palabras clave locales</span>
+            </li>
+            <li>
+              <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>SEO On-Page completo</span>
+            </li>
+            <li>
+              <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Link building mensual</span>
+            </li>
+            <li>
+              <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Gestión de reseñas</span>
+            </li>
+            <li>
+              <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Informe semanal detallado</span>
+            </li>
+            <li>
+              <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Soporte prioritario</span>
+            </li>
+          </ul>
+
+          <a href="#contacto" class="pricing-btn pricing-btn-primary">Solicitar Plan</a>
+        </div>
+
+        <!-- Plan Premium -->
+        <div class="pricing-card">
+          <h3 class="pricing-plan-name">Premium</h3>
+          <div class="pricing-price">
+            <span class="price-currency">&euro;</span>
+            <span class="price-amount">897</span>
+            <span class="price-period">/mes</span>
+          </div>
+          <p class="pricing-description">Dominio total del mercado local</p>
+
+          <ul class="pricing-features">
+            <li>
+              <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Todo lo del plan Profesional</span>
+            </li>
+            <li>
+              <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Palabras clave ilimitadas</span>
+            </li>
+            <li>
+              <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Contenido SEO mensual</span>
+            </li>
+            <li>
+              <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>SEO técnico avanzado</span>
+            </li>
+            <li>
+              <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Estrategia multilocal</span>
+            </li>
+            <li>
+              <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Reuniones semanales</span>
+            </li>
+            <li>
+              <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Consultor dedicado</span>
+            </li>
+          </ul>
+
+          <a href="#contacto" class="pricing-btn pricing-btn-outline">Solicitar Plan</a>
+        </div>
+      </div>
+
+      <p class="pricing-disclaimer">* Todos los precios son sin IVA. Consulta por planes personalizados para necesidades específicas.</p>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="seo-faq-section">
+    <div class="seo-faq-container">
+      <div class="seo-faq-header">
+        <h2 class="seo-faq-title">Preguntas Frecuentes sobre SEO Local en Gijón</h2>
+        <p class="seo-faq-subtitle">Resolvemos las dudas más comunes sobre cómo el SEO Local puede hacer que tu negocio en Gijón aparezca primero en Google cuando tus clientes te buscan.</p>
+      </div>
+
+      <div class="seo-faq-accordion">
+        <!-- Pregunta 1 -->
+        <div class="seo-faq-item">
+          <button class="seo-faq-question" onclick="toggleSEOFAQ(this)">
+            <svg class="seo-faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            <span>¿Qué es el SEO Local y por qué mi negocio en Gijón lo necesita?</span>
+            <svg class="seo-faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="seo-faq-answer">
+            <p>El SEO Local es una estrategia para posicionar tu negocio en el mapa de Google y en los resultados de búsqueda cuando alguien busca tus servicios en Gijón o Asturias (ej: &ldquo;restaurante en Cimavilla&rdquo; o &ldquo;fontanero cerca de mí&rdquo;). Lo necesitas porque el 46% de las búsquedas en Google son locales y, si no estás en el mapa, esos clientes se están yendo a tu competencia en El Llano, La Calzada o el Centro.</p>
+          </div>
+        </div>
+
+        <!-- Pregunta 2 -->
+        <div class="seo-faq-item">
+          <button class="seo-faq-question" onclick="toggleSEOFAQ(this)">
+            <svg class="seo-faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            <span>¿Cuánto tiempo tardaré en ver resultados en mi negocio?</span>
+            <svg class="seo-faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="seo-faq-answer">
+            <p>Aunque depende de la competencia de tu sector en la ciudad más grande de Asturias, generalmente los primeros cambios de visibilidad se notan a partir del tercer mes. Sin embargo, con nuestra optimización inicial de Google Business Profile (Ficha de Google), es común ver un aumento en llamadas y solicitudes de ruta en las primeras semanas.</p>
+          </div>
+        </div>
+
+        <!-- Pregunta 3 -->
+        <div class="seo-faq-item">
+          <button class="seo-faq-question" onclick="toggleSEOFAQ(this)">
+            <svg class="seo-faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            <span>¿Qué diferencia hay entre el SEO normal y vuestro servicio de SEO Local?</span>
+            <svg class="seo-faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="seo-faq-answer">
+            <p>El SEO tradicional busca visitas globales. Nuestro SEO Local se centra en tráfico cualificado geolocalizado: gente que está en Gijón y lista para comprar o visitar tu local. Nos enfocamos en señales como la proximidad, las reseñas locales y las citaciones en directorios asturianos y gijoneses, no solo en palabras clave genéricas.</p>
+          </div>
+        </div>
+
+        <!-- Pregunta 4 -->
+        <div class="seo-faq-item">
+          <button class="seo-faq-question" onclick="toggleSEOFAQ(this)">
+            <svg class="seo-faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            <span>¿Ofrecéis garantías de salir el primero en Google Maps?</span>
+            <svg class="seo-faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="seo-faq-answer">
+            <p>Ninguna agencia seria puede garantizar la posición #1 porque el algoritmo de Google cambia constantemente. Lo que sí garantizamos en PYMEMPRESAS es un método probado de trabajo, informes mensuales transparentes y una mejora constante de tu visibilidad que se traduce en más contactos reales de clientes gijoneses.</p>
+          </div>
+        </div>
+
+        <!-- Pregunta 5 -->
+        <div class="seo-faq-item">
+          <button class="seo-faq-question" onclick="toggleSEOFAQ(this)">
+            <svg class="seo-faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            <span>¿Tengo permanencia con vuestros planes de precios?</span>
+            <svg class="seo-faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="seo-faq-answer">
+            <p>No. Creemos que debes quedarte porque ves resultados, no por un contrato. Nuestros planes (desde 297€/mes) funcionan mes a mes, dándote la libertad y la tranquilidad de saber que trabajamos duro cada día para renovar tu confianza.</p>
+          </div>
+        </div>
+
+        <!-- Pregunta 6 -->
+        <div class="seo-faq-item">
+          <button class="seo-faq-question" onclick="toggleSEOFAQ(this)">
+            <svg class="seo-faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            <span>¿Qué incluye exactamente vuestro servicio mensual?</span>
+            <svg class="seo-faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="seo-faq-answer">
+            <p>Dependiendo del plan (Básico, Profesional o Premium), incluimos desde la optimización técnica de tu web y gestión de reseñas, hasta la creación de contenidos locales y Link Building. Todos los planes incluyen auditoría inicial, optimización de ficha de Google y reportes de rendimiento.</p>
+          </div>
+        </div>
+
+        <!-- Pregunta 7 -->
+        <div class="seo-faq-item">
+          <button class="seo-faq-question" onclick="toggleSEOFAQ(this)">
+            <svg class="seo-faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            <span>Ya tengo web, ¿necesito también SEO Local?</span>
+            <svg class="seo-faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="seo-faq-answer">
+            <p>Sí, son complementarios. Una web bonita sin SEO es como una tienda de lujo en el paseo marítimo de San Lorenzo sin carteles. El SEO Local es lo que pone las señales digitales para que los clientes de Gijón y toda Asturias encuentren tu web o tu tienda física cuando más lo necesitan.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<p style="color:#666;font-size:14px;margin:24px auto 0;max-width:800px;text-align:center;">
+  ¿Buscas <a href="/posicionamiento-web-asturias/" style="color:#F5A623;text-decoration:underline;">posicionamiento web en Asturias</a> a nivel regional?
+  También ofrecemos <a href="/seo-local-oviedo/" style="color:#F5A623;text-decoration:underline;">SEO local en Oviedo</a> para negocios
+  de la capital del Principado.
+</p>
+
+<section class="cta-pymempresas">
+    <div class="cta-container">
+        <div class="cta-badge">¿Listo para empezar?</div>
+        <h2 class="cta-title">Empieza a posicionar tu negocio en Google</h2>
+        <p class="cta-subtitle">Solicita una consultoría gratuita y descubre cómo podemos ayudarte a aumentar tu visibilidad online y conseguir más clientes.</p>
+        <div class="cta-info-cards">
+            <div class="cta-info-card">
+                <svg class="cta-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <div class="cta-card-text">
+                    <span class="cta-card-label">Llámanos</span>
+                    <strong class="cta-card-value">Consulta telefónica</strong>
+                </div>
+            </div>
+            <div class="cta-info-card">
+                <svg class="cta-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <div class="cta-card-text">
+                    <span class="cta-card-label">Email</span>
+                    <strong class="cta-card-value">info@pymempresas.com</strong>
+                </div>
+            </div>
+            <div class="cta-info-card">
+                <svg class="cta-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <div class="cta-card-text">
+                    <span class="cta-card-label">Spaces Coworking</span>
+                    <strong class="cta-card-value">C. Rodríguez San Pedro, 1, Centro, 33206 Gijón, Asturias</strong>
+                </div>
+            </div>
+            <div class="cta-info-card">
+                <svg class="cta-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <div class="cta-card-text">
+                    <span class="cta-card-label">Horario</span>
+                    <strong class="cta-card-value">L-V: 9:00 – 18:00</strong>
+                </div>
+            </div>
+        </div>
+        <div class="cta-buttons">
+            <a href="/consultoria/" class="cta-btn-primary">Solicitar Consultoría Gratis</a>
+            <a href="#portfolio" class="cta-btn-secondary">Ver Portfolio</a>
+        </div>
+        <p class="cta-guarantee">Sin compromiso · Respuesta en menos de 24 horas · 100% confidencial</p>
+    </div>
+</section>
+</BaseLayout>
+
+<style is:global>
+/* ============================================
+   SEO LOCAL GIJON - PAGE SPECIFIC STYLES
+   ============================================ */
+
+/* --- HERO --- */
+.hero-pymempresas-wrapper {
+  width: 100%;
+}
+
+.seo-hero-light {
+  background: linear-gradient(135deg, #FFF8EC 0%, #FFF3E0 40%, #FEF9F0 100%);
+  padding: 140px 20px 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.seo-hero-light::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 50%, rgba(245, 166, 35, 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 70% 50%, rgba(59, 130, 246, 0.06) 0%, transparent 50%);
+  animation: heroGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlow {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(2%, 2%) rotate(3deg); }
+}
+
+.hero-content-center {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.seo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(245, 166, 35, 0.12);
+  border: 1px solid rgba(245, 166, 35, 0.25);
+  border-radius: 100px;
+  padding: 8px 18px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #F5A623;
+  margin-bottom: 28px;
+}
+
+.seo-badge .hero-badge-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.seo-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+.text-highlight {
+  background: linear-gradient(135deg, #F5A623, #f7b83d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.seo-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 800px;
+  margin: 0 auto 36px;
+}
+
+.seo-subtitle strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.seo-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #F5A623, #E89B1F);
+  color: #0A0A0A;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 16px 32px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(245, 166, 35, 0.35);
+}
+
+.seo-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(245, 166, 35, 0.5);
+}
+
+.seo-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 16px 32px;
+  border-radius: 12px;
+  text-decoration: none;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.seo-btn-secondary:hover {
+  border-color: #F5A623;
+  color: #F5A623;
+  transform: translateY(-3px);
+}
+
+/* --- SECTION BASE --- */
+.advantages-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.advantages-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.advantages-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.advantages-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.about-pymempresas {
+  padding: 80px 0;
+  background: #0A0A0A;
+}
+
+.advantages-pymempresas {
+  padding: 80px 0;
+  background: #111111;
+}
+
+/* --- WHAT IS SEO LOCAL --- */
+.seo-intro-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.seo-content-grid-new {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.seo-text-content p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.seo-text-content strong {
+  color: #F5A623;
+}
+
+.seo-example-card {
+  background: #1a1a2e;
+  border-radius: 16px;
+  padding: 30px;
+  border: 1px solid rgba(245, 166, 35, 0.15);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.seo-example-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.seo-example-icon {
+  width: 28px;
+  height: 28px;
+  color: #F5A623;
+}
+
+.seo-example-header h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.seo-example-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.seo-search-box {
+  background: #0f0f1f;
+  border: 2px dashed rgba(245, 166, 35, 0.3);
+  border-radius: 10px;
+  padding: 16px 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #F5A623;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.seo-example-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.seo-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.95rem;
+}
+
+.check-icon-green {
+  width: 20px;
+  height: 20px;
+  color: #22c55e;
+  flex-shrink: 0;
+}
+
+/* --- BENEFITS --- */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.benefit-card {
+  background: #1a1a2e;
+  border-radius: 16px;
+  padding: 30px 24px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(245, 166, 35, 0.2);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.benefit-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(245, 166, 35, 0.1);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.benefit-icon svg {
+  width: 28px;
+  height: 28px;
+  color: #F5A623;
+}
+
+.benefit-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.benefit-description {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+}
+
+/* --- EXPERT TASKS --- */
+.expert-tasks-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.expert-task-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 18px 22px;
+  transition: all 0.3s ease;
+}
+
+.expert-task-box:hover {
+  background: rgba(245, 166, 35, 0.06);
+  border-color: rgba(245, 166, 35, 0.15);
+  transform: translateX(4px);
+}
+
+.expert-check-icon {
+  width: 20px;
+  height: 20px;
+  color: #22c55e;
+  flex-shrink: 0;
+}
+
+.expert-task-box span {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* --- 4 TYPES OF SEO --- */
+.seo-types-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.seo-type-card {
+  background: #1a1a2e;
+  border-radius: 16px;
+  padding: 30px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.seo-type-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.seo-type-icon {
+  width: 52px;
+  height: 52px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.seo-type-icon svg {
+  width: 26px;
+  height: 26px;
+  color: #60a5fa;
+}
+
+.seo-local-icon {
+  background: rgba(245, 166, 35, 0.12);
+}
+
+.seo-local-icon svg {
+  color: #F5A623;
+}
+
+.seo-type-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.seo-type-description {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.seo-type-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.seo-type-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.feature-check {
+  width: 16px;
+  height: 16px;
+  color: #22c55e;
+  flex-shrink: 0;
+}
+
+/* Featured Local SEO card */
+.seo-local-featured {
+  border-color: rgba(245, 166, 35, 0.3);
+  background: linear-gradient(180deg, #1a1a2e 0%, #1e1a2e 100%);
+  position: relative;
+}
+
+.seo-local-featured::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #F5A623, #f7b83d);
+  border-radius: 16px 16px 0 0;
+}
+
+.seo-type-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.recommended-badge {
+  display: inline-block;
+  background: rgba(245, 166, 35, 0.15);
+  color: #F5A623;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 3px 10px;
+  border-radius: 100px;
+}
+
+/* --- PRICING --- */
+.pricing-section {
+  padding: 80px 0;
+  background: #0A0A0A;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.pricing-card {
+  background: #1a1a2e;
+  border-radius: 16px;
+  padding: 36px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.pricing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.pricing-card-featured {
+  border-color: rgba(245, 166, 35, 0.3);
+  background: linear-gradient(180deg, #1e1a2e 0%, #1a1a2e 100%);
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+.pricing-card-featured:hover {
+  transform: scale(1.05) translateY(-5px);
+}
+
+.pricing-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #F5A623, #E89B1F);
+  color: #0A0A0A;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 6px 20px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pricing-plan-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.pricing-price {
+  text-align: center;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 2px;
+}
+
+.price-currency {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.price-amount {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #F5A623;
+  line-height: 1;
+}
+
+.price-period {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 500;
+}
+
+.pricing-description {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex-grow: 1;
+}
+
+.pricing-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.pricing-check {
+  width: 18px;
+  height: 18px;
+  color: #22c55e;
+  flex-shrink: 0;
+}
+
+.pricing-btn {
+  display: block;
+  text-align: center;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.pricing-btn-primary {
+  background: linear-gradient(135deg, #F5A623, #E89B1F);
+  color: #0A0A0A;
+  box-shadow: 0 4px 20px rgba(245, 166, 35, 0.35);
+}
+
+.pricing-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(245, 166, 35, 0.5);
+}
+
+.pricing-btn-outline {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.pricing-btn-outline:hover {
+  border-color: #F5A623;
+  color: #F5A623;
+}
+
+.pricing-disclaimer {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.82rem;
+  margin-top: 36px;
+}
+
+/* --- FAQ SECTION --- */
+.seo-faq-section {
+  padding: 80px 20px;
+  background: #111111;
+}
+
+.seo-faq-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.seo-faq-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.seo-faq-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.seo-faq-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 750px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.seo-faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.seo-faq-item {
+  background: #1a1a2e;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.seo-faq-item:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  border-color: rgba(245, 166, 35, 0.15);
+}
+
+.seo-faq-question {
+  width: 100%;
+  padding: 24px 28px;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.seo-faq-question:hover {
+  color: #F5A623;
+}
+
+.seo-faq-icon {
+  flex-shrink: 0;
+  color: #F5A623;
+  min-width: 20px;
+}
+
+.seo-faq-question span {
+  flex: 1;
+}
+
+.seo-faq-chevron {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  color: rgba(255, 255, 255, 0.5);
+  min-width: 20px;
+}
+
+.seo-faq-item.active {
+  background: #1a1a2e;
+  border-color: rgba(245, 166, 35, 0.25);
+}
+
+.seo-faq-item.active .seo-faq-chevron {
+  transform: rotate(180deg);
+  color: #F5A623;
+}
+
+.seo-faq-item.active .seo-faq-question {
+  color: #F5A623;
+}
+
+.seo-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  background: transparent;
+}
+
+.seo-faq-answer p {
+  padding: 0 28px 24px 28px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 1rem;
+  line-height: 1.7;
+  padding-left: 64px;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .seo-types-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 450px;
+  }
+
+  .pricing-card-featured {
+    transform: none;
+  }
+
+  .pricing-card-featured:hover {
+    transform: translateY(-5px);
+  }
+}
+
+@media (max-width: 768px) {
+  .seo-hero-light {
+    padding: 120px 16px 70px;
+  }
+
+  .seo-title {
+    font-size: 2.2rem;
+  }
+
+  .seo-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .seo-btn-primary,
+  .seo-btn-secondary {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+
+  .advantages-title {
+    font-size: 2rem;
+  }
+
+  .advantages-subtitle {
+    font-size: 1rem;
+  }
+
+  .seo-content-grid-new {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .expert-tasks-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-pymempresas,
+  .advantages-pymempresas,
+  .pricing-section,
+  .seo-faq-section {
+    padding: 60px 0;
+  }
+
+  .advantages-container {
+    padding: 0 16px;
+  }
+
+  .seo-faq-section {
+    padding: 60px 15px;
+  }
+
+  .seo-faq-title {
+    font-size: 1.9rem;
+  }
+
+  .seo-faq-subtitle {
+    font-size: 1rem;
+  }
+
+  .seo-faq-question {
+    padding: 20px;
+    font-size: 0.95rem;
+    gap: 12px;
+  }
+
+  .seo-faq-answer p {
+    padding: 0 20px 20px 20px;
+    padding-left: 52px;
+    font-size: 0.9rem;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .seo-types-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .seo-local-featured::before {
+    display: none;
+  }
+
+  .pricing-card {
+    padding: 28px 20px;
+  }
+
+  .price-amount {
+    font-size: 2.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .seo-title {
+    font-size: 1.8rem;
+  }
+
+  .advantages-title {
+    font-size: 1.6rem;
+  }
+
+  .seo-faq-title {
+    font-size: 1.6rem;
+  }
+
+  .seo-faq-question {
+    padding: 16px;
+    gap: 10px;
+    font-size: 0.9rem;
+  }
+
+  .seo-faq-answer p {
+    padding: 0 16px 16px 16px;
+    padding-left: 44px;
+  }
+
+  .seo-faq-icon,
+  .seo-faq-chevron {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+  }
+}
+.cta-pymempresas { width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw !important; margin-right: -50vw !important; padding: 100px 20px; background: #1a1a1a; color: #fff; }
+.cta-container { max-width: 1100px; margin: 0 auto; text-align: center; }
+.cta-badge { display: inline-block; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); border-radius: 50px; padding: 8px 20px; font-size: 14px; color: rgba(255,255,255,0.9); margin-bottom: 25px; }
+.cta-title { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; color: #fff; margin: 0 0 20px; line-height: 1.2; }
+.cta-subtitle { font-size: 17px; line-height: 1.6; color: rgba(255,255,255,0.8); max-width: 750px; margin: 0 auto 50px; }
+.cta-info-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 40px; }
+.cta-info-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 25px 20px; display: flex; flex-direction: column; align-items: center; text-align: center; transition: all 0.3s ease; }
+.cta-info-card:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); transform: translateY(-3px); }
+.cta-card-icon { width: 28px; height: 28px; color: #F5A623; margin-bottom: 15px; }
+.cta-card-text { display: flex; flex-direction: column; gap: 5px; }
+.cta-card-label { font-size: 13px; color: rgba(255,255,255,0.6); }
+.cta-card-value { font-size: 15px; font-weight: 600; color: #fff; }
+.cta-buttons { display: flex; gap: 15px; justify-content: center; margin-bottom: 30px; flex-wrap: wrap; }
+.cta-btn-primary { display: inline-flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #F5A623, #E89B1F); color: #000; font-size: 16px; font-weight: 600; padding: 16px 32px; border-radius: 12px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(245,166,35,0.4); }
+.cta-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(245,166,35,0.6); background: linear-gradient(135deg, #FFB033, #F5A623); color: #000; }
+.cta-btn-secondary { display: inline-flex; align-items: center; justify-content: center; background: transparent; color: #fff; font-size: 16px; font-weight: 600; padding: 16px 32px; border-radius: 12px; text-decoration: none; border: 1px solid rgba(255,255,255,0.3); transition: all 0.3s ease; }
+.cta-btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.5); transform: translateY(-2px); color: #fff; }
+.cta-guarantee { font-size: 14px; color: rgba(255,255,255,0.6); margin: 0; }
+  @media (max-width: 968px) {
+    .cta-info-cards { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+  }
+  @media (max-width: 768px) {
+    .cta-pymempresas { padding: 60px 20px; }
+    .cta-subtitle { margin-bottom: 35px; }
+    .cta-info-cards { grid-template-columns: 1fr; gap: 12px; }
+    .cta-buttons { flex-direction: column; width: 100%; max-width: 400px; margin-left: auto; margin-right: auto; }
+    .cta-btn-primary, .cta-btn-secondary { width: 100%; }
+  }
+  @media (max-width: 480px) {
+    .cta-info-card { padding: 20px 15px; }
+  }
+/* --- PASTEL THEME OVERRIDES --- */
+.seo-hero-light {
+  background: linear-gradient(135deg, #FFF8EC 0%, #FFF3E0 40%, #FEF9F0 100%) !important;
+  padding: 140px 20px 100px;
+}
+.seo-hero-light::before { display: none; }
+.hero-content-center .hero-buttons { justify-content: center; }
+.seo-badge { background: rgba(245,166,35,0.1); border: 1px solid rgba(245,166,35,0.2); color: #1a1a1a; }
+.seo-badge .hero-badge-icon { color: #1a1a1a; }
+.seo-title { color: #1a1a1a; }
+.seo-title .text-highlight { background: none; -webkit-background-clip: unset; -webkit-text-fill-color: unset; background-clip: unset; color: #F5A623; }
+.text-highlight { background: none; -webkit-background-clip: unset; -webkit-text-fill-color: unset; background-clip: unset; color: #F5A623; }
+.seo-subtitle { color: #555; }
+.seo-subtitle strong { color: #1a1a1a; }
+.seo-btn-primary { background: #F5A623; color: #000; box-shadow: none; }
+.seo-btn-primary:hover { background: #E89B1F; color: #000; box-shadow: none; }
+.seo-btn-secondary { background: transparent; color: #1a1a1a; border-color: #1a1a1a; }
+.seo-btn-secondary:hover { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+.about-pymempresas { background: #FAFAFA; }
+.advantages-pymempresas { background: #F5F5F5; }
+.advantages-title { color: #1a1a1a; }
+.advantages-subtitle { color: #555; }
+.seo-text-content p { color: #555; }
+.seo-text-content strong { color: #1a1a1a; }
+.seo-example-card { background: #fff; border: 1px solid #e8e6e1; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+.seo-example-header { border-bottom: 1px solid #e8e6e1; }
+.seo-example-header h3 { color: #1a1a1a; }
+.seo-example-label { color: #555; }
+.seo-search-box { background: #FAFAFA; border: 2px dashed #e8e6e1; color: #1a1a1a; }
+.seo-step { color: #555; }
+.benefit-card { background: #fff; border: 1px solid #e8e6e1; }
+.benefit-card:hover { border-color: rgba(245,166,35,0.3); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+.benefit-icon { background: #FFF8E8; }
+.benefit-title { color: #1a1a1a; }
+.benefit-description { color: #555; }
+.expert-task-box { background: #FAFAFA; border: 1px solid #e8e6e1; }
+.expert-task-box:hover { background: rgba(245,166,35,0.04); border-color: rgba(245,166,35,0.2); }
+.expert-task-box span { color: #1a1a1a; }
+.seo-type-card { background: #fff; border: 1px solid #e8e6e1; }
+.seo-type-card:hover { box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+.seo-type-icon { background: #FFF8E8; }
+.seo-type-icon svg { color: #F5A623; }
+.seo-local-icon { background: rgba(245,166,35,0.15); }
+.seo-local-icon svg { color: #F5A623; }
+.seo-type-title { color: #1a1a1a; }
+.seo-type-description { color: #555; }
+.seo-type-features li { color: #555; }
+.seo-local-featured { border: 2px solid #F5A623; background: #fff; }
+.seo-local-featured::before { display: none; }
+.recommended-badge { background: #F5A623; color: #000; }
+.seo-type-header .recommended-badge { background: #F5A623; color: #000; }
+.pricing-section { background: #F5F5F5; }
+.pricing-card { background: #fff; border: 1px solid #e8e6e1; }
+.pricing-card:hover { box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+.pricing-card-featured { border: 2px solid #F5A623; background: #fff; }
+.pricing-badge { background: #F5A623; color: #000; }
+.pricing-plan-name { color: #1a1a1a; }
+.price-currency { color: #555; }
+.price-amount { color: #1a1a1a; }
+.price-period { color: #555; }
+.pricing-description { color: #555; border-bottom: 1px solid #e8e6e1; }
+.pricing-features li { color: #555; }
+.pricing-btn-primary { background: #F5A623; color: #000; box-shadow: none; }
+.pricing-btn-primary:hover { background: #E89B1F; box-shadow: none; }
+.pricing-btn-outline { background: transparent; color: #1a1a1a; border-color: #1a1a1a; }
+.pricing-btn-outline:hover { background: #1a1a1a; color: #fff; }
+.pricing-disclaimer { color: #555; }
+.seo-faq-section { background: #F5F5F5; }
+.seo-faq-title { color: #1a1a1a; }
+.seo-faq-subtitle { color: #555; }
+.seo-faq-item { background: #fff; border: 1px solid #e8e6e1; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.seo-faq-item:hover { border-color: rgba(245,166,35,0.2); }
+.seo-faq-question { color: #1a1a1a; }
+.seo-faq-chevron { color: #555; }
+.seo-faq-answer p { color: #555; }
+.seo-faq-item.active { border-color: rgba(245,166,35,0.3); }
+.seo-faq-item.active .seo-faq-question { color: #F5A623; }
+.seo-faq-item.active .seo-faq-chevron { color: #F5A623; }
+
+/* Pastel override classes */
+.seo-content-section { background: #FAFAFA; }
+.section-light { background: #FFFBF5; }
+.section-white { background: #FFFFFF; }
+.benefits-section, .features-section, .expert-section, .seo-types-section, .pricing-section, .faq-section { background: #F5F5F5; }
+.benefits-seo-section, .seo-faq-section { background: #F5F5F5; }
+.card, .benefit-card, .feature-card, .expert-card { background: #FFFFFF; border: 1px solid #e8e6e1; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+</style>
+
+<script>
+/**
+ * FAQ Accordion Toggle
+ * Manages open/close states for the SEO FAQ section
+ */
+window.toggleSEOFAQ = function(button) {
+  const item = button.parentElement;
+  const answer = item.querySelector('.seo-faq-answer');
+  const isActive = item.classList.contains('active');
+
+  // Close other open items
+  document.querySelectorAll('.seo-faq-item').forEach(function(otherItem) {
+    if (otherItem !== item && otherItem.classList.contains('active')) {
+      otherItem.classList.remove('active');
+      otherItem.querySelector('.seo-faq-answer').style.maxHeight = null;
+    }
+  });
+
+  // Toggle current item
+  item.classList.toggle('active');
+
+  if (!isActive) {
+    answer.style.maxHeight = answer.scrollHeight + 'px';
+  } else {
+    answer.style.maxHeight = null;
+  }
+};
+</script>

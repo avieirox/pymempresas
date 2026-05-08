@@ -1,0 +1,57 @@
+---
+import { CONTACT, FOOTER_SERVICES, FOOTER_LEGAL } from '../lib/constants';
+---
+<footer class="bg-black border-t border-white/5 pt-16 pb-8">
+  <div class="container">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+      <div>
+        <img
+          src="/images/cropped-pymempresas-logo-4k__1_-removebg-preview.png"
+          alt="PYMEMPRESAS"
+          class="h-[35px] w-auto mb-4"
+          width="801"
+          height="247"
+          loading="lazy"
+        />
+        <p class="text-sm text-white/60 leading-relaxed">
+          Agencia SEO en Asturias. Posicionamiento web, diseño y marketing digital
+          para PYMES en Gijón, Oviedo y Avilés.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Servicios</h4>
+        <ul class="space-y-2.5">
+          {FOOTER_SERVICES.map((s) => (
+            <li><a href={s.href} class="text-sm text-white/60 hover:text-orange transition-colors">{s.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Contacto</h4>
+        <ul class="space-y-2.5 text-sm text-white/60">
+          <li>{CONTACT.address}</li>
+          <li><a href={`tel:${CONTACT.phone}`} class="hover:text-orange transition-colors">{CONTACT.phone}</a></li>
+          <li><a href={`mailto:${CONTACT.email}`} class="hover:text-orange transition-colors">{CONTACT.email}</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">¿Empezamos?</h4>
+        <a href="/consultoria/" class="inline-flex items-center bg-gradient-to-br from-orange to-orange-dark text-black font-semibold text-sm px-6 py-3 rounded-[10px] shadow-[0_4px_15px_rgba(245,166,35,0.4)] hover:-translate-y-0.5 hover:shadow-[0_6px_25px_rgba(245,166,35,0.6)] transition-all duration-300 mb-4">
+          Consulta Gratis
+        </a>
+      </div>
+    </div>
+
+    <div class="border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-white/40">&copy; {new Date().getFullYear()} PYMEMPRESAS. Todos los derechos reservados.</p>
+      <nav class="flex gap-4" aria-label="Enlaces legales">
+        {FOOTER_LEGAL.map((l) => (
+          <a href={l.href} class="text-xs text-white/40 hover:text-white/60 transition-colors">{l.label}</a>
+        ))}
+      </nav>
+    </div>
+  </div>
+</footer>

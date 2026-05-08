@@ -1,0 +1,1544 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../lib/constants';
+
+const faqItems = [
+  {
+    q: "¿Cuánto cuesta una página web en Gijón?",
+    a: "El precio de una página web en Gijón varía según las necesidades del proyecto. Ofrecemos tres planes: Web Básica desde 997€ (hasta 5 páginas, ideal para autónomos), Web Profesional desde 2.497€ (hasta 15 páginas con diseño personalizado y SEO completo), y Web Premium desde 4.997€ (páginas ilimitadas con e-commerce y funcionalidades avanzadas). Todos los precios son pago único sin IVA."
+  },
+  {
+    q: "¿Cuánto tiempo se tarda en hacer una página web?",
+    a: "El tiempo de desarrollo de una web depende de su complejidad. Nuestro proceso incluye: Planificación (1-2 semanas), Diseño (1-2 semanas), Desarrollo (2-4 semanas), Pruebas (1 semana) y Lanzamiento (2-3 días). En total, una web profesional completa puede estar lista en aproximadamente 6-10 semanas desde el inicio del proyecto."
+  },
+  {
+    q: "¿Qué incluye el servicio de diseño web?",
+    a: "Nuestro servicio de diseño web incluye: diseño responsivo adaptado a todos los dispositivos, optimización SEO para posicionamiento en Google, velocidad de carga optimizada, formularios de contacto, integración con redes sociales, SSL (certificado de seguridad), capacitación básica para gestionar contenidos, y soporte técnico según el plan contratado. También ofrecemos servicios adicionales como e-commerce, sistemas de reservas y blog integrado."
+  },
+  {
+    q: "¿La web estará optimizada para móviles?",
+    a: "Sí, absolutamente. Todas nuestras webs utilizan diseño responsivo, lo que significa que se adaptan automáticamente a cualquier dispositivo: móvil, tablet o escritorio. Más del 70% de las visitas web provienen de dispositivos móviles, por lo que es fundamental ofrecer una experiencia óptima en smartphones. Además, Google prioriza las webs mobile-friendly en sus resultados de búsqueda."
+  },
+  {
+    q: "¿Incluye mantenimiento la web?",
+    a: "El soporte inicial está incluido según el plan: 1 mes en Web Básica, 3 meses en Web Profesional y 6 meses en Web Premium. Después, ofrecemos planes de mantenimiento desde 49€/mes que incluyen: actualizaciones de seguridad, backups automáticos, monitorización del rendimiento, soporte técnico prioritario y pequeñas modificaciones de contenido. El mantenimiento regular es fundamental para mantener tu web segura y funcionando correctamente."
+  },
+  {
+    q: "¿Puedo actualizar el contenido de mi web yo mismo?",
+    a: "Sí, todas nuestras webs incluyen un panel de administración (CMS) intuitivo que te permite actualizar textos, imágenes y contenidos sin necesidad de conocimientos técnicos. Además, proporcionamos formación básica para que aprendas a gestionar tu web. Para cambios más complejos en diseño o funcionalidades, siempre puedes contar con nuestro soporte técnico."
+  },
+  {
+    q: "¿Qué diferencia hay entre diseño responsivo y adaptativo?",
+    a: "El diseño responsivo utiliza un único layout que se ajusta fluidamente a cualquier tamaño de pantalla, mientras que el diseño adaptativo crea layouts específicos para cada dispositivo (móvil, tablet, escritorio). El diseño responsivo es más común y eficiente, ya que mantiene consistencia visual y requiere menos mantenimiento. El adaptativo ofrece más control sobre la experiencia en cada dispositivo pero es más complejo de desarrollar. Recomendamos el responsivo para la mayoría de proyectos."
+  },
+  {
+    q: "¿Mi web aparecerá en Google?",
+    a: "Sí, todas nuestras webs incluyen optimización SEO básica que ayuda a que Google indexe tu sitio correctamente. Sin embargo, aparecer en las primeras posiciones requiere un trabajo de SEO continuo que incluye: optimización de contenidos, construcción de enlaces, SEO local (fundamental para negocios en Gijón), y creación regular de contenido de calidad. Ofrecemos servicios de SEO Local especializados para ayudarte a destacar en las búsquedas de tu zona."
+  }
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://pymempresas.com/diseno-web-gijon/#service",
+      "name": "Diseño Web en Gijón",
+      "description": "Servicio profesional de diseño y desarrollo web en Gijón. Creamos páginas web modernas, rápidas y optimizadas para SEO que convierten visitantes en clientes.",
+      "url": "https://pymempresas.com/diseno-web-gijon/",
+      "image": `${SITE.url}/images/pymempresas-logo.png`,
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "PYMEMPRESAS",
+        "url": "https://pymempresas.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "C. Rodríguez San Pedro, 1, Centro",
+          "addressLocality": "Gijón",
+          "addressRegion": "Asturias",
+          "postalCode": "33206",
+          "addressCountry": "ES"
+        },
+        "email": "info@pymempresas.com"
+      },
+      "serviceType": "Diseño y Desarrollo Web",
+      "areaServed": {
+        "@type": "City",
+        "name": "Gijón"
+      },
+      "offers": [
+        { "@type": "Offer", "name": "Web Básica", "price": "997", "priceCurrency": "EUR" },
+        { "@type": "Offer", "name": "Web Profesional", "price": "2497", "priceCurrency": "EUR" },
+        { "@type": "Offer", "name": "Web Premium", "price": "4997", "priceCurrency": "EUR" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://pymempresas.com/diseno-web-gijon/#faq",
+      "mainEntity": faqItems.map((item) => ({
+        "@type": "Question",
+        "name": item.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  metaTitle="Diseño de Páginas WEB en Gijón | PYMEMPRESAS"
+  metaDescription="Creamos páginas web que convierten visitantes en clientes. Diseño moderno, velocidad optimizada y SEO integrado para que tu negocio destaque en Gijón."
+  canonicalURL="https://pymempresas.com/diseno-web-gijon/"
+  schema={schema}
+>
+  <!-- INTRO / HERO SECTION -->
+  <section class="web-design-intro">
+    <div class="advantages-container">
+      <div class="intro-badge">
+        <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+          <line x1="8" y1="21" x2="16" y2="21"></line>
+          <line x1="12" y1="17" x2="12" y2="21"></line>
+        </svg>
+        <span>Diseño Web Profesional en Asturias</span>
+      </div>
+
+      <h1 class="intro-title">Diseño de páginas Web en <span class="text-highlight">Gijón</span></h1>
+
+      <p class="intro-description">
+        Creamos páginas web que convierten visitantes en clientes. Diseño moderno, velocidad optimizada y SEO integrado para que tu negocio destaque en Gijón.
+      </p>
+
+      <div class="intro-buttons">
+        <a href="/contacto/" class="intro-btn intro-btn-primary">Solicitar Presupuesto</a>
+        <a href="#portfolio" class="intro-btn intro-btn-outline">Ver Portfolio</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY PROFESSIONAL WEB -->
+  <section class="why-professional-web">
+    <div class="advantages-container">
+      <div class="why-web-header">
+        <h2 class="why-web-title">¿Por qué necesitas un <span class="text-highlight">Diseño Web Profesional</span>?</h2>
+        <p class="why-web-subtitle">Tu página web es tu escaparate digital 24/7. Una web profesional genera confianza y convierte visitantes en clientes.</p>
+      </div>
+
+      <div class="why-web-grid">
+        <!-- Columna Izquierda: Texto -->
+        <div class="why-web-content">
+          <p class="why-web-text">
+            En Gijón, cada vez más consumidores buscan negocios locales online antes de visitarlos. Si tu web no transmite profesionalidad, estás perdiendo clientes frente a la competencia.
+          </p>
+
+          <p class="why-web-text">
+            Un diseño web profesional no es solo estética. Incluye <strong>optimización SEO</strong> para que te encuentren en Google, <strong>velocidad de carga</strong> para retener visitantes, y <strong>diseño responsivo</strong> para móviles.
+          </p>
+
+          <p class="why-web-text">
+            Nuestras webs están diseñadas para generar resultados: más visitas, más contactos, más ventas. Todo alineado con tu estrategia de marketing local en Gijón.
+          </p>
+        </div>
+
+        <!-- Columna Derecha: Casos de Exito -->
+        <div class="success-cases-box">
+          <h3 class="success-cases-title">Casos de éxito en Gijón</h3>
+
+          <div class="success-case-card">
+            <div class="success-case-header">
+              <h4 class="success-case-name">Restaurante El Asturiano</h4>
+              <span class="success-case-metric">+180% reservas online</span>
+            </div>
+            <p class="success-case-description">Diseño de web con sistema de reservas integrado y menú digital</p>
+          </div>
+
+          <div class="success-case-card">
+            <div class="success-case-header">
+              <h4 class="success-case-name">Clínica Dental Gijón</h4>
+              <span class="success-case-metric">+95% tráfico orgánico</span>
+            </div>
+            <p class="success-case-description">Web optimizada para SEO local con citas online</p>
+          </div>
+
+          <div class="success-case-card">
+            <div class="success-case-header">
+              <h4 class="success-case-name">Inmobiliaria Costa Verde</h4>
+              <span class="success-case-metric">+250% contactos</span>
+            </div>
+            <p class="success-case-description">Portal inmobiliario con búsqueda avanzada de propiedades</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TYPES OF WEB DESIGN -->
+  <section class="web-types-section">
+    <div class="advantages-container">
+      <div class="web-types-header">
+        <h2 class="web-types-title">Tipos de <span class="text-highlight">Diseño Web</span></h2>
+        <p class="web-types-subtitle">Cada proyecto requiere un enfoque diferente. Elegimos la mejor estrategia para tu negocio.</p>
+      </div>
+
+      <div class="web-types-grid">
+        <!-- Tarjeta 1: Diseno Responsivo -->
+        <div class="web-type-card">
+          <div class="web-type-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+              <line x1="12" y1="18" x2="12.01" y2="18"></line>
+            </svg>
+          </div>
+
+          <h3 class="web-type-name">Diseño Responsivo</h3>
+
+          <p class="web-type-description">Tu web se adapta perfectamente a cualquier dispositivo: móvil, tablet o escritorio.</p>
+
+          <ul class="web-type-features">
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Adaptación automática de layout</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Imágenes optimizadas por dispositivo</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Navegación táctil optimizada</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Tiempos de carga rápidos en móvil</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Tarjeta 2: Diseno UX/UI -->
+        <div class="web-type-card">
+          <div class="web-type-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <circle cx="12" cy="12" r="6"></circle>
+              <circle cx="12" cy="12" r="2"></circle>
+            </svg>
+          </div>
+
+          <h3 class="web-type-name">Diseño UX/UI</h3>
+
+          <p class="web-type-description">Experiencias de usuario intuitivas que guían a tus visitantes hacia la conversión.</p>
+
+          <ul class="web-type-features">
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Investigación de usuarios</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Wireframes y prototipos</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Tests de usabilidad</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Diseño centrado en conversión</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Tarjeta 3: Diseno Adaptativo -->
+        <div class="web-type-card">
+          <div class="web-type-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+
+          <h3 class="web-type-name">Diseño Adaptativo</h3>
+
+          <p class="web-type-description">Layouts específicos para cada tamaño de pantalla, maximizando la experiencia.</p>
+
+          <ul class="web-type-features">
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Breakpoints personalizados</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Contenido optimizado por pantalla</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Rendimiento superior</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Control total del diseño</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Tarjeta 4: Diseno Web Rapido -->
+        <div class="web-type-card">
+          <div class="web-type-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
+
+          <h3 class="web-type-name">Diseño Web Rápido</h3>
+
+          <p class="web-type-description">Webs ultrarrápidas que mejoran el SEO y la experiencia de usuario.</p>
+
+          <ul class="web-type-features">
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Core Web Vitals optimizados</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Carga en menos de 3 segundos</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Optimización de recursos</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>CDN y caché avanzado</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEVELOPMENT PHASES -->
+  <section class="web-phases-section">
+    <div class="advantages-container">
+      <div class="web-phases-header">
+        <h2 class="web-phases-title">Fases del <span class="text-highlight">Diseño Web</span></h2>
+        <p class="web-phases-subtitle">Un proceso estructurado que garantiza resultados. Así trabajamos en cada proyecto.</p>
+      </div>
+
+      <div class="web-phases-grid">
+        <!-- Fase 1: Planificacion -->
+        <div class="phase-card">
+          <div class="phase-number">01</div>
+          <div class="phase-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+          </div>
+          <h3 class="phase-name">Planificación</h3>
+          <p class="phase-description">Analizamos tu negocio, competencia y objetivos. Definimos la estructura, funcionalidades y estrategia de contenido.</p>
+          <span class="phase-duration">1-2 semanas</span>
+        </div>
+
+        <!-- Fase 2: Diseno -->
+        <div class="phase-card">
+          <div class="phase-number">02</div>
+          <div class="phase-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+              <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+              <path d="M2 2l7.586 7.586"></path>
+              <circle cx="11" cy="11" r="2"></circle>
+            </svg>
+          </div>
+          <h3 class="phase-name">Diseño</h3>
+          <p class="phase-description">Creamos wireframes y mockups. Diseñamos la identidad visual, paleta de colores y tipografías alineadas con tu marca.</p>
+          <span class="phase-duration">1-2 semanas</span>
+        </div>
+
+        <!-- Fase 3: Desarrollo -->
+        <div class="phase-card">
+          <div class="phase-number">03</div>
+          <div class="phase-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+          </div>
+          <h3 class="phase-name">Desarrollo</h3>
+          <p class="phase-description">Programamos tu web con código limpio y optimizado. Integramos CMS, formularios y funcionalidades específicas.</p>
+          <span class="phase-duration">2-4 semanas</span>
+        </div>
+
+        <!-- Fase 4: Pruebas -->
+        <div class="phase-card">
+          <div class="phase-number">04</div>
+          <div class="phase-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="1" x2="12" y2="23"></line>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+          </div>
+          <h3 class="phase-name">Pruebas</h3>
+          <p class="phase-description">Testing exhaustivo en múltiples dispositivos y navegadores. Verificamos rendimiento, seguridad y usabilidad.</p>
+          <span class="phase-duration">1 semana</span>
+        </div>
+
+        <!-- Fase 5: Lanzamiento -->
+        <div class="phase-card">
+          <div class="phase-number">05</div>
+          <div class="phase-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v20M2 12h20"></path>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+          </div>
+          <h3 class="phase-name">Lanzamiento</h3>
+          <p class="phase-description">Desplegamos tu web en producción. Configuramos dominio, SSL, analytics y optimización SEO inicial.</p>
+          <span class="phase-duration">2-3 días</span>
+        </div>
+
+        <!-- Fase 6: Mantenimiento -->
+        <div class="phase-card">
+          <div class="phase-number">06</div>
+          <div class="phase-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M12 1v6m0 6v6M5.64 5.64l4.24 4.24m4.24 4.24l4.24 4.24M1 12h6m6 0h6M5.64 18.36l4.24-4.24m4.24-4.24l4.24-4.24"></path>
+            </svg>
+          </div>
+          <h3 class="phase-name">Mantenimiento</h3>
+          <p class="phase-description">Actualizaciones de seguridad, backups, monitorización del rendimiento y soporte técnico continuo.</p>
+          <span class="phase-duration">Continuo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING SECTION -->
+  <section class="web-pricing-section">
+    <div class="advantages-container">
+      <div class="web-pricing-header">
+        <h2 class="web-pricing-title">Precios de <span class="text-highlight">Diseño Web</span> en Gijón</h2>
+        <p class="web-pricing-subtitle">Soluciones adaptadas a cada presupuesto. Precios transparentes sin sorpresas.</p>
+      </div>
+
+      <div class="web-pricing-grid">
+        <!-- Plan 1: Web Basica -->
+        <div class="web-pricing-card">
+          <h3 class="web-plan-name">Web Básica</h3>
+
+          <div class="web-plan-price">
+            <span class="web-price-currency">€</span>
+            <span class="web-price-amount">997</span>
+          </div>
+
+          <p class="web-plan-payment">pago único</p>
+
+          <p class="web-plan-description">Perfecta para autónomos y pequeños negocios</p>
+
+          <ul class="web-plan-features">
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Hasta 5 páginas</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Diseño responsivo</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Formulario de contacto</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Integración redes sociales</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Optimización SEO básica</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>1 mes de soporte incluido</span>
+            </li>
+          </ul>
+
+          <a href="/contacto/" class="web-plan-btn web-plan-btn-outline">Solicitar Presupuesto</a>
+        </div>
+
+        <!-- Plan 2: Web Profesional (Destacado) -->
+        <div class="web-pricing-card web-pricing-card-featured">
+          <div class="web-plan-badge">Más Popular</div>
+
+          <h3 class="web-plan-name">Web Profesional</h3>
+
+          <div class="web-plan-price">
+            <span class="web-price-currency">€</span>
+            <span class="web-price-amount">2.497</span>
+          </div>
+
+          <p class="web-plan-payment">pago único</p>
+
+          <p class="web-plan-description">Para negocios que buscan destacar</p>
+
+          <ul class="web-plan-features">
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Hasta 15 páginas</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Diseño UX/UI personalizado</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Blog integrado</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>SEO Local completo</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Integración Google Analytics</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Velocidad optimizada</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>3 meses de soporte</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Formación básica incluida</span>
+            </li>
+          </ul>
+
+          <a href="/contacto/" class="web-plan-btn web-plan-btn-primary">Solicitar Presupuesto</a>
+        </div>
+
+        <!-- Plan 3: Web Premium -->
+        <div class="web-pricing-card">
+          <h3 class="web-plan-name">Web Premium</h3>
+
+          <div class="web-plan-price">
+            <span class="web-price-currency">€</span>
+            <span class="web-price-amount">4.997</span>
+          </div>
+
+          <p class="web-plan-payment">pago único</p>
+
+          <p class="web-plan-description">Solución completa para empresas</p>
+
+          <ul class="web-plan-features">
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Páginas ilimitadas</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Diseño exclusivo a medida</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>E-commerce / Reservas</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Integraciones avanzadas</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>SEO técnico completo</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Panel de administración</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>6 meses de soporte</span>
+            </li>
+            <li>
+              <svg class="feature-check-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Formación completa</span>
+            </li>
+          </ul>
+
+          <a href="/contacto/" class="web-plan-btn web-plan-btn-outline">Solicitar Presupuesto</a>
+        </div>
+      </div>
+
+      <p class="web-pricing-disclaimer">* Todos los precios son sin IVA. Planes de mantenimiento disponibles desde 49€/mes.</p>
+    </div>
+  </section>
+
+  <!-- FAQ ACCORDION -->
+  <section class="web-faq-section">
+    <div class="advantages-container">
+      <div class="web-faq-header">
+        <h2 class="web-faq-title">Preguntas Frecuentes sobre <span class="text-highlight">Diseño Web</span></h2>
+        <p class="web-faq-subtitle">Resolvemos tus dudas sobre el diseño y desarrollo de páginas web en Gijón.</p>
+      </div>
+
+      <div class="web-faq-list">
+        {faqItems.map((item) => (
+          <details class="web-faq-item" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+            <summary class="web-faq-question">
+              <span itemProp="name">{item.q}</span>
+              <svg class="web-faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </summary>
+            <div class="web-faq-answer" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+              <p itemProp="text">{item.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <p style="color:#666;font-size:14px;margin:24px auto 0;max-width:800px;text-align:center;">
+    Complementa tu web con <a href="/seo-local-gijon/" style="color:#F5A623;text-decoration:underline;">SEO local en Gijón</a> y
+    <a href="/posicionamiento-web-asturias/" style="color:#F5A623;text-decoration:underline;">posicionamiento web en Asturias</a>
+    para que tu nueva página aparezca en Google desde el primer día.
+  </p>
+
+  <!-- CTA SECTION -->
+  <section class="web-cta-section">
+    <div class="advantages-container">
+      <div class="web-cta-content">
+        <h2 class="web-cta-title">¿Listo para tener la web que tu negocio merece?</h2>
+        <p class="web-cta-text">Solicita una consultoría gratuita y descubre cómo podemos ayudarte a destacar online en Gijón.</p>
+        <a href="/contacto/" class="intro-btn intro-btn-primary">Solicitar Presupuesto Gratis</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- wpcode shortcode [wpcode id="136"] removed -->
+</BaseLayout>
+
+<style is:global>
+  /* ============================================================
+     DISENO WEB GIJON - PAGE SPECIFIC STYLES
+     ============================================================ */
+
+  /* Utility */
+  .text-highlight {
+    color: #F5A623;
+  }
+
+  /* Shared container */
+  .advantages-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ============================================================
+     INTRO / HERO SECTION
+     ============================================================ */
+  .web-design-intro {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    padding: 140px 20px 100px;
+    background: linear-gradient(135deg, #0A0A0A 0%, #1a1a2e 100%);
+    text-align: center;
+  }
+
+  .intro-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(245, 166, 35, 0.12);
+    border: 1px solid rgba(245, 166, 35, 0.25);
+    border-radius: 50px;
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #F5A623;
+    margin-bottom: 28px;
+  }
+
+  .badge-icon {
+    width: 18px;
+    height: 18px;
+    color: #F5A623;
+  }
+
+  .intro-title {
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0 0 24px;
+    color: #fff;
+    letter-spacing: -0.03em;
+  }
+
+  .intro-description {
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    line-height: 1.7;
+    margin: 0 auto 36px;
+    max-width: 680px;
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .intro-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .intro-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 15px 32px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .intro-btn-primary {
+    background: linear-gradient(135deg, #F5A623, #E89B1F);
+    color: #000;
+    box-shadow: 0 4px 20px rgba(245, 166, 35, 0.35);
+  }
+  .intro-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(245, 166, 35, 0.5);
+    background: linear-gradient(135deg, #FFB033, #F5A623);
+    color: #000;
+  }
+
+  .intro-btn-outline {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+  }
+  .intro-btn-outline:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+    color: #fff;
+  }
+
+  /* ============================================================
+     WHY PROFESSIONAL WEB
+     ============================================================ */
+  .why-professional-web {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    padding: 90px 20px;
+    background: #fff;
+  }
+
+  .why-web-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .why-web-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .why-web-subtitle {
+    font-size: 16px;
+    color: #666;
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .why-web-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .why-web-content {
+    color: #444;
+  }
+
+  .why-web-text {
+    font-size: 15px;
+    line-height: 1.8;
+    margin: 0 0 20px;
+    color: #555;
+  }
+  .why-web-text strong {
+    color: #1a1a1a;
+    font-weight: 600;
+  }
+
+  .success-cases-box {
+    background: #F9F7F4;
+    border-radius: 16px;
+    padding: 32px;
+    border: 1px solid #f0ede8;
+  }
+
+  .success-cases-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 24px;
+  }
+
+  .success-case-card {
+    padding: 16px 0;
+    border-bottom: 1px solid #e8e5e0;
+  }
+  .success-case-card:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .success-case-card:first-child {
+    padding-top: 0;
+  }
+
+  .success-case-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+
+  .success-case-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0;
+  }
+
+  .success-case-metric {
+    font-size: 13px;
+    font-weight: 700;
+    color: #F5A623;
+    background: rgba(245, 166, 35, 0.1);
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .success-case-description {
+    font-size: 13px;
+    color: #777;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* ============================================================
+     TYPES OF WEB DESIGN
+     ============================================================ */
+  .web-types-section {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    padding: 90px 20px;
+    background: #F5F5F5;
+  }
+
+  .web-types-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .web-types-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .web-types-subtitle {
+    font-size: 16px;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .web-types-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .web-type-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+  }
+  .web-type-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .web-type-icon {
+    width: 52px;
+    height: 52px;
+    background: #F5A623;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    margin-bottom: 20px;
+    color: #000;
+  }
+
+  .web-type-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 10px;
+  }
+
+  .web-type-description {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+    margin: 0 0 16px;
+    flex-grow: 1;
+  }
+
+  .web-type-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .web-type-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: #444;
+    padding: 5px 0;
+  }
+
+  .feature-check-yellow {
+    width: 18px;
+    height: 18px;
+    color: #F5A623;
+    flex-shrink: 0;
+  }
+
+  /* ============================================================
+     DEVELOPMENT PHASES
+     ============================================================ */
+  .web-phases-section {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    padding: 90px 20px;
+    background: #fff;
+  }
+
+  .web-phases-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .web-phases-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .web-phases-subtitle {
+    font-size: 16px;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .web-phases-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .phase-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px 28px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .phase-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .phase-number {
+    font-size: 48px;
+    font-weight: 800;
+    color: rgba(245, 166, 35, 0.08);
+    line-height: 1;
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .phase-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(245, 166, 35, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin-bottom: 18px;
+    color: #F5A623;
+  }
+
+  .phase-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 10px;
+  }
+
+  .phase-description {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
+    margin: 0 0 14px;
+  }
+
+  .phase-duration {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #F5A623;
+    background: rgba(245, 166, 35, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  /* ============================================================
+     PRICING SECTION
+     ============================================================ */
+  .web-pricing-section {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    padding: 90px 20px;
+    background: #F5F5F5;
+  }
+
+  .web-pricing-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .web-pricing-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .web-pricing-subtitle {
+    font-size: 16px;
+    color: #666;
+    max-width: 550px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .web-pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    align-items: start;
+  }
+
+  .web-pricing-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 36px 28px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .web-pricing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .web-pricing-card-featured {
+    border: 2px solid #F5A623;
+    box-shadow: 0 8px 32px rgba(245, 166, 35, 0.15);
+    position: relative;
+    transform: scale(1.03);
+    z-index: 1;
+  }
+  .web-pricing-card-featured:hover {
+    transform: scale(1.03) translateY(-4px);
+  }
+
+  .web-plan-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #F5A623, #E89B1F);
+    color: #000;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px 18px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .web-plan-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 16px;
+  }
+
+  .web-plan-price {
+    display: flex;
+    align-items: flex-start;
+    gap: 2px;
+    margin-bottom: 4px;
+  }
+
+  .web-price-currency {
+    font-size: 20px;
+    font-weight: 600;
+    color: #F5A623;
+    margin-top: 6px;
+  }
+
+  .web-price-amount {
+    font-size: 44px;
+    font-weight: 800;
+    color: #1a1a1a;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .web-plan-payment {
+    font-size: 13px;
+    color: #999;
+    margin: 0 0 16px;
+  }
+
+  .web-plan-description {
+    font-size: 14px;
+    color: #666;
+    margin: 0 0 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .web-plan-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 28px;
+    flex-grow: 1;
+  }
+
+  .web-plan-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #444;
+    padding: 6px 0;
+  }
+
+  .web-plan-btn {
+    display: block;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .web-plan-btn-outline {
+    background: transparent;
+    color: #1a1a1a;
+    border: 2px solid #e0e0e0;
+  }
+  .web-plan-btn-outline:hover {
+    border-color: #F5A623;
+    color: #F5A623;
+    background: rgba(245, 166, 35, 0.04);
+  }
+
+  .web-plan-btn-primary {
+    background: linear-gradient(135deg, #F5A623, #E89B1F);
+    color: #000;
+    box-shadow: 0 4px 16px rgba(245, 166, 35, 0.3);
+  }
+  .web-plan-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(245, 166, 35, 0.45);
+    background: linear-gradient(135deg, #FFB033, #F5A623);
+    color: #000;
+  }
+
+  .web-pricing-disclaimer {
+    font-size: 13px;
+    color: #999;
+    text-align: center;
+    margin: 40px 0 0;
+  }
+
+  /* ============================================================
+     FAQ SECTION
+     ============================================================ */
+  .web-faq-section {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    padding: 90px 20px;
+    background: #fff;
+  }
+
+  .web-faq-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .web-faq-title {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .web-faq-subtitle {
+    font-size: 16px;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .web-faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .web-faq-item {
+    background: #F9F7F4;
+    border-radius: 14px;
+    border: 1px solid #f0ede8;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .web-faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 24px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition: color 0.2s ease;
+    user-select: none;
+  }
+  .web-faq-question::-webkit-details-marker {
+    display: none;
+  }
+  .web-faq-question:hover {
+    color: #F5A623;
+  }
+
+  .web-faq-chevron {
+    width: 20px;
+    height: 20px;
+    color: #999;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+  .web-faq-item[open] .web-faq-chevron {
+    transform: rotate(180deg);
+    color: #F5A623;
+  }
+
+  .web-faq-answer {
+    padding: 0 24px 20px;
+  }
+  .web-faq-answer p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* ============================================================
+     CTA SECTION
+     ============================================================ */
+  .web-cta-section {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    padding: 90px 20px;
+    background: linear-gradient(135deg, #0A0A0A 0%, #1a1a2e 100%);
+    text-align: center;
+  }
+
+  .web-cta-content {
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  .web-cta-title {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .web-cta-text {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin: 0 0 32px;
+  }
+
+  /* ============================================================
+     RESPONSIVE BREAKPOINTS
+     ============================================================ */
+  @media (max-width: 1100px) {
+    .web-types-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 968px) {
+    .why-web-grid {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+
+    .web-pricing-grid {
+      grid-template-columns: 1fr;
+      max-width: 450px;
+      margin: 0 auto;
+    }
+    .web-pricing-card-featured {
+      transform: none;
+    }
+    .web-pricing-card-featured:hover {
+      transform: translateY(-4px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .web-design-intro {
+      padding: 120px 16px 70px;
+    }
+
+    .intro-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    .intro-btn {
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .why-professional-web,
+    .web-types-section,
+    .web-phases-section,
+    .web-pricing-section,
+    .web-faq-section,
+    .web-cta-section {
+      padding: 60px 16px;
+    }
+
+    .web-types-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .web-phases-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .why-web-header,
+    .web-types-header,
+    .web-phases-header,
+    .web-pricing-header,
+    .web-faq-header {
+      margin-bottom: 36px;
+    }
+
+    .web-faq-question {
+      padding: 14px 18px;
+      font-size: 14px;
+    }
+    .web-faq-answer {
+      padding: 0 18px 16px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .web-pricing-card {
+      padding: 28px 20px;
+    }
+    .web-price-amount {
+      font-size: 36px;
+    }
+    .success-case-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+  }
+</style>

@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<BaseLayout
+  metaTitle="Contacto"
+  metaDescription="Contacta con PYMEMPRESAS. Solicita tu consultoría gratuita de SEO y marketing digital en Gijón, Asturias."
+>
+  <style is:global>
+    .contacto-section {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw !important;
+      margin-right: -50vw !important;
+      padding: 120px 20px 80px;
+      background: #F5F5F5;
+    }
+    .contacto-container { max-width: 1200px; margin: 0 auto; }
+    .contacto-header { text-align: center; margin-bottom: 50px; }
+    .contacto-title { color: #1a1a1a; font-size: 36px; font-weight: 700; margin: 0 0 16px; }
+    .contacto-subtitle { color: #666; font-size: 16px; max-width: 650px; margin: 0 auto; line-height: 1.5; }
+    .contacto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 50px; }
+    .contacto-form-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 20px; padding: 40px; }
+    .contacto-info-col { display: flex; flex-direction: column; gap: 25px; }
+    .contacto-map-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 20px; overflow: hidden; height: 350px; }
+    .contacto-info-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 20px; padding: 30px; display: flex; flex-direction: column; gap: 20px; }
+    .contacto-info-item { display: flex; gap: 15px; }
+    .contacto-icon-box { width: 40px; height: 40px; min-width: 40px; background: #FFF8E8; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+    .contacto-icon-box svg { width: 20px; height: 20px; color: #F5A623; }
+    .contacto-info-label { font-size: 15px; font-weight: 600; color: #1a1a1a; margin: 0 0 5px; }
+    .contacto-info-text { font-size: 14px; line-height: 1.5; color: #666; margin: 0; }
+    .contacto-info-link { font-size: 14px; color: #F5A623; text-decoration: none; }
+    .contacto-info-link:hover { text-decoration: underline; }
+
+    @media (max-width: 968px) {
+      .contacto-grid { grid-template-columns: 1fr; gap: 30px; }
+    }
+    @media (max-width: 768px) {
+      .contacto-section { padding: 100px 20px 60px; }
+      .contacto-form-card { padding: 25px; }
+      .contacto-info-card { padding: 20px; }
+      .contacto-title { font-size: 28px; }
+    }
+  </style>
+
+  <section class="contacto-section" id="contacto">
+    <div class="contacto-container">
+      <div class="contacto-header">
+        <h1 class="contacto-title">Solicita Información</h1>
+        <p class="contacto-subtitle">Cuéntanos qué necesitas y te responderemos en menos de 24 horas</p>
+      </div>
+
+      <div class="contacto-grid">
+        <div class="contacto-form-card">
+          <ContactForm />
+        </div>
+
+        <div class="contacto-info-col">
+          <div class="contacto-map-card">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2892.021452953001!2d-5.668008188127712!3d43.54359470939229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd367d0fe690d4bf%3A0xb19c5a08319dfe7a!2sSpaces%20Gij%C3%B3n%20coworking!5e0!3m2!1ses!2ses!4v1767868928836!5m2!1ses!2ses"
+              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+
+          <div class="contacto-info-card">
+            <div class="contacto-info-item">
+              <div class="contacto-icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="contacto-info-label">Nuestra Oficina</h4>
+                <p class="contacto-info-text">
+                  Spaces Coworking<br>C. Rodríguez San Pedro, 1<br>Centro, 33206 Gijón, Asturias
+                </p>
+              </div>
+            </div>
+
+            <div class="contacto-info-item">
+              <div class="contacto-icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="contacto-info-label">Email</h4>
+                <a href="mailto:info@pymempresas.com" class="contacto-info-link">info@pymempresas.com</a>
+              </div>
+            </div>
+
+            <div class="contacto-info-item">
+              <div class="contacto-icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="contacto-info-label">Teléfono</h4>
+                <a href="tel:+34697711344" class="contacto-info-link">+34 697 711 344</a>
+              </div>
+            </div>
+
+            <div class="contacto-info-item">
+              <div class="contacto-icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="contacto-info-label">Horario</h4>
+                <p class="contacto-info-text">Lunes a Viernes: 9:00 - 18:00<br>Sábados y Domingos: Cerrado</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,308 @@
+@import "tailwindcss";
+
+@theme {
+  --color-black: #0A0A0A;
+  --color-card: #111111;
+  --color-orange: #F5A623;
+  --color-orange-dark: #E89B1F;
+  --color-orange-light: #FFF8E8;
+  --color-gray-light: #F5F5F5;
+  --color-gray-border: #EAECEF;
+  --color-text: #333333;
+  --color-text-muted: #777777;
+  --color-text-subtle: #AAAAAA;
+  --color-white: #FFFFFF;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  background: var(--color-orange);
+  color: var(--color-black);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  z-index: 10000;
+}
+.skip-link:focus {
+  top: 8px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+  .container {
+    padding: 0 16px;
+  }
+}
+
+/* Shared Hero CSS — used by service pages */
+.hero-pymempresas-wrapper {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-top: 0;
+  padding: 0;
+}
+.hero-pymempresas {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 0 80px;
+  margin-top: 0;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+  color: #fff;
+  text-align: left;
+  padding-top: 100px;
+  padding-left: 8%;
+}
+.hero-content-center {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50px;
+  padding: 6px 14px;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+.hero-badge-icon { width: 16px; height: 16px; color: #F5A623; }
+.hero-title {
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 20px;
+  color: #fff;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+.hero-subtitle {
+  font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+  line-height: 1.6;
+  margin: 0 0 25px;
+  color: rgba(255, 255, 255, 0.9);
+}
+.hero-buttons { display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
+.hero-btn-primary {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #F5A623, #E89B1F); color: #000;
+  font-size: 15px; font-weight: 600; padding: 14px 28px; border-radius: 10px;
+  text-decoration: none; transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(245, 166, 35, 0.4); border: none;
+}
+.hero-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(245, 166, 35, 0.6); }
+.hero-btn-secondary {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); color: #fff;
+  font-size: 15px; font-weight: 600; padding: 14px 28px; border-radius: 10px;
+  text-decoration: none; border: 1px solid rgba(255, 255, 255, 0.3); transition: all 0.3s ease;
+}
+.hero-btn-secondary:hover { background: rgba(255, 255, 255, 0.15); border-color: rgba(255, 255, 255, 0.5); transform: translateY(-2px); }
+.text-highlight { color: #F5A623; }
+
+@media (max-width: 768px) {
+  .hero-pymempresas { min-height: 60vh; padding: 0 20px; }
+  .hero-content { padding-top: 120px; padding-left: 0; }
+  .hero-buttons { flex-direction: column; width: 100%; }
+  .hero-btn-primary, .hero-btn-secondary { width: 100%; }
+  .hero-content-center { padding-top: 100px; }
+}
+@media (max-width: 480px) {
+  .hero-pymempresas { min-height: 50vh; padding: 0 15px; }
+  .hero-content { padding-top: 100px; padding-left: 0; }
+}
+
+/* ============================================
+   Blog animation utilities
+   ============================================ */
+
+/* Scroll reveal base */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children — each child needs --i set inline */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(24px);
+}
+.stagger-children.revealed > * {
+  animation: cardReveal 0.5s ease-out forwards;
+  animation-delay: calc(var(--i, 0) * 80ms);
+}
+
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Geometric background shift (BlogHero) */
+@keyframes bgShift {
+  from { background-position: 0 0; }
+  to { background-position: 60px 60px; }
+}
+
+/* Parallax via scroll-timeline (ArticleHero) */
+@keyframes parallaxDown {
+  from { transform: translateY(-12%); }
+  to { transform: translateY(0); }
+}
+
+/* Reading progress bar */
+@keyframes readProgress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.reading-progress {
+  transform-origin: left;
+  animation: readProgress auto linear;
+  animation-timeline: scroll(root);
+}
+
+/* Drop cap — applies to first paragraph in article body */
+.article-prose > p:first-of-type::first-letter {
+  font-size: 52px;
+  font-weight: 700;
+  color: #F5A623;
+  float: left;
+  line-height: 1;
+  margin-right: 10px;
+  margin-top: 4px;
+}
+
+/* Pull quote */
+.article-prose blockquote {
+  font-size: 20px;
+  color: #F5A623;
+  font-style: italic;
+  border-left: 3px solid #F5A623;
+  padding-left: 24px;
+  margin: 40px 0;
+  quotes: none;
+}
+.article-prose blockquote p {
+  margin: 0;
+}
+
+/* Wide image breakout */
+.article-prose img.wide,
+.article-prose figure.wide {
+  width: calc(100vw - 48px);
+  max-width: 1100px;
+  margin: 32px calc(-1 * (100vw - 760px) / 2);
+  border-radius: 16px;
+}
+@media (max-width: 860px) {
+  .article-prose img.wide,
+  .article-prose figure.wide {
+    width: 100%;
+    margin: 32px 0;
+  }
+}
+
+/* Callout box */
+.article-callout {
+  background: #FFF8E8;
+  border-left: 3px solid #F5A623;
+  padding: 20px 24px;
+  border-radius: 0 12px 12px 0;
+  margin: 32px 0;
+  font-size: 15px;
+  color: #333;
+  line-height: 1.6;
+}
+.article-callout a {
+  color: #E8960F;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .stagger-children > * {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+  .reading-progress {
+    display: none;
+  }
+  .article-prose > p:first-of-type::first-letter {
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    float: none;
+    line-height: inherit;
+    margin: 0;
+  }
+}

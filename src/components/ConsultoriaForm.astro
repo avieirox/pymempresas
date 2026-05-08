@@ -1,0 +1,261 @@
+---
+const webhookUrl = 'https://n8n.vieirox.es/webhook/consultoria-form';
+---
+
+<form id="consultoria-form" class="cform" method="POST">
+  <div class="cform-grid">
+    <div class="cform-group">
+      <label for="nombre" class="cform-label">Nombre completo <span class="cform-required">*</span></label>
+      <input type="text" id="nombre" name="nombre" required class="cform-input" placeholder="Tu nombre y apellidos" />
+    </div>
+    <div class="cform-group">
+      <label for="email" class="cform-label">Email <span class="cform-required">*</span></label>
+      <input type="email" id="email" name="email" required class="cform-input" placeholder="tu@email.com" />
+    </div>
+  </div>
+
+  <div class="cform-grid">
+    <div class="cform-group">
+      <label for="telefono" class="cform-label">Teléfono <span class="cform-required">*</span></label>
+      <input type="tel" id="telefono" name="telefono" required class="cform-input" placeholder="+34 600 000 000" />
+    </div>
+    <div class="cform-group">
+      <label for="ciudad" class="cform-label">Ciudad <span class="cform-required">*</span></label>
+      <input type="text" id="ciudad" name="ciudad" required class="cform-input" placeholder="Gijón, Oviedo, Avilés..." />
+    </div>
+  </div>
+
+  <div class="cform-grid">
+    <div class="cform-group">
+      <label for="negocio" class="cform-label">Nombre del negocio <span class="cform-required">*</span></label>
+      <input type="text" id="negocio" name="negocio" required class="cform-input" placeholder="Nombre de tu empresa o negocio" />
+    </div>
+    <div class="cform-group">
+      <label for="web" class="cform-label">Página web</label>
+      <input type="url" id="web" name="web" class="cform-input" placeholder="https://tuweb.com" />
+    </div>
+  </div>
+
+  <div class="cform-group">
+    <label for="reto" class="cform-label">¿Cuál es tu mayor reto ahora mismo? <span class="cform-required">*</span></label>
+    <textarea id="reto" name="reto" rows="4" required class="cform-input cform-textarea"
+      placeholder="Descríbenos tu situación actual, qué has intentado y qué te gustaría conseguir..."></textarea>
+  </div>
+
+  <div class="cform-legal">
+    <label class="cform-checkbox-label">
+      <input type="checkbox" id="privacy" name="privacy" required class="cform-checkbox" />
+      <span class="cform-checkbox-mark"></span>
+      <span class="cform-checkbox-text">
+        Acepto la <a href="/politica-privacidad/" target="_blank" class="cform-legal-link">política de privacidad</a> y consiento el tratamiento de mis datos para ser contactado. <span class="cform-required">*</span>
+      </span>
+    </label>
+  </div>
+
+  <button type="submit" class="cform-submit">
+    <span class="cform-submit-text">Solicitar Consultoría Gratis</span>
+    <svg class="cform-submit-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+    </svg>
+  </button>
+
+  <div id="cform-status" class="cform-status" style="display:none;"></div>
+</form>
+
+<script>
+  const form = document.getElementById('consultoria-form') as HTMLFormElement;
+  const status = document.getElementById('cform-status')!;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.style.display = 'none';
+
+    const data = Object.fromEntries(new FormData(form));
+    const url = '${webhookUrl}';
+
+    if (!url) {
+      status.textContent = 'Error de configuración. Contacta por email.';
+      status.className = 'cform-status cform-status-error';
+      return;
+    }
+
+    try {
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nombre: data.nombre,
+          email: data.email,
+          telefono: data.telefono,
+          ciudad: data.ciudad,
+          negocio: data.negocio,
+          web: data.web || 'No indicada',
+          reto: data.reto,
+          origen: window.location.href,
+          fecha: new Date().toISOString(),
+        }),
+      });
+
+      if (res.ok) {
+        status.textContent = 'Solicitud enviada. Analizaremos tu web y te contactaremos en menos de 24 horas.';
+        status.className = 'cform-status cform-status-success';
+        form.reset();
+      } else {
+        throw new Error('Server error');
+      }
+    } catch {
+      status.textContent = 'Error al enviar. Inténtalo de nuevo o escríbenos a info@pymempresas.com.';
+      status.className = 'cform-status cform-status-error';
+    }
+  });
+</script>
+
+<style>
+  .cform {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .cform-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .cform-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .cform-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a1a1a;
+    letter-spacing: 0.01em;
+  }
+  .cform-required { color: #F5A623; }
+  .cform-input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 15px;
+    font-family: inherit;
+    color: #1a1a1a;
+    background: #F8F9FA;
+    border: 1.5px solid #E2E4E9;
+    border-radius: 12px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    box-sizing: border-box;
+  }
+  .cform-input::placeholder { color: #A0A5AE; }
+  .cform-input:focus {
+    border-color: #F5A623;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(245,166,35,0.08);
+  }
+  .cform-input:hover:not(:focus) { border-color: #CDD1D9; }
+  .cform-textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
+
+  .cform-legal { margin-top: 0; }
+  .cform-checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .cform-checkbox {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .cform-checkbox-mark {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid #CDD1D9;
+    border-radius: 6px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+    margin-top: 1px;
+  }
+  .cform-checkbox-mark::after {
+    content: '';
+    width: 6px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) translateY(-1px);
+    opacity: 0;
+    transition: opacity 0.1s;
+  }
+  .cform-checkbox:checked + .cform-checkbox-mark {
+    background: #F5A623;
+    border-color: #F5A623;
+  }
+  .cform-checkbox:checked + .cform-checkbox-mark::after { opacity: 1; }
+  .cform-checkbox:focus-visible + .cform-checkbox-mark {
+    box-shadow: 0 0 0 4px rgba(245,166,35,0.15);
+    border-color: #F5A623;
+  }
+  .cform-checkbox-text { font-size: 13px; color: #666; line-height: 1.5; }
+  .cform-legal-link { color: #F5A623; text-decoration: underline; font-weight: 500; }
+  .cform-legal-link:hover { color: #E8960F; }
+
+  .cform-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: inherit;
+    color: #fff;
+    background: linear-gradient(135deg, #F5A623, #E8960F);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+    margin-top: 4px;
+  }
+  .cform-submit:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(245,166,35,0.4);
+  }
+  .cform-submit:active { transform: translateY(0); }
+  .cform-submit-icon {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.2s;
+  }
+  .cform-submit:hover .cform-submit-icon {
+    transform: translateX(4px);
+  }
+
+  .cform-status {
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    padding: 12px 16px;
+    border-radius: 10px;
+  }
+  .cform-status-success {
+    color: #15803D;
+    background: #F0FDF4;
+    display: block !important;
+  }
+  .cform-status-error {
+    color: #DC2626;
+    background: #FEF2F2;
+    display: block !important;
+  }
+
+  @media (max-width: 768px) {
+    .cform-grid { grid-template-columns: 1fr; }
+  }
+</style>

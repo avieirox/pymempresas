@@ -1,0 +1,687 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../lib/constants';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'LocalBusiness',
+      '@id': `${SITE.url}/#business`,
+      name: SITE.name,
+      url: SITE.url,
+      description: SITE.defaultDescription,
+      image: `${SITE.url}/images/cropped-pymempresas-logo-4k__1_-removebg-preview.png`,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'C. Rodríguez San Pedro, 12',
+        addressLocality: 'Gijón',
+        addressRegion: 'Asturias',
+        postalCode: '33206',
+        addressCountry: 'ES',
+      },
+      telephone: '+34684620040',
+      email: 'info@pymempresas.com',
+    },
+  ],
+};
+---
+
+<BaseLayout
+  metaTitle={SITE.defaultTitle}
+  metaDescription={SITE.defaultDescription}
+  ogImage={SITE.ogImage}
+  ogType="website"
+  schema={schema}
+>
+  <!-- HERO SECTION -->
+  <div class="hero-pymempresas-wrapper">
+    <div class="hero-pymempresas">
+      <div class="hero-bg-image">
+        <img src="/images/hero-bg-DF654TP8.jpg" alt="Agencia de Marketing Digital en Gijón, Asturias" width="1920" height="1080" loading="eager" fetchpriority="high">
+      </div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <div class="hero-badge">
+          <svg class="hero-badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <circle cx="12" cy="12" r="3" fill="currentColor"></circle>
+          </svg>
+          <span>Agencia de SEO Local en Asturias</span>
+        </div>
+
+        <h1 class="hero-title">Posicionamiento WEB SEO en Gijón, Oviedo y Avilés: posicionamos tu negocio antes que tu competencia.</h1>
+
+        <p class="hero-subtitle">Si tienes un negocio local, esto es lo que importa: tus clientes buscan en Google, deciden rápido y llaman al que aparece primero en su ciudad. Nosotros te posicionamos ahí para que esas búsquedas se conviertan en llamadas.</p>
+
+        <p class="hero-subtitle">Especialistas en SEO local en Gijón para negocios reales. De los que abren cada mañana.</p>
+
+        <div class="hero-checks">
+          <div class="hero-check-item">
+            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>SEO Local en Gijón</span>
+          </div>
+          <div class="hero-check-item">
+            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Ficha Google My Business</span>
+          </div>
+          <div class="hero-check-item">
+            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Resultados medibles</span>
+          </div>
+        </div>
+
+        <div class="hero-buttons">
+          <a href="/consultoria/" class="hero-btn-primary">Solicitar Consultoría Gratis</a>
+          <a href="#servicios" class="hero-btn-secondary">Ver Servicios</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES SECTION -->
+  <section class="services-pymempresas" id="servicios">
+    <div class="services-container">
+      <div class="services-header">
+        <span class="services-label">NUESTROS SERVICIOS</span>
+        <h2 class="services-title">Servicios de Posicionamiento SEO para Negocios</h2>
+        <p class="services-subtitle">Soluciones integrales de marketing digital adaptadas a las necesidades de negocios locales en Gijón y toda Asturias.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Servicio 1: SEO Local -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+          </div>
+          <h3 class="service-title">SEO Local</h3>
+          <p class="service-description">Optimizamos tu presencia en Google para que te encuentren clientes de toda Asturias. Si buscas resultados específicos, somos tu agencia de SEO local en Gijón, Oviedo y las principales cuencas.</p>
+          <ul class="service-features">
+            <li>Optimización de Google Business Profile</li>
+            <li>Posicionamiento local real (no trucos)</li>
+            <li>Reseñas y reputación</li>
+          </ul>
+          <a href="/seo-local-gijon/" class="service-link">Más información</a>
+        </div>
+
+        <!-- Servicio 2: Diseño Web -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+          </div>
+          <h3 class="service-title">Diseño Web</h3>
+          <p class="service-description">Páginas web profesionales, rápidas y optimizadas para convertir visitantes en clientes. Diseño responsive y enfocado en resultados.</p>
+          <ul class="service-features">
+            <li>Diseño responsive</li>
+            <li>Optimizado para SEO</li>
+            <li>Alta velocidad</li>
+          </ul>
+          <a href="/diseno-web-gijon/" class="service-link">Más información</a>
+        </div>
+
+        <!-- Servicio 3: Posicionamiento Web + LLM -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              <polyline points="7.5 4.21 12 6.81 16.5 4.21"></polyline>
+              <polyline points="7.5 19.79 7.5 14.6 3 12"></polyline>
+              <polyline points="21 12 16.5 14.6 16.5 19.79"></polyline>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+          </div>
+          <h3 class="service-title">Posicionamiento Web + LLM</h3>
+          <p class="service-description">Combinamos técnicas avanzadas de SEO con modelos de lenguaje para optimizar tu contenido y mejorar tu visibilidad en buscadores impulsados por IA.</p>
+          <ul class="service-features">
+            <li>Optimización para IA y buscadores</li>
+            <li>Contenido potenciado con LLM</li>
+            <li>Estrategia de búsqueda semántica</li>
+          </ul>
+          <a href="/posicionamiento-web-asturias/" class="service-link">Más información</a>
+        </div>
+
+        <!-- Servicio 4: Inteligencia Artificial -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+          </div>
+          <h3 class="service-title">Inteligencia Artificial</h3>
+          <p class="service-description">Implementamos soluciones de IA para automatizar procesos, chatbots inteligentes y análisis de datos para tu negocio.</p>
+          <ul class="service-features">
+            <li>Chatbots IA</li>
+            <li>Automatización</li>
+            <li>Análisis predictivo</li>
+          </ul>
+          <a href="/inteligencia-artificial-empresas/" class="service-link">Más información</a>
+        </div>
+
+        <!-- Servicio 5: Formación -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+            </svg>
+          </div>
+          <h3 class="service-title">Formación</h3>
+          <p class="service-description">Cursos y talleres personalizados para que tu equipo domine las herramientas digitales y estrategias de marketing online.</p>
+          <ul class="service-features">
+            <li>Cursos prácticos</li>
+            <li>Talleres presenciales</li>
+            <li>Formación in-company</li>
+          </ul>
+          <a href="/formacion-ia-empresas/" class="service-link">Más información</a>
+        </div>
+
+        <!-- Servicio 6: Automatizaciones -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
+          <h3 class="service-title">Automatizaciones</h3>
+          <p class="service-description">Conectamos tus herramientas y automatizamos tareas repetitivas para que te centres en hacer crecer tu negocio.</p>
+          <ul class="service-features">
+            <li>Flujos de trabajo</li>
+            <li>Integración de apps</li>
+            <li>Ahorro de tiempo</li>
+          </ul>
+          <a href="/automatizaciones-con-ia/" class="service-link">Más información</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="about-pymempresas">
+    <div class="about-container">
+      <div class="about-content">
+        <div class="about-text">
+          <span class="about-label">SOBRE NOSOTROS</span>
+          <h2 class="about-title">Agencia de Marketing Digital en Gijón, Asturias especializada en SEO Local</h2>
+          <div class="about-description">
+            <p>En <strong>PYMEMPRESAS</strong> nos especializamos en ayudar a pequeñas y medianas empresas a conquistar el mundo digital. Desde Gijón, trabajamos con negocios de toda Asturias que quieren destacar en Internet.</p>
+            <p>Nuestra filosofía es simple: estrategias personalizadas que generan resultados reales. No creemos en soluciones genéricas. Cada negocio es único y merece un enfoque adaptado a sus objetivos y presupuesto.</p>
+            <p>Aunque nuestra base de operaciones está en el Spaces Coworking de Gijón, damos soporte estratégico y <strong>formación en Inteligencia Artificial a empresas</strong> en toda Asturias, ayudando a negocios de Oviedo y Avilés a liderar el mercado digital.</p>
+          </div>
+
+          <div class="about-location">
+            <svg class="location-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <div class="location-text">
+              <strong>Gijón, Asturias</strong>
+              <p><span>Ficha verificada en <a href="https://share.google/PbUpboFKMelaHcNgg">Google My Business</a></span></p>
+            </div>
+          </div>
+
+          <a href="#contacto" class="about-btn">Conoce más sobre nosotros</a>
+        </div>
+
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="stat-number">10+</div>
+            <div class="stat-label">Años de experiencia</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">150+</div>
+            <div class="stat-label">Proyectos completados</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">95%</div>
+            <div class="stat-label">Clientes satisfechos</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">1ª</div>
+            <div class="stat-label">Página de Google</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADVANTAGES SECTION -->
+  <section class="advantages-pymempresas">
+    <div class="advantages-container">
+      <div class="advantages-header">
+        <span class="advantages-label">POR QUÉ ELEGIRNOS</span>
+        <h2 class="advantages-title">Ventajas de trabajar con PYMEMPRESAS</h2>
+        <p class="advantages-subtitle">Más de una década ayudando a negocios locales a crecer en el entorno digital.</p>
+      </div>
+
+      <div class="advantages-grid">
+        <!-- Ventaja 1 -->
+        <div class="advantage-card">
+          <div class="advantage-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+              <polyline points="17 6 23 6 23 12"></polyline>
+            </svg>
+          </div>
+          <h3 class="advantage-title">Aumenta tu visibilidad</h3>
+          <p class="advantage-description">Aparece en las primeras posiciones cuando tus clientes potenciales buscan tus servicios en Google.</p>
+        </div>
+
+        <!-- Ventaja 2 -->
+        <div class="advantage-card">
+          <div class="advantage-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <h3 class="advantage-title">Más clientes locales</h3>
+          <p class="advantage-description">Conecta con clientes de tu ciudad que están buscando exactamente lo que ofreces en tus servicios.</p>
+        </div>
+
+        <!-- Ventaja 3 -->
+        <div class="advantage-card">
+          <div class="advantage-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 6v6l4 2"></path>
+            </svg>
+          </div>
+          <h3 class="advantage-title">Resultados medibles</h3>
+          <p class="advantage-description">Informes claros y métricas que demuestran el retorno de tu inversión en marketing digital.</p>
+        </div>
+
+        <!-- Ventaja 4 -->
+        <div class="advantage-card">
+          <div class="advantage-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <h3 class="advantage-title">Ahorra tiempo</h3>
+          <p class="advantage-description">Automatizamos tareas repetitivas para que te centres en lo que mejor sabes hacer.</p>
+        </div>
+
+        <!-- Ventaja 5 -->
+        <div class="advantage-card">
+          <div class="advantage-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <h3 class="advantage-title">Reputación sólida</h3>
+          <p class="advantage-description">Gestión profesional de reseñas y presencia online para construir confianza con tus clientes.</p>
+        </div>
+
+        <!-- Ventaja 6 -->
+        <div class="advantage-card">
+          <div class="advantage-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 15l-2 2-2-2"></path>
+              <path d="M12 3v12"></path>
+              <path d="M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"></path>
+            </svg>
+          </div>
+          <h3 class="advantage-title">Expertos locales</h3>
+          <p class="advantage-description">Conocemos el mercado asturiano y las necesidades específicas de los negocios de la zona.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-pymempresas">
+    <div class="cta-container">
+      <div class="cta-badge">¿Listo para empezar?</div>
+
+      <h2 class="cta-title">Empieza a posicionar tu negocio en Google</h2>
+
+      <p class="cta-subtitle">Solicita una consultoría gratuita y descubre cómo podemos ayudarte a aumentar tu visibilidad online y conseguir más clientes.</p>
+
+      <div class="cta-info-cards">
+        <div class="cta-info-card">
+          <svg class="cta-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <div class="cta-card-text">
+            <span class="cta-card-label">Llámanos</span>
+            <strong class="cta-card-value">Consulta telefónica</strong>
+          </div>
+        </div>
+
+        <div class="cta-info-card">
+          <svg class="cta-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <div class="cta-card-text">
+            <span class="cta-card-label">Email</span>
+            <strong class="cta-card-value">info@pymempresas.com</strong>
+          </div>
+        </div>
+
+        <div class="cta-info-card">
+          <svg class="cta-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <div class="cta-card-text">
+            <span class="cta-card-label">Spaces Coworking</span>
+            <strong class="cta-card-value">C. Rodríguez San Pedro, 1, Centro, 33206 Gijón, Asturias</strong>
+          </div>
+        </div>
+
+        <div class="cta-info-card">
+          <svg class="cta-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          <div class="cta-card-text">
+            <span class="cta-card-label">Horario</span>
+            <strong class="cta-card-value">L-V: 9:00 – 18:00</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-buttons">
+        <a href="/consultoria/" class="cta-btn-primary">Solicitar Consultoría Gratis</a>
+        <a href="#portfolio" class="cta-btn-secondary">Ver Portfolio</a>
+      </div>
+
+      <p class="cta-guarantee">Sin compromiso · Respuesta en menos de 24 horas · 100% confidencial</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style is:global>
+  /* HERO FULL WIDTH */
+  .hero-pymempresas-wrapper {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    margin-top: 0 !important;
+    padding: 0 !important;
+  }
+  .hero-pymempresas {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 0 80px;
+    margin-top: 0 !important;
+  }
+  .hero-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+  .hero-bg-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.55));
+    z-index: 1;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+    color: #fff;
+    text-align: left;
+    padding-top: 100px;
+    padding-left: 8%;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+    padding: 6px 14px;
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+  .hero-badge-icon { width: 16px; height: 16px; color: #F5A623; }
+  .hero-title {
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0 0 20px;
+    color: #fff;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  }
+  .hero-subtitle {
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+    line-height: 1.6;
+    margin: 0 0 25px;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  .hero-checks { display: flex; gap: 20px; margin-bottom: 30px; flex-wrap: wrap; }
+  .hero-check-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: rgba(255, 255, 255, 0.95); }
+  .check-icon { width: 22px; height: 22px; background: #F5A623; border-radius: 50%; padding: 4px; color: #000; flex-shrink: 0; }
+  .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; }
+  .hero-btn-primary {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #F5A623, #E89B1F); color: #000;
+    font-size: 15px; font-weight: 600; padding: 14px 28px; border-radius: 10px;
+    text-decoration: none; transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(245, 166, 35, 0.4); border: none;
+  }
+  .hero-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(245, 166, 35, 0.6); background: linear-gradient(135deg, #FFB033, #F5A623); color: #000; }
+  .hero-btn-secondary {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); color: #fff;
+    font-size: 15px; font-weight: 600; padding: 14px 28px; border-radius: 10px;
+    text-decoration: none; border: 1px solid rgba(255, 255, 255, 0.3); transition: all 0.3s ease;
+  }
+  .hero-btn-secondary:hover { background: rgba(255, 255, 255, 0.15); border-color: rgba(255, 255, 255, 0.5); transform: translateY(-2px); }
+
+  /* SERVICES SECTION */
+  .services-pymempresas {
+    width: 100vw; position: relative; left: 50%; right: 50%;
+    margin-left: -50vw !important; margin-right: -50vw !important;
+    padding: 80px 20px; background: #F5F5F5;
+  }
+  .services-container { max-width: 1200px; margin: 0 auto; }
+  .services-header { text-align: center; margin-bottom: 60px; }
+  .services-label { display: inline-block; color: #F5A623; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; }
+  .services-title { color: #1a1a1a; font-size: 36px; font-weight: 700; margin: 0 0 16px; }
+  .services-subtitle { color: #666; font-size: 16px; max-width: 650px; margin: 0 auto; line-height: 1.5; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .service-card { background: #fff; border-radius: 16px; padding: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.04); }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+  .service-icon { width: 48px; height: 48px; background: #F5A623; border-radius: 12px; display: flex; align-items: center; justify-content: center; padding: 10px; margin-bottom: 20px; color: #000; }
+  .service-title { color: #1a1a1a; font-size: 20px; font-weight: 600; margin: 0 0 12px; }
+  .service-description { color: #666; font-size: 14px; line-height: 1.6; margin: 0 0 16px; }
+  .service-features { list-style: none; padding: 0; margin: 0 0 20px; }
+  .service-features li { color: #444; font-size: 13px; padding: 4px 0 4px 20px; position: relative; }
+  .service-features li::before { content: "\2713"; position: absolute; left: 0; color: #F5A623; font-weight: bold; }
+  .service-link { color: #F5A623; font-size: 14px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.3s ease; }
+  .service-link:hover { gap: 10px; }
+
+  /* ABOUT SECTION */
+  .about-pymempresas {
+    width: 100vw; position: relative; left: 50%; right: 50%;
+    margin-left: -50vw !important; margin-right: -50vw !important;
+    padding: 80px 20px; background: #fff;
+  }
+  .about-container { max-width: 1200px; margin: 0 auto; }
+  .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .about-label { color: #F5A623; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 16px; }
+  .about-title { color: #1a1a1a; font-size: 32px; font-weight: 700; margin: 0 0 24px; line-height: 1.3; }
+  .about-description p { color: #555; font-size: 15px; line-height: 1.7; margin: 0 0 16px; }
+  .about-location { display: flex; align-items: center; gap: 12px; margin: 24px 0; }
+  .location-icon { width: 20px; height: 20px; color: #F5A623; flex-shrink: 0; }
+  .location-text strong { display: block; color: #1a1a1a; font-size: 15px; }
+  .location-text span { color: #777; font-size: 13px; }
+  .location-text a { color: #F5A623; text-decoration: none; }
+  .about-btn { display: inline-flex; align-items: center; gap: 8px; color: #F5A623; font-weight: 600; font-size: 14px; text-decoration: none; transition: gap 0.3s; margin-top: 8px; }
+  .about-btn:hover { gap: 12px; }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .stat-card { background: #F9F7F4; border-radius: 16px; padding: 24px; text-align: center; }
+  .stat-number { color: #F5A623; font-size: 32px; font-weight: 700; }
+  .stat-label { color: #666; font-size: 13px; margin-top: 4px; }
+
+  /* ADVANTAGES SECTION */
+  .advantages-pymempresas {
+    width: 100vw; position: relative; left: 50%; right: 50%;
+    margin-left: -50vw !important; margin-right: -50vw !important;
+    padding: 80px 20px; background: #F5F5F5;
+  }
+  .advantages-container { max-width: 1200px; margin: 0 auto; }
+  .advantages-header { text-align: center; margin-bottom: 60px; }
+  .advantages-label { color: #F5A623; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 16px; }
+  .advantages-title { color: #1a1a1a; font-size: 32px; font-weight: 700; margin: 0 0 16px; }
+  .advantages-subtitle { color: #666; font-size: 16px; }
+  .advantages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1200px; margin: 0 auto; }
+  .advantage-card { background: #fff; border-radius: 16px; padding: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: all 0.3s ease; }
+  .advantage-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+  .advantage-icon { width: 48px; height: 48px; background: #F5A623; border-radius: 12px; display: flex; align-items: center; justify-content: center; padding: 10px; margin-bottom: 20px; color: #000; }
+  .advantage-title { color: #1a1a1a; font-size: 18px; font-weight: 600; margin: 0 0 10px; }
+  .advantage-description { color: #666; font-size: 14px; line-height: 1.6; margin: 0; }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .advantages-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 968px) {
+    .about-content { grid-template-columns: 1fr; gap: 40px; }
+  }
+  @media (max-width: 768px) {
+    .hero-pymempresas { min-height: 80vh; padding: 0 20px; }
+    .hero-content { padding-top: 120px; padding-left: 0; }
+    .hero-checks { flex-direction: column; gap: 12px; }
+    .hero-buttons { flex-direction: column; width: 100%; }
+    .hero-btn-primary, .hero-btn-secondary { width: 100%; }
+    .services-grid { grid-template-columns: 1fr; }
+    .advantages-grid { grid-template-columns: 1fr; }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+    .services-title { font-size: 28px; }
+    .about-title { font-size: 26px; }
+  }
+  @media (max-width: 480px) {
+    .hero-pymempresas { min-height: 70vh; padding: 0 15px; }
+    .hero-content { padding-top: 100px; padding-left: 0; }
+    .about-stats { grid-template-columns: 1fr; }
+  }
+
+  /* CTA SECTION */
+  .cta-pymempresas {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    padding: 100px 20px;
+    background: #1a1a1a;
+    color: #fff;
+  }
+  .cta-container { max-width: 1100px; margin: 0 auto; text-align: center; }
+  .cta-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    padding: 8px 20px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 25px;
+  }
+  .cta-title {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 20px;
+    line-height: 1.2;
+  }
+  .cta-subtitle {
+    font-size: 17px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 750px;
+    margin: 0 auto 50px;
+  }
+  .cta-info-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  .cta-info-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  .cta-info-card:hover { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.2); transform: translateY(-3px); }
+  .cta-card-icon { width: 28px; height: 28px; color: #F5A623; margin-bottom: 15px; }
+  .cta-card-text { display: flex; flex-direction: column; gap: 5px; }
+  .cta-card-label { font-size: 13px; color: rgba(255, 255, 255, 0.6); }
+  .cta-card-value { font-size: 15px; font-weight: 600; color: #fff; }
+  .cta-buttons { display: flex; gap: 15px; justify-content: center; margin-bottom: 30px; flex-wrap: wrap; }
+  .cta-btn-primary {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #F5A623, #E89B1F); color: #000;
+    font-size: 16px; font-weight: 600; padding: 16px 32px; border-radius: 12px;
+    text-decoration: none; transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(245, 166, 35, 0.4);
+  }
+  .cta-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(245, 166, 35, 0.6); background: linear-gradient(135deg, #FFB033, #F5A623); color: #000; }
+  .cta-btn-secondary {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: transparent; color: #fff; font-size: 16px; font-weight: 600;
+    padding: 16px 32px; border-radius: 12px; text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.3); transition: all 0.3s ease;
+  }
+  .cta-btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.5); transform: translateY(-2px); color: #fff; }
+  .cta-guarantee { font-size: 14px; color: rgba(255, 255, 255, 0.6); margin: 0; }
+  @media (max-width: 968px) { .cta-info-cards { grid-template-columns: repeat(2, 1fr); gap: 15px; } }
+  @media (max-width: 768px) {
+    .cta-pymempresas { padding: 60px 20px; }
+    .cta-subtitle { margin-bottom: 35px; }
+    .cta-info-cards { grid-template-columns: 1fr; gap: 12px; }
+    .cta-buttons { flex-direction: column; width: 100%; max-width: 400px; margin-left: auto; margin-right: auto; }
+    .cta-btn-primary, .cta-btn-secondary { width: 100%; }
+  }
+  @media (max-width: 480px) { .cta-info-card { padding: 20px 15px; } }
+</style>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0A0A0A"/>
+  <rect x="80" y="80" width="1040" height="470" rx="24" fill="none" stroke="#F5A623" stroke-width="2"/>
+  <text x="600" y="280" font-family="system-ui,sans-serif" font-size="48" font-weight="700" fill="#FFFFFF" text-anchor="middle">PYMEMPRESAS</text>
+  <text x="600" y="340" font-family="system-ui,sans-serif" font-size="24" fill="#F5A623" text-anchor="middle">Agencia de Marketing Digital en Gijón, Asturias</text>
+  <text x="600" y="400" font-family="system-ui,sans-serif" font-size="18" fill="rgba(255,255,255,0.6)" text-anchor="middle">SEO Local · Diseño Web · Inteligencia Artificial · Automatizaciones</text>
+</svg>

@@ -1,0 +1,143 @@
+---
+interface Props {
+  title: string;
+  slug: string;
+  image?: string;
+  tags?: string[];
+  date: Date;
+  author: string;
+  authorImage?: string;
+}
+
+const { title, slug, image, tags = [], date, author, authorImage } = Astro.props;
+
+const safeImageId = slug.replace(/[^a-z0-9-]/g, '');
+const dateStr = date.toLocaleDateString('es-ES', {
+  year: 'numeric', month: 'long', day: 'numeric',
+});
+const initials = author.split(' ').map(w => w.charAt(0)).join('').slice(0, 2).toUpperCase();
+---
+
+<header class="article-hero">
+  {image ? (
+    <div class="article-hero-media">
+      <img
+        src={image} alt={title}
+        class="article-hero-img" decoding="async"
+        style={`view-transition-name: article-img-${safeImageId}`}
+      />
+    </div>
+  ) : null}
+
+  <div class="article-hero-body">
+    <div class="article-hero-meta">
+      {tags.length > 0 && <span class="article-hero-tag">{tags[0]}</span>}
+      <i class="ti ti-calendar article-hero-calendar" aria-hidden="true"></i>
+      <time datetime={date.toISOString()} class="article-hero-date">{dateStr}</time>
+      <span class="article-hero-sep" aria-hidden="true">·</span>
+      {authorImage ? (
+        <img src={authorImage} alt={author} class="article-hero-avatar-img" />
+      ) : (
+        <div class="article-hero-avatar">{initials}</div>
+      )}
+      <span class="article-hero-author">{author}</span>
+    </div>
+    <h1 class="article-hero-title">{title}</h1>
+  </div>
+</header>
+
+<style>
+  .article-hero-media {
+    width: 100%;
+    max-height: 440px;
+    overflow: hidden;
+    background: #F0F1F3;
+  }
+  .article-hero-img {
+    width: 100%;
+    height: 100%;
+    max-height: 440px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .article-hero-body {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 0;
+  }
+
+  .article-hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    font-size: 14px;
+  }
+  .article-hero-tag {
+    display: inline-block;
+    background: #f5a623;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 3px 12px;
+    border-radius: 999px;
+  }
+  .article-hero-calendar {
+    font-size: 15px;
+    color: #999;
+  }
+  .article-hero-date {
+    color: #888;
+    font-size: 13px;
+  }
+  .article-hero-sep {
+    color: #ddd;
+  }
+  .article-hero-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #d4edda;
+    color: #155724;
+    font-size: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.02em;
+  }
+  .article-hero-avatar-img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .article-hero-author {
+    font-size: 13px;
+    color: #666;
+    font-weight: 500;
+  }
+
+  .article-hero-title {
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: clamp(30px, 4.5vw, 46px);
+    font-weight: 800;
+    color: #0f0f1a;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .article-hero-media, .article-hero-img {
+      max-height: 240px;
+    }
+    .article-hero-body {
+      padding: 32px 20px 0;
+    }
+  }
+</style>

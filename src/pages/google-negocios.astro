@@ -1,0 +1,2111 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://pymempresas.com/google-negocios/#service",
+      "serviceType": "Optimización Google Business Profile",
+      "name": "Google para Negocios - Perfil de Empresa de Google",
+      "description": "Optimización profesional de Google Business Profile (Perfil de Empresa de Google) para negocios en Asturias. Mejora tu visibilidad en Google Maps y en búsquedas locales.",
+      "url": "https://pymempresas.com/google-negocios/",
+      "provider": {
+        "@id": "https://pymempresas.com/#organization"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Gijón" },
+        { "@type": "City", "name": "Oviedo" },
+        { "@type": "City", "name": "Avilés" },
+        { "@type": "AdministrativeArea", "name": "Asturias" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Planes de Optimización Google Business Profile",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Plan Básico - Perfil de Empresa Google" },
+            "price": "297",
+            "priceCurrency": "EUR",
+            "description": "Optimización básica de Google Business Profile, auditoría inicial y gestión de reseñas."
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Plan Profesional - Perfil de Empresa Google" },
+            "price": "497",
+            "priceCurrency": "EUR",
+            "description": "Optimización completa, estrategia de contenido local y reportes detallados."
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Plan Premium - Perfil de Empresa Google" },
+            "price": "897",
+            "priceCurrency": "EUR",
+            "description": "Estrategia avanzada multi-ciudad con gestión completa y monitorización continua."
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://pymempresas.com/google-negocios/#webpage",
+      "url": "https://pymempresas.com/google-negocios/",
+      "name": "Google para Negocios - Optimización de Perfil de Empresa | PYMEMPRESAS",
+      "description": "Especialistas en optimizar tu Perfil de Empresa de Google (Google My Business) en Asturias. Aparece en Google Maps y domina las búsquedas locales. Desde 297€/mes.",
+      "inLanguage": "es-ES",
+      "isPartOf": { "@id": "https://pymempresas.com/#website" },
+      "about": { "@id": "https://pymempresas.com/google-negocios/#service" },
+      "breadcrumb": { "@id": "https://pymempresas.com/google-negocios/#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://pymempresas.com/google-negocios/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://pymempresas.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://pymempresas.com/servicios/" },
+        { "@type": "ListItem", "position": 3, "name": "Google para Negocios", "item": "https://pymempresas.com/google-negocios/" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://pymempresas.com/google-negocios/#faqpage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué diferencia hay entre SEO normal y SEO local?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El SEO normal se centra en posicionar tu web a nivel nacional o internacional. El SEO Local optimiza tu presencia online para búsquedas con intención geográfica. Incluye optimización de Google Business Profile, directorios locales, reseñas y señales de proximidad."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tiempo tarda en dar resultados el SEO local?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Los primeros resultados suelen verse entre 2-4 meses. La optimización de Google Business Profile puede generar resultados en las primeras semanas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Es necesario tener una tienda física para hacer SEO local?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. El SEO local también funciona para negocios con área de servicio que se desplazan al cliente. Puedes configurar tu perfil de Google para mostrar tu zona de cobertura."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué importancia tienen las reseñas en el SEO local?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Las reseñas son uno de los factores más importantes del SEO local. Google las considera como señales de confianza y calidad del servicio. Mejoran tu posicionamiento en el Local Pack y aumentan tu CTR."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo hacer SEO local en varias ciudades a la vez?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, es posible y recomendable si tu negocio opera en múltiples ubicaciones. En PYMEMPRESAS trabajamos con negocios en Gijón, Oviedo, Avilés y otras ciudades asturianas simultáneamente."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta el SEO local para mi negocio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nuestros planes comienzan desde 297€/mes. Ofrecemos Básico (297€/mes), Profesional (497€/mes) y Premium (897€/mes). Sin permanencia."
+          }
+        }
+      ]
+    }
+  ]
+};
+---
+
+<BaseLayout
+  metaTitle="Google para Negocios - Optimización de Perfil de Empresa | PYMEMPRESAS"
+  metaDescription="Especialistas en optimizar tu Perfil de Empresa de Google (Google My Business) en Asturias. Aparece en Google Maps y domina las búsquedas locales. Desde 297€/mes."
+  canonicalURL="https://pymempresas.com/google-negocios/"
+  schema={schema}
+  bodyTheme="light"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <!-- SECCION HERO DARK GMB -->
+  <div class="hero-pymempresas-wrapper">
+    <div class="hero-pymempresas hero-dark-gmb">
+      <div class="hero-content hero-content-center">
+        <div class="hero-badge hero-badge-dark">
+          <svg class="hero-badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>Especialistas en Perfil de Empresa de Google en Asturias</span>
+        </div>
+
+        <h1 class="hero-title hero-title-dark">Google para Negocios: Haz que tus clientes <span class="text-highlight-underline">te encuentren primero</span></h1>
+
+        <p class="hero-subtitle hero-subtitle-dark">El 46% de las búsquedas en Google tienen intención local. Si no apareces cuando te buscan en tu ciudad, estás perdiendo clientes cada día. Posiciona tu negocio en Gijón, Oviedo o Avilés.</p>
+
+        <div class="hero-buttons hero-buttons-center">
+          <a href="/consultoria/" class="hero-btn-primary">Auditoría SEO Local Gratis →</a>
+          <a href="#casos" class="hero-btn-secondary hero-btn-secondary-dark">Ver Casos de Éxito</a>
+        </div>
+
+        <div class="hero-stats-dark">
+          <div class="hero-stat-dark">
+            <div class="stat-number-dark">46%</div>
+            <p class="stat-text-dark">de todas las búsquedas en Google tienen intención local</p>
+          </div>
+          <div class="hero-stat-dark">
+            <div class="stat-number-dark">88%</div>
+            <p class="stat-text-dark">de los consumidores que buscan negocios locales llaman o visitan en 24h</p>
+          </div>
+          <div class="hero-stat-dark">
+            <div class="stat-number-dark">72%</div>
+            <p class="stat-text-dark">de los consumidores que hacen búsqueda local visitan una tienda en 8km</p>
+          </div>
+          <div class="hero-stat-dark">
+            <div class="stat-number-dark">78%</div>
+            <p class="stat-text-dark">de las búsquedas móviles locales resultan en compra offline</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCION QUE ES GOOGLE NEGOCIOS -->
+  <section class="advantages-pymempresas">
+    <div class="advantages-container">
+      <div class="advantages-header">
+        <p class="advantages-label">FUNDAMENTOS</p>
+        <h2 class="advantages-title">¿Qué es <span class="text-highlight">Google Negocios</span>?</h2>
+        <p class="advantages-subtitle">Google para Negocios (ahora llamado <strong>Perfil de Empresa de Google</strong>) es la herramienta gratuita que permite a tu negocio aparecer en Google Maps y en las búsquedas locales cuando los clientes buscan tus productos o servicios.</p>
+      </div>
+
+      <div class="gmb-grid-4">
+        <div class="gmb-card">
+          <div class="gmb-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <h3 class="gmb-card-title">Optimización Geográfica</h3>
+          <p class="gmb-card-description">Posicionar tu negocio en búsquedas locales cuando los usuarios buscan servicios 'cerca de mí' o en tu ciudad.</p>
+        </div>
+
+        <div class="gmb-card">
+          <div class="gmb-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+          </div>
+          <h3 class="gmb-card-title">Búsquedas con Intención Local</h3>
+          <p class="gmb-card-description">Aparecer cuando alguien busca 'dentista en Gijón' o 'fontanero urgente Oviedo' en Google.</p>
+        </div>
+
+        <div class="gmb-card">
+          <div class="gmb-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"></path>
+              <path d="M3 9V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2"></path>
+            </svg>
+          </div>
+          <h3 class="gmb-card-title">Google Maps y Pack Local</h3>
+          <p class="gmb-card-description">Dominar el 'Local Pack' de Google: los 3 resultados con mapa que aparecen en las primeras posiciones.</p>
+        </div>
+
+        <div class="gmb-card">
+          <div class="gmb-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+          </div>
+          <h3 class="gmb-card-title">Ficha de Google Business</h3>
+          <p class="gmb-card-description">Optimización completa de tu perfil de Google My Business para maximizar visibilidad y conversiones.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCION LOCAL PACK -->
+  <section class="about-pymempresas">
+    <div class="about-container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2 class="about-title">El "Local Pack" de Google</h2>
+          <p>Cuando alguien busca un servicio local como "restaurante italiano cerca de mí" o "dentista en Oviedo", Google muestra un bloque especial con un mapa y los 3 negocios más relevantes. <strong>Estar en este Local Pack puede multiplicar por 10 tus visitas.</strong></p>
+
+          <div class="local-pack-benefits">
+            <div class="benefit-item">
+              <svg class="benefit-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9 12l2 2 4-4"></path>
+              </svg>
+              <span>Apareces antes que los resultados orgánicos tradicionales</span>
+            </div>
+            <div class="benefit-item">
+              <svg class="benefit-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9 12l2 2 4-4"></path>
+              </svg>
+              <span>Muestras tu ubicación, horario, teléfono y reseñas</span>
+            </div>
+            <div class="benefit-item">
+              <svg class="benefit-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9 12l2 2 4-4"></path>
+              </svg>
+              <span>Los usuarios pueden llamarte o pedir direcciones con un clic</span>
+            </div>
+            <div class="benefit-item">
+              <svg class="benefit-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9 12l2 2 4-4"></path>
+              </svg>
+              <span>Generas confianza inmediata con las valoraciones</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="local-pack-simulation">
+          <div class="local-pack-header">
+            <svg class="map-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <h3>Tu Negocio</h3>
+            <div class="business-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-count">(127)</span>
+            </div>
+          </div>
+
+          <div class="business-info">
+            <p class="business-address">Calle Principal, 123 · Abierto hasta las 20:00</p>
+          </div>
+
+          <div class="local-pack-map">
+            <div class="map-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+          </div>
+
+          <p class="simulation-label">Simulación del Local Pack de Google</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCION OPORTUNIDAD -->
+  <section class="advantages-pymempresas">
+    <div class="advantages-container">
+      <div class="advantages-header">
+        <p class="advantages-label">LA OPORTUNIDAD</p>
+        <h2 class="advantages-title">¿Por qué tu negocio <span class="text-highlight">necesita salir en Google Maps</span>?</h2>
+        <p class="advantages-subtitle">Si tu negocio atiende a clientes en una zona geográfica específica, actualizar tu ficha de Google Maps no es opcional: es la diferencia entre ser encontrado o ser invisible.</p>
+      </div>
+
+      <div class="opportunity-grid">
+        <div class="searches-column">
+          <h3 class="column-title">Tus clientes están buscando ahora mismo</h3>
+
+          <div class="search-list">
+            <div class="search-item">
+              <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+              <div class="search-content">
+                <span class="search-query">"fontanero urgente Gijón"</span>
+                <span class="search-volume">320 búsquedas/mes</span>
+              </div>
+            </div>
+
+            <div class="search-item">
+              <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+              <div class="search-content">
+                <span class="search-query">"dentista Oviedo opiniones"</span>
+                <span class="search-volume">480 búsquedas/mes</span>
+              </div>
+            </div>
+
+            <div class="search-item">
+              <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+              <div class="search-content">
+                <span class="search-query">"restaurante cerca de mí"</span>
+                <span class="search-volume">12.000 búsquedas/mes</span>
+              </div>
+            </div>
+
+            <div class="search-item">
+              <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+              <div class="search-content">
+                <span class="search-query">"abogado laboralista Asturias"</span>
+                <span class="search-volume">210 búsquedas/mes</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="searches-note"><strong>¿Quién se lleva estos clientes?</strong> Los negocios que aparecen en las primeras posiciones. Si no eres tú, es tu competencia.</p>
+        </div>
+
+        <div class="business-types-column">
+          <h3 class="column-title">Tipos de negocios que más se benefician</h3>
+
+          <div class="business-types-grid">
+            <div class="business-type-item">
+              <svg class="business-type-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <span>Clínicas y Consultas Médicas</span>
+            </div>
+
+            <div class="business-type-item">
+              <svg class="business-type-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+              <span>Comercios y Tiendas Locales</span>
+            </div>
+
+            <div class="business-type-item">
+              <svg class="business-type-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              <span>Asesorías y Consultorías</span>
+            </div>
+
+            <div class="business-type-item">
+              <svg class="business-type-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                <line x1="15" y1="9" x2="15.01" y2="9"></line>
+              </svg>
+              <span>Restaurantes y Hostelería</span>
+            </div>
+
+            <div class="business-type-item">
+              <svg class="business-type-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+              </svg>
+              <span>Servicios de Reparación</span>
+            </div>
+
+            <div class="business-type-item">
+              <svg class="business-type-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>Agencias y Servicios B2B</span>
+            </div>
+          </div>
+
+          <p class="business-types-note">Y cualquier negocio que atienda clientes en una ubicación física o área de servicio</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCION ROI BANNER -->
+  <section class="roi-banner">
+    <div class="roi-banner-container">
+      <div class="roi-banner-content">
+        <div class="roi-banner-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="20" x2="12" y2="10"></line>
+            <line x1="18" y1="20" x2="18" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="16"></line>
+          </svg>
+        </div>
+
+        <h2 class="roi-banner-title">El ROI del SEO Local supera al de cualquier otra inversión en marketing</h2>
+
+        <p class="roi-banner-description">Mientras que los anuncios de pago tienen un coste continuo, el SEO Local genera un flujo constante de clientes cualificados con un coste decreciente por lead a lo largo del tiempo.</p>
+
+        <div class="roi-banner-stats">
+          <div class="roi-banner-stat">
+            <div class="roi-stat-value">5-10x</div>
+            <div class="roi-stat-label">ROI típico en 12 meses</div>
+          </div>
+          <div class="roi-banner-stat">
+            <div class="roi-stat-value">-60%</div>
+            <div class="roi-stat-label">Coste por lead vs PPC</div>
+          </div>
+          <div class="roi-banner-stat">
+            <div class="roi-stat-value">+300%</div>
+            <div class="roi-stat-label">Aumento tráfico local</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCION CIUDADES -->
+  <section class="advantages-pymempresas">
+    <div class="advantages-container">
+      <div class="advantages-header">
+        <p class="advantages-label">COBERTURA REGIONAL</p>
+        <h2 class="advantages-title">Google para Negocios en las principales <span class="text-highlight">ciudades de Asturias</span></h2>
+        <p class="advantages-subtitle">Ofrecemos servicios especializados de SEO Local adaptados a las particularidades de cada ciudad asturiana. Conocemos el mercado local y la competencia.</p>
+      </div>
+
+      <div class="cities-grid">
+        <div class="city-card">
+          <div class="city-header">
+            <div class="city-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <div class="city-info">
+              <h3 class="city-name">SEO Local Gijón</h3>
+              <p class="city-population">+270.000 habitantes</p>
+            </div>
+          </div>
+          <p class="city-description">La ciudad más poblada de Asturias con un tejido empresarial diverso y alta competencia digital.</p>
+          <a href="/seo-local-gijon/" class="city-btn">Ver servicio en Gijón →</a>
+        </div>
+
+        <div class="city-card">
+          <div class="city-header">
+            <div class="city-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <div class="city-info">
+              <h3 class="city-name">SEO Local Oviedo</h3>
+              <p class="city-population">+220.000 habitantes</p>
+            </div>
+          </div>
+          <p class="city-description">Capital del Principado con concentración de servicios profesionales y administración.</p>
+          <a href="/seo-local-oviedo/" class="city-btn">Ver servicio en Oviedo →</a>
+        </div>
+
+        <div class="city-card city-card-disabled">
+          <div class="city-badge">En desarrollo</div>
+          <div class="city-header">
+            <div class="city-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <div class="city-info">
+              <h3 class="city-name">SEO Local Avilés</h3>
+              <p class="city-population">+78.000 habitantes</p>
+            </div>
+          </div>
+          <p class="city-description">Tercera ciudad asturiana con importante actividad comercial e industrial.</p>
+          <button class="city-btn city-btn-disabled" disabled>Próximamente</button>
+        </div>
+      </div>
+
+      <div class="cities-cta">
+        <p class="cities-cta-text">¿Tu negocio está en otra ciudad de Asturias? También podemos ayudarte.</p>
+        <a href="/consultoria/" class="cities-cta-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          Consultar disponibilidad
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCION PROCESO -->
+  <section class="advantages-pymempresas">
+    <div class="advantages-container">
+      <div class="advantages-header">
+        <p class="advantages-label">METODOLOGÍA</p>
+        <h2 class="advantages-title">Nuestro proceso de <span class="text-highlight">Perfil de Empresas de Google</span></h2>
+        <p class="advantages-subtitle">Una metodología probada que garantiza resultados medibles y sostenibles.</p>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="step-number-wrapper">
+            <div class="step-number">01</div>
+            <div class="step-line"></div>
+          </div>
+          <h3 class="step-title">Auditoría SEO Local</h3>
+          <p class="step-description">Analizamos tu presencia online actual, competidores locales y oportunidades de mejora en tu zona.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number-wrapper">
+            <div class="step-number">02</div>
+            <div class="step-line"></div>
+          </div>
+          <h3 class="step-title">Estrategia Personalizada</h3>
+          <p class="step-description">Diseñamos un plan de acción adaptado a tu negocio, sector y ciudades objetivo.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number-wrapper">
+            <div class="step-number">03</div>
+            <div class="step-line"></div>
+          </div>
+          <h3 class="step-title">Optimización Completa</h3>
+          <p class="step-description">Implementamos mejoras en tu web, Google Business Profile, directorios locales y contenido.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number-wrapper">
+            <div class="step-number">04</div>
+          </div>
+          <h3 class="step-title">Monitorización y Mejora</h3>
+          <p class="step-description">Seguimiento continuo de rankings, tráfico y conversiones con informes mensuales detallados.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCION FAQ -->
+  <section class="seo-faq-section" id="casos">
+    <div class="seo-faq-container">
+      <div class="seo-faq-header">
+        <p class="advantages-label">PREGUNTAS FRECUENTES</p>
+        <h2 class="seo-faq-title">Todo sobre <span class="text-highlight">Google para Negocios</span></h2>
+      </div>
+
+      <div class="seo-faq-accordion">
+        <div class="seo-faq-item">
+          <button class="seo-faq-question" onclick="toggleSEOFAQ(this)">
+            <span>¿Qué diferencia hay entre SEO normal y SEO local?</span>
+            <svg class="seo-faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="seo-faq-answer">
+            <p>El SEO normal (o tradicional) se centra en posicionar tu web a nivel nacional o internacional sin considerar la ubicación del usuario. El SEO Local, en cambio, optimiza tu presencia online para búsquedas con intención geográfica (ej: "fontanero en Gijón", "restaurante cerca de mí"). Incluye la optimización de Google Business Profile, directorios locales, reseñas y señales de proximidad que el SEO tradicional no contempla.</p>
+          </div>
+        </div>
+
+        <div class="seo-faq-item">
+          <button class="seo-faq-question" onclick="toggleSEOFAQ(this)">
+            <span>¿Cuánto tiempo tarda en dar resultados el SEO local?</span>
+            <svg class="seo-faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="seo-faq-answer">
+            <p>Los primeros resultados suelen verse entre 2-4 meses, aunque depende de varios factores: la competencia en tu sector y zona, el estado actual de tu presencia online y la consistencia de tu estrategia. La optimización de Google Business Profile puede generar resultados más rápidos (primeras semanas), mientras que el posicionamiento orgánico local requiere más tiempo. El SEO local es una inversión a medio-largo plazo con resultados sostenibles.</p>
+          </div>
+        </div>
+
+        <div class="seo-faq-item">
+          <button class="seo-faq-question" onclick="toggleSEOFAQ(this)">
+            <span>¿Es necesario tener una tienda física para hacer SEO local?</span>
+            <svg class="seo-faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="seo-faq-answer">
+            <p>No es estrictamente necesario. El SEO local también funciona para negocios con "área de servicio" que se desplazan al cliente (fontaneros, electricistas, servicios a domicilio). En estos casos, puedes configurar tu perfil de Google para mostrar tu zona de cobertura sin revelar una dirección física específica. Lo importante es tener una presencia verificable en una ubicación geográfica determinada.</p>
+          </div>
+        </div>
+
+        <div class="seo-faq-item">
+          <button class="seo-faq-question" onclick="toggleSEOFAQ(this)">
+            <span>¿Qué importancia tienen las reseñas en el SEO local?</span>
+            <svg class="seo-faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="seo-faq-answer">
+            <p>Las reseñas son uno de los factores más importantes del SEO local. Google las considera como señales de confianza y calidad del servicio. Las valoraciones positivas mejoran tu posicionamiento en el Local Pack, aumentan tu CTR (más gente hará clic en tu negocio) y generan confianza antes del primer contacto. La cantidad, calidad, recencia y la respuesta a las reseñas son elementos clave que trabajamos en nuestras estrategias.</p>
+          </div>
+        </div>
+
+        <div class="seo-faq-item">
+          <button class="seo-faq-question" onclick="toggleSEOFAQ(this)">
+            <span>¿Puedo hacer SEO local en varias ciudades a la vez?</span>
+            <svg class="seo-faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="seo-faq-answer">
+            <p>Sí, es posible y recomendable si tu negocio opera en múltiples ubicaciones. La estrategia varía según tu caso: si tienes múltiples locales físicos, cada uno puede tener su propio perfil de Google Business optimizado. Si ofreces servicios en varias ciudades sin local físico, creamos páginas de aterrizaje específicas para cada ubicación y optimizamos tu área de servicio. En PYMEMPRESAS trabajamos con negocios en Gijón, Oviedo, Avilés y otras ciudades asturianas simultáneamente.</p>
+          </div>
+        </div>
+
+        <div class="seo-faq-item">
+          <button class="seo-faq-question" onclick="toggleSEOFAQ(this)">
+            <span>¿Cuánto cuesta el SEO local para mi negocio?</span>
+            <svg class="seo-faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="seo-faq-answer">
+            <p>Nuestros planes de SEO local comienzan desde 297€/mes e incluyen auditoría inicial, optimización de Google Business Profile, gestión de reseñas y reportes mensuales. El precio varía según las necesidades de tu negocio, el nivel de competencia en tu zona y los objetivos que quieras alcanzar. Ofrecemos planes Básico (297€/mes), Profesional (497€/mes) y Premium (897€/mes). No tenemos permanencia: pagas mes a mes y puedes cancelar cuando quieras.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCION CTA FINAL -->
+  <section class="cta-final-section">
+    <div class="cta-final-content">
+      <div class="cta-final-badge">Empieza hoy</div>
+
+      <h2 class="cta-final-title">¿Listo para dominar las búsquedas locales en Asturias?</h2>
+
+      <p class="cta-final-description">Solicita una auditoría gratuita de tu presencia local. Analizaremos tu situación actual, tu competencia y te mostraremos el potencial de crecimiento de tu negocio.</p>
+
+      <div class="cta-final-buttons">
+        <a href="/consultoria/" class="cta-final-btn-primary">Solicitar Auditoría Gratis →</a>
+        <a href="#precios" class="cta-final-btn-secondary">Ver Planes y Precios</a>
+      </div>
+
+      <div class="cta-final-features">
+        <span>Sin compromiso</span>
+        <span>·</span>
+        <span>Respuesta en menos de 24 horas</span>
+        <span>·</span>
+        <span>Análisis personalizado</span>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style is:global>
+/* Variables GMB page */
+:root {
+  --gold: #F5A623;
+  --gold-hover: #E89B1F;
+  --text-dark: #1a1a1a;
+  --text-muted: #666;
+  --bg-light: #FAFAFA;
+  --bg-white: #ffffff;
+  --border-light: #e5e5e5;
+}
+
+/* Hero Dark GMB */
+.hero-dark-gmb {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  min-height: 100vh;
+}
+
+.hero-dark-gmb::before {
+  display: none;
+}
+
+.hero-badge-dark {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.hero-badge-dark .hero-badge-icon {
+  color: var(--gold);
+}
+
+.hero-badge-dark span {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+.hero-title-dark {
+  color: #ffffff;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.text-highlight-underline {
+  color: #ffffff;
+  position: relative;
+  display: inline-block;
+}
+
+.text-highlight-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background: var(--gold);
+  z-index: -1;
+  border-radius: 4px;
+}
+
+.hero-subtitle-dark {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-buttons-center {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.hero-btn-secondary-dark {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.hero-btn-secondary-dark:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+}
+
+.hero-stats-dark {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 60px;
+}
+
+.hero-stat-dark {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 30px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.hero-stat-dark:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(245, 166, 35, 0.3);
+}
+
+.stat-number-dark {
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 15px;
+}
+
+.stat-text-dark {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+/* GMB Grid 4 */
+.gmb-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-top: 50px;
+}
+
+.gmb-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 35px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+}
+
+.gmb-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-color: var(--gold);
+}
+
+.gmb-icon {
+  width: 60px;
+  height: 60px;
+  background: #FFF8E8;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.gmb-icon svg {
+  width: 28px;
+  height: 28px;
+  color: var(--gold);
+  stroke-width: 2;
+}
+
+.gmb-card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 12px 0;
+  line-height: 1.3;
+}
+
+.gmb-card-description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* About - Local Pack Section */
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.about-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.about-text p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.about-text p strong {
+  color: var(--text-dark);
+}
+
+.local-pack-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.benefit-check-icon {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  color: var(--gold);
+  stroke-width: 2;
+  margin-top: 2px;
+}
+
+.benefit-item span {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.local-pack-simulation {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.local-pack-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.map-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--gold);
+}
+
+.local-pack-header h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0;
+  flex: 1;
+}
+
+.business-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.stars {
+  color: var(--gold);
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.rating-count {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.business-info {
+  margin-bottom: 20px;
+}
+
+.business-address {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.local-pack-map {
+  background: #f5f5f5;
+  border-radius: 12px;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.map-placeholder {
+  width: 80px;
+  height: 80px;
+  background: #FFF8E8;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-placeholder svg {
+  width: 40px;
+  height: 40px;
+  color: var(--gold);
+}
+
+.simulation-label {
+  font-size: 13px;
+  color: #999;
+  text-align: center;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Opportunity Grid */
+.opportunity-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-top: 50px;
+}
+
+.column-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 30px 0;
+  line-height: 1.3;
+}
+
+.search-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.search-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 20px;
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.search-item:hover {
+  border-color: var(--gold);
+  box-shadow: 0 4px 12px rgba(245, 166, 35, 0.1);
+}
+
+.search-icon {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  color: var(--gold);
+  stroke-width: 2;
+}
+
+.search-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+
+.search-query {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.search-volume {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.searches-note {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+  margin: 0;
+  padding: 20px;
+  background: #FFF8E8;
+  border-left: 4px solid var(--gold);
+  border-radius: 8px;
+}
+
+.business-types-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.business-type-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.business-type-item:hover {
+  border-color: var(--gold);
+  box-shadow: 0 4px 12px rgba(245, 166, 35, 0.1);
+  transform: translateX(5px);
+}
+
+.business-type-icon {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  color: var(--gold);
+  stroke-width: 2;
+}
+
+.business-type-item span {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.business-types-note {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+  font-style: italic;
+}
+
+/* ROI Banner */
+.roi-banner {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+  padding: 0;
+  background: transparent;
+}
+
+.roi-banner-container {
+  max-width: 1400px;
+  margin: 80px auto;
+  padding: 0 40px;
+}
+
+.roi-banner-content {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border-radius: 24px;
+  padding: 60px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.roi-banner-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(245, 166, 35, 0.15);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.roi-banner-icon svg {
+  width: 40px;
+  height: 40px;
+  color: var(--gold);
+  stroke-width: 2.5;
+}
+
+.roi-banner-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 20px 0;
+  line-height: 1.3;
+  max-width: 900px;
+}
+
+.roi-banner-description {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0 0 50px 0;
+  max-width: 800px;
+}
+
+.roi-banner-stats {
+  display: flex;
+  gap: 80px;
+  justify-content: center;
+}
+
+.roi-banner-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.roi-stat-value {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.roi-stat-label {
+  font-size: 14px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Cities Grid */
+.cities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+  margin-bottom: 60px;
+}
+
+.city-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 35px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.city-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-color: var(--gold);
+}
+
+.city-card-disabled {
+  background: #fafafa;
+  opacity: 0.7;
+}
+
+.city-card-disabled:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--border-light);
+}
+
+.city-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #FFF8E8;
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.city-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.city-icon {
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  background: #FFF8E8;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.city-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--gold);
+}
+
+.city-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.city-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.city-population {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.city-description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.city-btn {
+  display: inline-block;
+  text-align: center;
+  padding: 14px 24px;
+  background: var(--text-dark);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.city-btn:hover {
+  background: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.city-btn-disabled {
+  background: var(--border-light);
+  color: #999;
+  cursor: not-allowed;
+}
+
+.city-btn-disabled:hover {
+  background: var(--border-light);
+  transform: none;
+  box-shadow: none;
+}
+
+.cities-cta {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 40px 30px;
+  background: var(--bg-light);
+  border-radius: 16px;
+}
+
+.cities-cta-text {
+  font-size: 17px;
+  color: #555;
+  margin: 0;
+}
+
+.cities-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: transparent;
+  color: var(--text-dark);
+  font-size: 16px;
+  font-weight: 600;
+  border: 2px solid var(--text-dark);
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cities-cta-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.cities-cta-btn:hover {
+  background: var(--text-dark);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Process Grid */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin-top: 60px;
+  position: relative;
+}
+
+.process-step {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  padding: 25px;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.process-step:hover {
+  background: rgba(245, 166, 35, 0.03);
+  transform: translateY(-5px);
+}
+
+.process-step:hover .step-title {
+  color: var(--gold);
+}
+
+.process-step:hover .step-number {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.step-number-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.step-number {
+  font-size: 80px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #F5A623 0%, #E89B1F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  position: relative;
+  z-index: 2;
+}
+
+.step-line {
+  position: absolute;
+  top: 40px;
+  left: 90px;
+  width: calc(100% + 40px);
+  height: 3px;
+  background: linear-gradient(90deg, #F5A623 0%, rgba(245, 166, 35, 0.3) 100%);
+  border-radius: 2px;
+}
+
+.process-step:last-child .step-line {
+  display: none;
+}
+
+.step-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.step-description {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* FAQ Section */
+.seo-faq-section {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+  padding: 80px 20px;
+  background: #f5f7fa;
+}
+
+.seo-faq-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.seo-faq-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.seo-faq-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.seo-faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.seo-faq-item {
+  background: var(--bg-white);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.seo-faq-item:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+  border-color: rgba(245, 166, 35, 0.2);
+}
+
+.seo-faq-question {
+  width: 100%;
+  padding: 24px 28px;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  transition: all 0.3s ease;
+}
+
+.seo-faq-question:hover {
+  color: var(--gold);
+}
+
+.seo-faq-question span {
+  flex: 1;
+}
+
+.seo-faq-chevron {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  color: var(--text-muted);
+  min-width: 20px;
+}
+
+.seo-faq-item.active {
+  background: var(--bg-white);
+  border-color: rgba(245, 166, 35, 0.3);
+}
+
+.seo-faq-item.active .seo-faq-chevron {
+  transform: rotate(180deg);
+  color: var(--gold);
+}
+
+.seo-faq-item.active .seo-faq-question {
+  color: var(--gold);
+}
+
+.seo-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  background: transparent;
+}
+
+.seo-faq-answer p {
+  padding: 0 28px 24px 28px;
+  margin: 0;
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* CTA Final */
+.cta-final-section {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+.cta-final-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.cta-final-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 50px;
+  margin-bottom: 30px;
+}
+
+.cta-final-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 25px 0;
+  line-height: 1.2;
+  max-width: 900px;
+}
+
+.cta-final-description {
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 40px 0;
+  max-width: 800px;
+}
+
+.cta-final-buttons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cta-final-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #F5A623, #E89B1F);
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(245, 166, 35, 0.4);
+}
+
+.cta-final-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(245, 166, 35, 0.6);
+  background: linear-gradient(135deg, #FFB033, #F5A623);
+  color: #000;
+}
+
+.cta-final-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.cta-final-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.cta-final-features {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.cta-final-features span {
+  white-space: nowrap;
+}
+
+/* Shared utilities */
+.advantages-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.advantages-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+}
+
+.advantages-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.advantages-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.advantages-title .text-highlight {
+  color: var(--gold);
+}
+
+.advantages-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.advantages-pymempresas {
+  padding: 80px 0;
+}
+
+.about-pymempresas {
+  padding: 80px 0;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .gmb-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-stats-dark {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  .cities-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+  .city-card:last-child {
+    grid-column: 1 / -1;
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+  .step-line {
+    display: none;
+  }
+  .process-step:nth-child(odd) .step-line {
+    display: block;
+  }
+  .process-step:nth-child(3) .step-line,
+  .process-step:nth-child(4) .step-line {
+    display: none;
+  }
+  .roi-banner-container {
+    padding: 0 30px;
+  }
+  .roi-banner-content {
+    padding: 50px 60px;
+  }
+  .roi-banner-stats {
+    gap: 60px;
+  }
+}
+
+@media (max-width: 968px) {
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+  .local-pack-simulation {
+    padding: 25px;
+  }
+  .opportunity-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-dark-gmb {
+    min-height: auto;
+    padding: 100px 20px 60px;
+  }
+  .hero-buttons-center {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hero-btn-primary,
+  .hero-btn-secondary-dark {
+    width: 100%;
+    max-width: 400px;
+  }
+  .hero-stats-dark {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 40px;
+  }
+  .hero-stat-dark {
+    padding: 25px 20px;
+  }
+  .stat-number-dark {
+    font-size: 48px;
+  }
+  .stat-text-dark {
+    font-size: 13px;
+  }
+  .text-highlight-underline::after {
+    bottom: 4px;
+    height: 10px;
+  }
+  .gmb-grid-4 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .gmb-card {
+    padding: 30px 20px;
+  }
+  .local-pack-benefits {
+    gap: 12px;
+  }
+  .benefit-item span {
+    font-size: 14px;
+  }
+  .local-pack-map {
+    padding: 30px;
+  }
+  .map-placeholder {
+    width: 60px;
+    height: 60px;
+  }
+  .map-placeholder svg {
+    width: 30px;
+    height: 30px;
+  }
+  .column-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .search-item {
+    padding: 15px;
+  }
+  .search-query {
+    font-size: 15px;
+  }
+  .search-volume {
+    font-size: 13px;
+  }
+  .business-type-item {
+    padding: 14px 16px;
+  }
+  .searches-note {
+    padding: 15px;
+    font-size: 14px;
+  }
+  .roi-banner-container {
+    margin: 60px auto;
+    padding: 0 20px;
+  }
+  .roi-banner-content {
+    padding: 40px 30px;
+    border-radius: 20px;
+  }
+  .roi-banner-icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 25px;
+  }
+  .roi-banner-icon svg {
+    width: 35px;
+    height: 35px;
+  }
+  .roi-banner-title {
+    font-size: 24px;
+    margin-bottom: 18px;
+  }
+  .roi-banner-description {
+    font-size: 15px;
+    margin-bottom: 35px;
+  }
+  .roi-banner-stats {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .roi-stat-value {
+    font-size: 42px;
+  }
+  .roi-stat-label {
+    font-size: 13px;
+  }
+  .cities-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  .city-card {
+    padding: 30px 25px;
+  }
+  .city-card:last-child {
+    max-width: 100%;
+  }
+  .cities-cta {
+    padding: 30px 20px;
+  }
+  .cities-cta-text {
+    font-size: 16px;
+  }
+  .process-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 40px;
+  }
+  .step-line {
+    display: none;
+  }
+  .step-number {
+    font-size: 70px;
+  }
+  .step-title {
+    font-size: 20px;
+  }
+  .step-description {
+    font-size: 14px;
+  }
+  .process-step {
+    padding: 20px;
+  }
+  .seo-faq-section {
+    padding: 60px 15px;
+  }
+  .seo-faq-title {
+    font-size: 1.9rem;
+  }
+  .seo-faq-question {
+    padding: 20px;
+    font-size: 0.95rem;
+    gap: 12px;
+  }
+  .seo-faq-answer p {
+    padding: 0 20px 20px 20px;
+    font-size: 0.9rem;
+  }
+  .cta-final-section {
+    padding: 60px 20px;
+  }
+  .cta-final-badge {
+    font-size: 13px;
+    padding: 8px 20px;
+    margin-bottom: 25px;
+  }
+  .cta-final-description {
+    font-size: 16px;
+    margin-bottom: 35px;
+  }
+  .cta-final-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  .cta-final-btn-primary,
+  .cta-final-btn-secondary {
+    width: 100%;
+    max-width: 400px;
+  }
+  .cta-final-features {
+    font-size: 13px;
+    gap: 10px;
+  }
+  .advantages-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-number-dark {
+    font-size: 42px;
+  }
+  .roi-banner-content {
+    padding: 35px 25px;
+  }
+  .roi-banner-icon {
+    width: 60px;
+    height: 60px;
+  }
+  .roi-banner-icon svg {
+    width: 30px;
+    height: 30px;
+  }
+  .roi-banner-title {
+    font-size: 22px;
+  }
+  .roi-stat-value {
+    font-size: 38px;
+  }
+  .step-number {
+    font-size: 64px;
+  }
+  .seo-faq-title {
+    font-size: 1.6rem;
+  }
+  .seo-faq-question {
+    padding: 16px;
+    gap: 10px;
+    font-size: 0.9rem;
+  }
+  .seo-faq-answer p {
+    padding: 0 16px 16px 16px;
+  }
+  .seo-faq-chevron {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+  }
+  .cta-final-section {
+    padding: 50px 20px;
+  }
+  .cta-final-badge {
+    font-size: 12px;
+    padding: 7px 18px;
+  }
+  .cta-final-description {
+    font-size: 15px;
+  }
+  .cta-final-btn-primary,
+  .cta-final-btn-secondary {
+    font-size: 15px;
+    padding: 14px 28px;
+  }
+  .cta-final-features {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .cta-final-features span:nth-child(even) {
+    display: none;
+  }
+}
+</style>
+
+<script>
+window.toggleSEOFAQ = function(button) {
+  const item = button.parentElement;
+  const answer = item.querySelector('.seo-faq-answer');
+  const isActive = item.classList.contains('active');
+
+  document.querySelectorAll('.seo-faq-item').forEach(otherItem => {
+    if (otherItem !== item && otherItem.classList.contains('active')) {
+      otherItem.classList.remove('active');
+      otherItem.querySelector('.seo-faq-answer').style.maxHeight = null;
+    }
+  });
+
+  item.classList.toggle('active');
+
+  if (!isActive) {
+    answer.style.maxHeight = answer.scrollHeight + 'px';
+  } else {
+    answer.style.maxHeight = null;
+  }
+};
+</script>

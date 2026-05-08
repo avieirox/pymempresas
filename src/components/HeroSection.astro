@@ -1,0 +1,69 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  cta: string;
+  ctaHref: string;
+  ctaSecondary?: string;
+  ctaSecondaryHref?: string;
+  badge?: string;
+  checks?: string[];
+  bgImage: string;
+}
+
+const { title, subtitle, cta, ctaHref, ctaSecondary, ctaSecondaryHref, badge, checks, bgImage } = Astro.props;
+---
+
+<section class="relative min-h-[100vh] flex items-center overflow-hidden">
+  <img
+    src={bgImage}
+    alt=""
+    class="absolute inset-0 w-full h-full object-cover object-center"
+    loading="eager"
+    decoding="async"
+    width="1920"
+    height="1080"
+  />
+  <div class="absolute inset-0 bg-gradient-to-br from-black/75 to-black/55"></div>
+
+  <div class="container relative z-10 pt-24 pb-16">
+    <div class="max-w-[600px]">
+      {badge && (
+        <span class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-[10px] border border-white/25 rounded-full px-4 py-1.5 text-xs text-white font-semibold tracking-wider mb-5">
+          <svg class="w-4 h-4 text-orange" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+          {badge}
+        </span>
+      )}
+
+      <h1 class="text-[clamp(2.2rem,4.5vw,3.2rem)] font-bold leading-[1.15] mb-5 text-white [text-shadow:0_2px_20px_rgba(0,0,0,0.3)]">
+        {title}
+      </h1>
+
+      <p class="text-[clamp(0.95rem,1.8vw,1.05rem)] leading-relaxed mb-6 text-white/90 max-w-[560px]">
+        {subtitle}
+      </p>
+
+      {checks && checks.length > 0 && (
+        <div class="flex flex-wrap gap-5 mb-8">
+          {checks.map((check) => (
+            <span class="flex items-center gap-2 text-sm text-white/95">
+              <svg class="w-[22px] h-[22px] bg-orange rounded-full p-1 text-black shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>
+              {check}
+            </span>
+          ))}
+        </div>
+      )}
+
+      <div class="flex flex-wrap gap-4">
+        <a href={ctaHref} class="inline-flex items-center justify-center bg-gradient-to-br from-orange to-orange-dark text-black font-semibold text-[15px] px-7 py-3.5 rounded-[10px] shadow-[0_4px_15px_rgba(245,166,35,0.4)] hover:-translate-y-0.5 hover:shadow-[0_6px_25px_rgba(245,166,35,0.6)] transition-all duration-300 no-underline">
+          {cta}
+        </a>
+        {ctaSecondary && ctaSecondaryHref && (
+          <a href={ctaSecondaryHref} class="inline-flex items-center justify-center bg-white/10 backdrop-blur-[10px] text-white font-semibold text-[15px] px-7 py-3.5 rounded-[10px] border border-white/30 hover:bg-white/15 hover:border-white/50 hover:-translate-y-0.5 transition-all duration-300 no-underline">
+            {ctaSecondary}
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+</section>

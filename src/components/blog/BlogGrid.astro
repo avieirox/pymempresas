@@ -1,0 +1,30 @@
+<div class="blog-grid-wrap">
+  <div class="blog-grid">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .blog-grid-wrap {
+    width: 100%;
+    padding: 0 24px 80px;
+    background: #F8F9FA;
+  }
+  .blog-grid {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+  }
+
+  @media (max-width: 768px) {
+    .blog-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .blog-grid-wrap {
+      padding: 0 16px 56px;
+    }
+  }
+</style>

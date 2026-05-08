@@ -1,0 +1,846 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ConsultoriaForm from '../components/ConsultoriaForm.astro';
+---
+
+<BaseLayout
+  metaTitle="Consultoría Gratuita de tu Negocio Digital | PYMEMPRESAS"
+  metaDescription="Solicita tu consultoría gratuita de marketing digital. Analizamos tu web, detectamos qué falla y te decimos qué tocar. Sin compromiso. Respuesta en menos de 24 horas."
+  bodyTheme="light"
+>
+  <!-- Sección Consultoría Gratis - Fondo oscuro completo -->
+  <section class="consultoria-gratis-section">
+    <div class="consultoria-gratis-container">
+      <!-- Badge superior -->
+      <div class="consultoria-badge">
+        <svg class="badge-clock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 6v6l4 2"></path>
+        </svg>
+        <span>Respuesta en menos de 24 horas</span>
+      </div>
+
+      <!-- Título principal -->
+      <h1 class="consultoria-title">Consultoría Gratuita de <span class="consultoria-highlight">tu negocio digital</span></h1>
+
+      <!-- Descripción -->
+      <p class="consultoria-description">10 minutos. Miramos tu web. Vemos qué falla. Y te digo qué tocar para que empiece a trabajar para ti y no en tu contra. Sin compromiso. Si no hay nada que rascar, te lo digo y ya está.</p>
+
+      <!-- Features con checks -->
+      <div class="consultoria-features">
+        <div class="consultoria-feature-item">
+          <svg class="feature-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9 12l2 2 4-4"></path>
+          </svg>
+          <span>100% Gratis</span>
+        </div>
+        <div class="consultoria-feature-item">
+          <svg class="feature-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9 12l2 2 4-4"></path>
+          </svg>
+          <span>Sin Compromiso</span>
+        </div>
+        <div class="consultoria-feature-item">
+          <svg class="feature-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9 12l2 2 4-4"></path>
+          </svg>
+          <span>10 min de valor</span>
+        </div>
+      </div>
+
+      <!-- CTA Button -->
+      <a href="#consultoria" class="consultoria-cta-button">
+        <span>Solicitar Consultoría Gratis</span>
+        <svg class="button-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Sección Qué incluye - Fondo beige claro -->
+  <section class="consultoria-incluye-section">
+    <div class="consultoria-incluye-container">
+      <!-- Badge superior -->
+      <div class="incluye-badge">¿Qué incluye?</div>
+
+      <!-- Título -->
+      <h2 class="incluye-title">Todo lo que obtienes en tu consultoría</h2>
+
+      <!-- Subtítulo -->
+      <p class="incluye-subtitle">En esta consultoría no hablamos de teorías ni de &ldquo;mejorar tu marca&rdquo;. Miramos tu web tal y como está ahora, detectamos qué frena las conversiones y te llevas acciones concretas que puedes aplicar nada más colgar la llamada. Diez minutos bien usados valen más que horas dando vueltas sin saber qué tocar.</p>
+
+      <!-- Grid de Beneficios -->
+      <div class="incluye-grid">
+        <!-- Beneficio 1 -->
+        <div class="incluye-card">
+          <div class="incluye-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <circle cx="12" cy="12" r="6"></circle>
+              <circle cx="12" cy="12" r="2"></circle>
+            </svg>
+          </div>
+          <h3 class="incluye-card-title">Análisis Personalizado</h3>
+          <p class="incluye-card-text">Evaluamos tu situación actual y objetivos específicos para tu negocio local.</p>
+        </div>
+
+        <!-- Beneficio 2 -->
+        <div class="incluye-card">
+          <div class="incluye-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M12 1v6m0 6v6"></path>
+              <path d="m4.93 4.93 4.24 4.24m5.66 5.66 4.24 4.24"></path>
+              <path d="m19.07 4.93-4.24 4.24m-5.66 5.66-4.24 4.24"></path>
+            </svg>
+          </div>
+          <h3 class="incluye-card-title">Estrategia a Medida</h3>
+          <p class="incluye-card-text">Te proponemos un plan de acción adaptado a tu presupuesto y necesidades.</p>
+        </div>
+
+        <!-- Beneficio 3 -->
+        <div class="incluye-card">
+          <div class="incluye-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="20" x2="12" y2="10"></line>
+              <line x1="18" y1="20" x2="18" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="16"></line>
+            </svg>
+          </div>
+          <h3 class="incluye-card-title">Proyección de Resultados</h3>
+          <p class="incluye-card-text">Te mostramos qué resultados puedes esperar y en qué plazos.</p>
+        </div>
+
+        <!-- Beneficio 4 -->
+        <div class="incluye-card">
+          <div class="incluye-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <h3 class="incluye-card-title">Sin Compromiso</h3>
+          <p class="incluye-card-text">Es una conversación para conocernos. Decides tú si quieres avanzar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Testimonios -->
+  <section class="testimonios-section">
+    <div class="testimonios-container">
+      <!-- Badge superior -->
+      <div class="testimonios-badge">Testimonios</div>
+
+      <!-- Título -->
+      <h2 class="testimonios-title">Lo que dicen nuestros clientes</h2>
+
+      <!-- Grid de Testimonios -->
+      <div class="testimonios-grid">
+        <!-- Testimonio 1 -->
+        <div class="testimonio-card">
+          <p class="testimonio-quote">&ldquo;La consultoría me abrió los ojos. Descubrí errores que me estaban costando clientes.&rdquo;</p>
+          <div class="testimonio-author">
+            <p class="author-name">María González</p>
+            <p class="author-business">Clínica Dental en Gijón</p>
+          </div>
+        </div>
+
+        <!-- Testimonio 2 -->
+        <div class="testimonio-card">
+          <p class="testimonio-quote">&ldquo;Muy profesionales y directos. Me explicaron exactamente qué necesitaba mi negocio.&rdquo;</p>
+          <div class="testimonio-author">
+            <p class="author-name">Carlos Fernández</p>
+            <p class="author-business">Restaurante en Oviedo</p>
+          </div>
+        </div>
+
+        <!-- Testimonio 3 -->
+        <div class="testimonio-card">
+          <p class="testimonio-quote">&ldquo;En 30 minutos entendí más que en meses intentándolo por mi cuenta.&rdquo;</p>
+          <div class="testimonio-author">
+            <p class="author-name">Laura Martínez</p>
+            <p class="author-business">Tienda de Moda en Avilés</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Contacto - Fondo oscuro -->
+  <section class="contacto-section" id="consultoria">
+    <div class="contacto-container">
+      <!-- Badge superior -->
+      <div class="contacto-badge">
+        <svg class="badge-users-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+        <span>+50 empresas confían en nosotros</span>
+      </div>
+
+      <!-- Título -->
+      <h2 class="contacto-title">Solicita tu Consultoría Gratuita</h2>
+
+      <!-- Descripción -->
+      <p class="contacto-description">Rellena el formulario correctamente y te contactamos cuando hayamos hecho el análisis de tu web. Si tu email, teléfono de contacto y web no son correctos olvídate de lo gratuito.</p>
+
+      <!-- Formulario -->
+      <div class="contacto-form-wrapper">
+        <ConsultoriaForm />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style is:global>
+/* ===== Sección Consultoría Gratis - Fondo oscuro completo ===== */
+.consultoria-gratis-section {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+.consultoria-gratis-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Badge superior */
+.consultoria-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 50px;
+  margin-bottom: 30px;
+}
+
+.badge-clock-icon {
+  width: 18px;
+  height: 18px;
+  color: #F5A623;
+  stroke-width: 2.5;
+}
+
+/* Título principal */
+.consultoria-title {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 25px 0;
+  line-height: 1.2;
+  max-width: 800px;
+}
+
+.consultoria-highlight {
+  color: #F5A623;
+  position: relative;
+}
+
+/* Descripción */
+.consultoria-description {
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 35px 0;
+  max-width: 700px;
+}
+
+/* Features con checks */
+.consultoria-features {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.consultoria-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.feature-check-icon {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  color: #F5A623;
+  stroke-width: 2.5;
+}
+
+.consultoria-feature-item span {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* CTA Button */
+.consultoria-cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #F5A623, #E89B1F);
+  color: #000;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 18px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 25px rgba(245, 166, 35, 0.5);
+}
+
+.consultoria-cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 35px rgba(245, 166, 35, 0.7);
+  background: linear-gradient(135deg, #FFB033, #F5A623);
+  color: #000;
+}
+
+.button-arrow {
+  width: 20px;
+  height: 20px;
+  stroke-width: 3;
+  transition: transform 0.3s ease;
+}
+
+.consultoria-cta-button:hover .button-arrow {
+  transform: translateX(5px);
+}
+
+/* ===== Sección Qué incluye - Fondo beige claro ===== */
+.consultoria-incluye-section {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+  padding: 80px 20px;
+  background: #F9F7F4;
+}
+
+.consultoria-incluye-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Badge superior */
+.incluye-badge {
+  display: inline-block;
+  background: #FFF8E8;
+  border: 2px solid #F5A623;
+  color: #F5A623;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  text-align: center;
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Título */
+.incluye-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 15px 0;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Subtítulo */
+.incluye-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0 0 50px 0;
+  text-align: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Grid de 4 columnas */
+.incluye-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* Tarjeta */
+.incluye-card {
+  background: #ffffff;
+  border: 1px solid #E5E5E5;
+  border-radius: 16px;
+  padding: 35px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.incluye-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-color: #F5A623;
+}
+
+/* Icono */
+.incluye-icon {
+  width: 70px;
+  height: 70px;
+  background: #F5A623;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.incluye-icon svg {
+  width: 32px;
+  height: 32px;
+  color: #ffffff;
+  stroke-width: 2;
+}
+
+/* Título de la card */
+.incluye-card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 12px 0;
+  line-height: 1.3;
+}
+
+/* Texto de la card */
+.incluye-card-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #666;
+  margin: 0;
+}
+
+/* ===== Sección Testimonios ===== */
+.testimonios-section {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+  padding: 80px 20px;
+  background: #F9F7F4;
+}
+
+.testimonios-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Badge superior */
+.testimonios-badge {
+  display: inline-block;
+  background: #FFF8E8;
+  border: 2px solid #F5A623;
+  color: #F5A623;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  text-align: center;
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Título */
+.testimonios-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 50px 0;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Grid de 3 columnas */
+.testimonios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* Tarjeta de testimonio */
+.testimonio-card {
+  background: #ffffff;
+  border: 1px solid #E5E5E5;
+  border-radius: 16px;
+  padding: 35px 30px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  min-height: 200px;
+}
+
+.testimonio-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-color: #F5A623;
+}
+
+/* Quote del testimonio */
+.testimonio-quote {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #555;
+  font-style: italic;
+  margin: 0 0 25px 0;
+  flex-grow: 1;
+}
+
+/* Autor del testimonio */
+.testimonio-author {
+  margin-top: auto;
+}
+
+.author-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 5px 0;
+}
+
+.author-business {
+  font-size: 0.9rem;
+  color: #F5A623;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ===== Sección Contacto - Fondo oscuro ===== */
+.contacto-section {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+.contacto-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Badge superior */
+.contacto-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 50px;
+  margin: 0 auto 30px;
+  width: fit-content;
+  display: flex;
+}
+
+.badge-users-icon {
+  width: 20px;
+  height: 20px;
+  color: #F5A623;
+  stroke-width: 2;
+}
+
+/* Título */
+.contacto-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 15px 0;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Descripción */
+.contacto-description {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 40px 0;
+  text-align: center;
+}
+
+/* Wrapper del formulario */
+.contacto-form-wrapper {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1200px) {
+  .consultoria-incluye-container,
+  .testimonios-container {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .incluye-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .testimonios-grid {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin: 0 auto;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .consultoria-gratis-section {
+    padding: 70px 20px;
+  }
+
+  .consultoria-badge {
+    font-size: 13px;
+    padding: 8px 18px;
+  }
+
+  .badge-clock-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .consultoria-description {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  .consultoria-features {
+    gap: 20px;
+  }
+
+  .consultoria-feature-item span {
+    font-size: 15px;
+  }
+
+  .consultoria-cta-button {
+    font-size: 16px;
+    padding: 16px 32px;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .consultoria-incluye-section,
+  .testimonios-section {
+    padding: 60px 20px;
+  }
+
+  .consultoria-incluye-container,
+  .testimonios-container {
+    padding: 0 20px;
+  }
+
+  .incluye-title,
+  .testimonios-title {
+    font-size: 2rem;
+  }
+
+  .incluye-subtitle {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+
+  .incluye-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .incluye-card {
+    padding: 30px 25px;
+  }
+
+  .testimonios-title {
+    margin-bottom: 40px;
+  }
+
+  .testimonio-card {
+    padding: 30px 25px;
+  }
+
+  .contacto-section {
+    padding: 60px 20px;
+  }
+
+  .contacto-badge {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+
+  .contacto-title {
+    font-size: 2rem;
+  }
+
+  .contacto-description {
+    font-size: 1rem;
+  }
+
+  .contacto-form-wrapper {
+    padding: 30px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .consultoria-gratis-section {
+    padding: 60px 20px;
+  }
+
+  .consultoria-title {
+    margin-bottom: 20px;
+  }
+
+  .consultoria-description {
+    font-size: 15px;
+    margin-bottom: 25px;
+  }
+
+  .consultoria-features {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .feature-check-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .consultoria-feature-item span {
+    font-size: 14px;
+  }
+
+  .consultoria-cta-button {
+    font-size: 15px;
+    padding: 14px 28px;
+  }
+
+  .button-arrow {
+    width: 18px;
+    height: 18px;
+  }
+
+  .consultoria-incluye-container,
+  .testimonios-container {
+    padding: 0;
+  }
+
+  .incluye-badge,
+  .testimonios-badge {
+    font-size: 13px;
+    padding: 7px 18px;
+  }
+
+  .incluye-title,
+  .testimonios-title {
+    font-size: 1.8rem;
+  }
+
+  .incluye-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .incluye-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .incluye-card-title {
+    font-size: 1.1rem;
+  }
+
+  .incluye-card-text {
+    font-size: 0.9rem;
+  }
+
+  .testimonios-title {
+    font-size: 1.8rem;
+  }
+
+  .testimonio-card {
+    padding: 25px 20px;
+    min-height: auto;
+  }
+
+  .testimonio-quote {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  .author-name {
+    font-size: 1rem;
+  }
+
+  .author-business {
+    font-size: 0.85rem;
+  }
+
+  .contacto-badge span {
+    font-size: 12px;
+  }
+
+  .contacto-title {
+    font-size: 1.8rem;
+  }
+
+  .contacto-form-wrapper {
+    padding: 25px 20px;
+    border-radius: 16px;
+  }
+}
+</style>

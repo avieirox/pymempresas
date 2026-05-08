@@ -1,0 +1,38 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  servicios: CollectionEntry<'servicios'>[];
+}
+
+const { servicios } = Astro.props;
+---
+
+<section class="section bg-gray-light" id="servicios">
+  <div class="container">
+    <div class="text-center mb-14">
+      <span class="text-orange text-sm font-semibold uppercase tracking-wider">Nuestros Servicios</span>
+      <h2 class="text-3xl font-bold text-black mt-2">Soluciones digitales para tu negocio</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {servicios.map((s) => (
+        <a href={`/${s.slug}/`} class="group block bg-card rounded-xl p-6 border border-white/5 hover:border-orange/30 transition-all duration-300 hover:-translate-y-1">
+          <h3 class="text-lg font-bold text-white mb-3 group-hover:text-orange transition-colors">{s.data.title}</h3>
+          <p class="text-sm text-white/60 leading-relaxed mb-4">{s.data.subtitle}</p>
+          <ul class="space-y-2 mb-6">
+            {s.data.features.slice(0, 3).map((f) => (
+              <li class="flex items-start gap-2 text-sm text-white/70">
+                <svg class="w-4 h-4 text-orange shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>
+                {f.title}
+              </li>
+            ))}
+          </ul>
+          <span class="text-orange text-sm font-semibold group-hover:translate-x-1 transition-transform inline-block">
+            Más información &rarr;
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

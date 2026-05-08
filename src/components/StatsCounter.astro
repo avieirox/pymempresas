@@ -1,0 +1,21 @@
+---
+const stats = [
+  { value: '10+', label: 'Años de experiencia' },
+  { value: '150+', label: 'Proyectos completados' },
+  { value: '95%', label: 'Clientes satisfechos' },
+  { value: '1ª', label: 'Página de Google' },
+];
+---
+
+<section class="bg-card py-12 border-y border-white/5">
+  <div class="container">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      {stats.map((s) => (
+        <div>
+          <div class="text-3xl md:text-4xl font-bold text-orange mb-1">{s.value}</div>
+          <div class="text-sm text-white/50">{s.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

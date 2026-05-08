@@ -1,0 +1,1283 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  metaTitle="Inteligencia Artificial para Empresas | PYMEMPRESAS"
+  metaDescription="Impulsa tu negocio con Inteligencia Artificial en Asturias. Consultoría de IA para empresas: automatización, análisis de datos y eficiencia."
+  canonicalURL="https://pymempresas.com/inteligencia-artificial-empresas/"
+>
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json" set:html={`
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://pymempresas.com/inteligencia-artificial-empresas/#service",
+        "name": "Inteligencia Artificial para Empresas en Gijón",
+        "description": "Servicios de consultoría e implementación de Inteligencia Artificial para empresas en Gijón y Asturias. Automatización de procesos, chatbots, análisis predictivo y soluciones de IA generativa.",
+        "url": "https://pymempresas.com/inteligencia-artificial-empresas/",
+        "image": "/images/pymempresas-logo.png",
+        "provider": {
+          "@type": "LocalBusiness",
+          "@id": "https://pymempresas.com/#organization",
+          "name": "PYMEMPRESAS",
+          "url": "https://pymempresas.com",
+          "logo": "/images/pymempresas-logo.png",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "C. Rodríguez San Pedro, 1, Centro",
+            "addressLocality": "Gijón",
+            "addressRegion": "Asturias",
+            "postalCode": "33206",
+            "addressCountry": "ES"
+          },
+          "email": "info@pymempresas.com",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "43.5452",
+            "longitude": "-5.6611"
+          },
+          "areaServed": {
+            "@type": "City",
+            "name": "Gijón",
+            "containedIn": {
+              "@type": "AdministrativeArea",
+              "name": "Asturias"
+            }
+          }
+        },
+        "serviceType": "Consultoría e Implementación de Inteligencia Artificial",
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Gijón"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Asturias"
+          }
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Servicios de Inteligencia Artificial",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Chatbots y Asistentes Virtuales con IA",
+                "description": "Implementación de chatbots inteligentes para atención al cliente, ventas y soporte técnico con integración WhatsApp y respuestas personalizadas.",
+                "image": "/images/pymempresas-logo.png"
+              },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "priceCurrency": "EUR",
+                "price": "500-2000",
+                "valueAddedTaxIncluded": false
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Automatización de Procesos con IA",
+                "description": "Automatización de procesos empresariales repetitivos con flujos de trabajo inteligentes, procesamiento de documentos y gestión automatizada de emails.",
+                "image": "/images/pymempresas-logo.png"
+              },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "priceCurrency": "EUR",
+                "price": "500-2000",
+                "valueAddedTaxIncluded": false
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Análisis Predictivo y Machine Learning",
+                "description": "Modelos de machine learning para predicción de ventas, análisis de comportamiento de clientes y detección de anomalías en datos empresariales.",
+                "image": "/images/pymempresas-logo.png"
+              },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "priceCurrency": "EUR",
+                "price": "3000-15000",
+                "valueAddedTaxIncluded": false
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "IA Generativa para Marketing",
+                "description": "Soluciones de IA generativa para creación de contenido, generación de imágenes, textos publicitarios y personalización masiva de campañas.",
+                "image": "/images/pymempresas-logo.png"
+              },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "priceCurrency": "EUR",
+                "price": "500-2000",
+                "valueAddedTaxIncluded": false
+              }
+            }
+          ]
+        },
+        "additionalType": [
+          "https://schema.org/ProfessionalService",
+          "https://schema.org/ComputerRepair"
+        ],
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "PYMEs y empresas en Gijón y Asturias"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://pymempresas.com/inteligencia-artificial-empresas/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Cuál es la mejor IA gratuita para empezar?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "ChatGPT en su versión gratuita es ideal para comenzar a familiarizarse con la inteligencia artificial. También puedes usar Google Gemini o Claude AI que ofrecen planes gratuitos con funcionalidades limitadas. Para empresas en Gijón, recomendamos empezar con estas herramientas antes de invertir en soluciones más avanzadas y personalizadas para tu negocio."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuánto cuesta implementar IA en una empresa pequeña?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Para una PYME en Gijón, una implementación básica de IA puede costar entre 500€ y 2.000€, incluyendo consultoría inicial, configuración de herramientas y formación del equipo. Soluciones más complejas con desarrollo a medida, como sistemas de análisis predictivo o automatizaciones avanzadas, pueden oscilar entre 3.000€ y 15.000€ dependiendo de los requisitos específicos del proyecto."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué empresas de Gijón ya usan IA?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Muchas empresas asturianas ya están utilizando inteligencia artificial en diferentes ámbitos: desde hoteles con chatbots de reservas automáticas, hasta industrias con sistemas de mantenimiento predictivo de maquinaria. El tejido empresarial de Gijón está adoptando progresivamente estas tecnologías para automatizar procesos, mejorar la atención al cliente y competir a nivel nacional e internacional con mayor eficiencia."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Necesito conocimientos técnicos para usar IA en mi negocio?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No necesariamente. Muchas herramientas de IA actuales están diseñadas para ser muy accesibles y no requieren conocimientos técnicos avanzados. En PYMEMPRESAS nos encargamos de toda la parte técnica de la implementación y te formamos para que puedas aprovechar al máximo las soluciones de IA implementadas en tu empresa, sin necesidad de ser un experto en tecnología."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuánto tiempo lleva implementar una solución de IA?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "El tiempo de implementación depende de la complejidad del proyecto. Un chatbot básico para atención al cliente puede estar funcionando en 1-2 semanas. Proyectos de automatización más complejos o sistemas de análisis predictivo pueden requerir entre 1 y 3 meses. Siempre comenzamos con un diagnóstico gratuito de tus necesidades para establecer plazos realistas y ajustados a tu negocio."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://pymempresas.com/inteligencia-artificial-empresas/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://pymempresas.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Servicios",
+            "item": "https://pymempresas.com/#servicios"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Inteligencia Artificial para Empresas",
+            "item": "https://pymempresas.com/inteligencia-artificial-empresas/"
+          }
+        ]
+      }
+    ]
+  }
+  `}></script>
+
+  <!-- SECCION IA HERO -->
+  <section class="ia-hero-section">
+    <div class="ia-hero-container">
+      <!-- Badge superior -->
+      <div class="ia-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 6v6l4 2"/>
+        </svg>
+        <span>Consultor&iacute;a IA en Gij&oacute;n</span>
+      </div>
+
+      <!-- T&iacute;tulo principal -->
+      <h1 class="ia-hero-title">
+        Inteligencia Artificial para Empresas en Gij&oacute;n: Soluciones y Consultor&iacute;a
+      </h1>
+
+      <!-- Descripci&oacute;n -->
+      <p class="ia-hero-description">
+        Transforma tu negocio con IA. Automatiza procesos, mejora la productividad y toma decisiones m&aacute;s inteligentes con nuestras soluciones de Inteligencia Artificial adaptadas a empresas de Gij&oacute;n y Asturias.
+      </p>
+
+      <!-- Botones CTA -->
+      <div class="ia-hero-buttons">
+        <a href="#contacto" class="ia-btn-primary">Solicitar Diagn&oacute;stico Gratis</a>
+        <a href="#casos-exito" class="ia-btn-secondary">Ver Casos de &Eacute;xito</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCION BENEFICIOS IA -->
+  <section class="ia-benefits-section">
+    <div class="ia-benefits-container">
+      <!-- Encabezado -->
+      <div class="ia-benefits-header">
+        <h2 class="ia-benefits-title">&iquest;C&oacute;mo puede la Inteligencia Artificial ayudar a las empresas de Gij&oacute;n?</h2>
+        <p class="ia-benefits-subtitle">La IA no es solo para grandes corporaciones. Las PYMEs de Gij&oacute;n pueden aprovechar estas tecnolog&iacute;as para competir con ventaja en el mercado local y nacional.</p>
+      </div>
+
+      <!-- Grid de beneficios -->
+      <div class="ia-benefits-grid">
+        <!-- Beneficio 1 -->
+        <div class="ia-benefit-card">
+          <div class="ia-benefit-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <h3 class="ia-benefit-title">Automatizaci&oacute;n de Procesos</h3>
+          <p class="ia-benefit-description">Reduce tareas repetitivas y libera tiempo para lo que realmente importa en tu negocio.</p>
+        </div>
+
+        <!-- Beneficio 2 -->
+        <div class="ia-benefit-card">
+          <div class="ia-benefit-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <h3 class="ia-benefit-title">Aumento de Productividad</h3>
+          <p class="ia-benefit-description">Incrementa la eficiencia operativa hasta un 40% con soluciones de IA personalizadas.</p>
+        </div>
+
+        <!-- Beneficio 3 -->
+        <div class="ia-benefit-card">
+          <div class="ia-benefit-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="20" x2="18" y2="10"/>
+              <line x1="12" y1="20" x2="12" y2="4"/>
+              <line x1="6" y1="20" x2="6" y2="14"/>
+            </svg>
+          </div>
+          <h3 class="ia-benefit-title">An&aacute;lisis de Datos Avanzado</h3>
+          <p class="ia-benefit-description">Toma decisiones basadas en datos con insights que antes eran imposibles de obtener.</p>
+        </div>
+
+        <!-- Beneficio 4 -->
+        <div class="ia-benefit-card">
+          <div class="ia-benefit-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <h3 class="ia-benefit-title">Atenci&oacute;n al Cliente 24/7</h3>
+          <p class="ia-benefit-description">Chatbots inteligentes que atienden a tus clientes en cualquier momento.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCION SERVICIOS IA -->
+  <section class="ia-services-section">
+    <div class="ia-services-container">
+      <!-- Encabezado -->
+      <div class="ia-services-header">
+        <h2 class="ia-services-title">Servicios de implementaci&oacute;n de IA en tu negocio</h2>
+        <p class="ia-services-subtitle">Te ayudamos a integrar la Inteligencia Artificial en tu empresa de forma pr&aacute;ctica, empezando por las &aacute;reas donde generar&aacute; mayor impacto.</p>
+      </div>
+
+      <!-- Grid de servicios -->
+      <div class="ia-services-grid">
+        <!-- Servicio 1: Chatbots -->
+        <div class="ia-service-card">
+          <div class="ia-service-header">
+            <div class="ia-service-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="ia-service-title">Chatbots y Asistentes Virtuales</h3>
+              <p class="ia-service-description">Implementaci&oacute;n de chatbots inteligentes para atenci&oacute;n al cliente, ventas y soporte t&eacute;cnico.</p>
+            </div>
+          </div>
+          <ul class="ia-service-features">
+            <li>Integraci&oacute;n con WhatsApp</li>
+            <li>Respuestas personalizadas</li>
+            <li>Escalado a humanos</li>
+          </ul>
+        </div>
+
+        <!-- Servicio 2: Automatizaci&oacute;n -->
+        <div class="ia-service-card">
+          <div class="ia-service-header">
+            <div class="ia-service-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <path d="M9 9h6v6H9z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="ia-service-title">Automatizaci&oacute;n con IA</h3>
+              <p class="ia-service-description">Automatiza procesos empresariales repetitivos con flujos de trabajo inteligentes.</p>
+            </div>
+          </div>
+          <ul class="ia-service-features">
+            <li>Procesamiento de documentos</li>
+            <li>Gesti&oacute;n de emails</li>
+            <li>Flujos autom&aacute;ticos</li>
+          </ul>
+        </div>
+
+        <!-- Servicio 3: An&aacute;lisis Predictivo -->
+        <div class="ia-service-card">
+          <div class="ia-service-header">
+            <div class="ia-service-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="20" x2="18" y2="10"/>
+                <line x1="12" y1="20" x2="12" y2="4"/>
+                <line x1="6" y1="20" x2="6" y2="14"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="ia-service-title">An&aacute;lisis Predictivo</h3>
+              <p class="ia-service-description">Anticipa tendencias y comportamientos con modelos de machine learning.</p>
+            </div>
+          </div>
+          <ul class="ia-service-features">
+            <li>Predicci&oacute;n de ventas</li>
+            <li>An&aacute;lisis de clientes</li>
+            <li>Detecci&oacute;n de anomal&iacute;as</li>
+          </ul>
+        </div>
+
+        <!-- Servicio 4: IA Generativa -->
+        <div class="ia-service-card">
+          <div class="ia-service-header">
+            <div class="ia-service-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="ia-service-title">IA Generativa para Marketing</h3>
+              <p class="ia-service-description">Crea contenido, im&aacute;genes y campa&ntilde;as con herramientas de IA generativa.</p>
+            </div>
+          </div>
+          <ul class="ia-service-features">
+            <li>Generaci&oacute;n de textos</li>
+            <li>Creaci&oacute;n de im&aacute;genes</li>
+            <li>Personalizaci&oacute;n masiva</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCION COMPARATIVA HERRAMIENTAS IA -->
+  <section class="ia-comparison-section">
+    <div class="ia-comparison-container">
+      <!-- Encabezado -->
+      <div class="ia-comparison-header">
+        <h2 class="ia-comparison-title">Mejores herramientas de IA para negocios: ChatGPT vs Copilot</h2>
+        <p class="ia-comparison-subtitle">Comparativa de las principales herramientas de IA disponibles para empresas. Te ayudamos a elegir la m&aacute;s adecuada para tu negocio en Gij&oacute;n.</p>
+      </div>
+
+      <!-- Tabla comparativa -->
+      <div class="ia-comparison-table-wrapper">
+        <table class="ia-comparison-table">
+          <thead>
+            <tr>
+              <th>Herramienta</th>
+              <th>Tipo</th>
+              <th>Mejor para</th>
+              <th>Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>ChatGPT / GPT-4</strong></td>
+              <td><span class="ia-tag">IA Conversacional</span></td>
+              <td>Redacci&oacute;n, an&aacute;lisis, programaci&oacute;n</td>
+              <td><strong>Desde 20&euro;/mes</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Microsoft Copilot</strong></td>
+              <td><span class="ia-tag">Productividad Empresarial</span></td>
+              <td>Office 365, automatizaci&oacute;n</td>
+              <td><strong>Desde 28&euro;/usuario/mes</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Claude AI</strong></td>
+              <td><span class="ia-tag">IA Conversacional</span></td>
+              <td>An&aacute;lisis de documentos largos</td>
+              <td><strong>Desde 18&euro;/mes</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Gemini Pro</strong></td>
+              <td><span class="ia-tag">IA Multimodal</span></td>
+              <td>An&aacute;lisis de im&aacute;genes, datos complejos</td>
+              <td><strong>Desde 19&euro;/mes</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Midjourney / DALL-E</strong></td>
+              <td><span class="ia-tag">IA Generativa Visual</span></td>
+              <td>Creaci&oacute;n de im&aacute;genes y dise&ntilde;o</td>
+              <td><strong>Desde 10&euro;/mes</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- CTA inferior -->
+      <div class="ia-comparison-cta">
+        <p><strong>&iquest;No sabes cu&aacute;l elegir?</strong> Te asesoramos gratuitamente sobre qu&eacute; herramientas de IA se adaptan mejor a las necesidades espec&iacute;ficas de tu empresa en Gij&oacute;n.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCION RIESGOS Y DESAFIOS IA -->
+  <section class="ia-risks-section">
+    <div class="ia-risks-container">
+      <!-- Encabezado -->
+      <div class="ia-risks-header">
+        <h2 class="ia-risks-title">Riesgos y desaf&iacute;os de la IA en las empresas</h2>
+        <p class="ia-risks-subtitle">La implementaci&oacute;n de IA conlleva riesgos que deben gestionarse correctamente. Te ayudamos a mitigarlos desde el primer momento.</p>
+      </div>
+
+      <!-- Grid de riesgos -->
+      <div class="ia-risks-grid">
+        <!-- Riesgo 1: Privacidad -->
+        <div class="ia-risk-card">
+          <div class="ia-risk-header">
+            <svg class="ia-risk-icon-warning" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+              <line x1="12" y1="9" x2="12" y2="13"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            <h3 class="ia-risk-title">Privacidad de Datos</h3>
+          </div>
+          <p class="ia-risk-description">Los datos empresariales sensibles pueden quedar expuestos si no se configuran correctamente las herramientas de IA.</p>
+
+          <div class="ia-risk-solution">
+            <svg class="ia-risk-icon-shield" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <div>
+              <strong>Nuestra soluci&oacute;n:</strong> Implementamos protocolos de seguridad y usamos soluciones on-premise cuando es necesario.
+            </div>
+          </div>
+        </div>
+
+        <!-- Riesgo 2: Dependencia Tecnol&oacute;gica -->
+        <div class="ia-risk-card">
+          <div class="ia-risk-header">
+            <svg class="ia-risk-icon-warning" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+              <line x1="12" y1="9" x2="12" y2="13"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            <h3 class="ia-risk-title">Dependencia Tecnol&oacute;gica</h3>
+          </div>
+          <p class="ia-risk-description">Una excesiva dependencia de la IA puede generar problemas si los sistemas fallan.</p>
+
+          <div class="ia-risk-solution">
+            <svg class="ia-risk-icon-shield" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <div>
+              <strong>Nuestra soluci&oacute;n:</strong> Dise&ntilde;amos sistemas con redundancia y planes de contingencia.
+            </div>
+          </div>
+        </div>
+
+        <!-- Riesgo 3: Sesgos en Algoritmos -->
+        <div class="ia-risk-card">
+          <div class="ia-risk-header">
+            <svg class="ia-risk-icon-warning" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+              <line x1="12" y1="9" x2="12" y2="13"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            <h3 class="ia-risk-title">Sesgos en los Algoritmos</h3>
+          </div>
+          <p class="ia-risk-description">Los modelos de IA pueden heredar sesgos de los datos con los que fueron entrenados.</p>
+
+          <div class="ia-risk-solution">
+            <svg class="ia-risk-icon-shield" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <div>
+              <strong>Nuestra soluci&oacute;n:</strong> Auditamos y ajustamos los modelos para garantizar resultados &eacute;ticos y justos.
+            </div>
+          </div>
+        </div>
+
+        <!-- Riesgo 4: Costes Ocultos -->
+        <div class="ia-risk-card">
+          <div class="ia-risk-header">
+            <svg class="ia-risk-icon-warning" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+              <line x1="12" y1="9" x2="12" y2="13"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            <h3 class="ia-risk-title">Costes Ocultos</h3>
+          </div>
+          <p class="ia-risk-description">El uso intensivo de APIs de IA puede generar costes inesperados.</p>
+
+          <div class="ia-risk-solution">
+            <svg class="ia-risk-icon-shield" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <div>
+              <strong>Nuestra soluci&oacute;n:</strong> Optimizamos el uso y establecemos l&iacute;mites de gasto claros desde el inicio.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <p style="color:#666;font-size:14px;margin:24px auto 0;max-width:800px;text-align:center;">
+    ¿Quieres formar a tu equipo? Consulta nuestra
+    <a href="/formacion-ia-empresas/" style="color:#F5A623;text-decoration:underline;">formación en IA para empresas</a>.
+    También implementamos <a href="/automatizaciones-con-ia/" style="color:#F5A623;text-decoration:underline;">automatizaciones inteligentes</a>
+    con n8n y Make para optimizar tus procesos.
+  </p>
+
+  <!-- SECCION FAQ IA -->
+  <section class="ia-faq-section">
+    <div class="ia-faq-container">
+      <!-- Encabezado -->
+      <div class="ia-faq-header">
+        <h2 class="ia-faq-title">Preguntas Frecuentes sobre IA</h2>
+        <p class="ia-faq-subtitle">Resolvemos las dudas m&aacute;s comunes sobre la implementaci&oacute;n de Inteligencia Artificial en empresas de Gij&oacute;n y Asturias.</p>
+      </div>
+
+      <!-- Acorde&oacute;n de preguntas -->
+      <div class="ia-faq-accordion">
+        <!-- Pregunta 1 -->
+        <div class="ia-faq-item">
+          <button class="ia-faq-question" onclick="toggleFAQ(this)">
+            <svg class="ia-faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            <span>&iquest;Cu&aacute;l es la mejor IA gratuita para empezar?</span>
+            <svg class="ia-faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="ia-faq-answer">
+            <p>ChatGPT en su versi&oacute;n gratuita es ideal para comenzar. Tambi&eacute;n puedes usar Google Gemini o Claude AI con planes gratuitos limitados. Para empresas en Gij&oacute;n, recomendamos empezar con estas herramientas antes de invertir en soluciones m&aacute;s avanzadas.</p>
+          </div>
+        </div>
+
+        <!-- Pregunta 2 -->
+        <div class="ia-faq-item">
+          <button class="ia-faq-question" onclick="toggleFAQ(this)">
+            <svg class="ia-faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            <span>&iquest;Cu&aacute;nto cuesta implementar IA en una empresa peque&ntilde;a?</span>
+            <svg class="ia-faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="ia-faq-answer">
+            <p>Para una PYME en Gij&oacute;n, una implementaci&oacute;n b&aacute;sica puede costar entre 500&euro; y 2.000&euro;, incluyendo consultor&iacute;a, configuraci&oacute;n y formaci&oacute;n. Soluciones m&aacute;s complejas con desarrollo a medida pueden oscilar entre 3.000&euro; y 15.000&euro;.</p>
+          </div>
+        </div>
+
+        <!-- Pregunta 3 -->
+        <div class="ia-faq-item">
+          <button class="ia-faq-question" onclick="toggleFAQ(this)">
+            <svg class="ia-faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            <span>&iquest;Qu&eacute; empresas de Gij&oacute;n ya usan IA?</span>
+            <svg class="ia-faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="ia-faq-answer">
+            <p>Muchas empresas asturianas ya utilizan IA: desde hoteles con chatbots de reservas, hasta industrias con mantenimiento predictivo. El tejido empresarial de Gij&oacute;n est&aacute; adoptando estas tecnolog&iacute;as para competir a nivel nacional e internacional.</p>
+          </div>
+        </div>
+
+        <!-- Pregunta 4 -->
+        <div class="ia-faq-item">
+          <button class="ia-faq-question" onclick="toggleFAQ(this)">
+            <svg class="ia-faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            <span>&iquest;Necesito conocimientos t&eacute;cnicos para usar IA en mi negocio?</span>
+            <svg class="ia-faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="ia-faq-answer">
+            <p>No necesariamente. Muchas herramientas de IA actuales son muy accesibles. Nosotros nos encargamos de la parte t&eacute;cnica y te formamos para que puedas aprovechar al m&aacute;ximo las soluciones implementadas.</p>
+          </div>
+        </div>
+
+        <!-- Pregunta 5 -->
+        <div class="ia-faq-item">
+          <button class="ia-faq-question" onclick="toggleFAQ(this)">
+            <svg class="ia-faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            <span>&iquest;Cu&aacute;nto tiempo lleva implementar una soluci&oacute;n de IA?</span>
+            <svg class="ia-faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="ia-faq-answer">
+            <p>Depende de la complejidad. Un chatbot b&aacute;sico puede estar funcionando en 1-2 semanas. Proyectos de automatizaci&oacute;n m&aacute;s complejos pueden requerir 1-3 meses. Siempre comenzamos con un diagn&oacute;stico para establecer plazos realistas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JavaScript para el acordeon -->
+  <script>
+  function toggleFAQ(button) {
+      const item = button.parentElement;
+      const answer = item.querySelector('.ia-faq-answer');
+
+      // Cerrar otros items abiertos
+      document.querySelectorAll('.ia-faq-item').forEach(otherItem => {
+          if (otherItem !== item && otherItem.classList.contains('active')) {
+              otherItem.classList.remove('active');
+              otherItem.querySelector('.ia-faq-answer').style.maxHeight = null;
+          }
+      });
+
+      // Toggle del item actual
+      item.classList.toggle('active');
+
+      if (item.classList.contains('active')) {
+          answer.style.maxHeight = 'none';
+          const height = answer.scrollHeight;
+          answer.style.maxHeight = height + 'px';
+      } else {
+          answer.style.maxHeight = null;
+      }
+  }
+  </script>
+
+  <style is:global>
+  /* =============================================
+     IA PAGE - INTELIGENCIA ARTIFICIAL PARA EMPRESAS
+     Estilos globales para la pagina de IA
+     ============================================= */
+
+  /* --- HERO SECTION --- */
+  .ia-hero-section {
+    position: relative;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0f0f1a 100%);
+    padding: 100px 20px 80px;
+    overflow: hidden;
+  }
+  .ia-hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255,107,53,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .ia-hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(99,102,241,0.06) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .ia-hero-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .ia-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,107,53,0.1);
+    border: 1px solid rgba(255,107,53,0.25);
+    color: #ff6b35;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 28px;
+  }
+  .ia-badge svg {
+    flex-shrink: 0;
+  }
+  .ia-hero-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1.15;
+    color: #ffffff;
+    margin: 0 0 20px;
+    letter-spacing: -0.02em;
+  }
+  .ia-hero-description {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.65);
+    max-width: 680px;
+    margin: 0 auto 36px;
+  }
+  .ia-hero-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .ia-btn-primary {
+    display: inline-block;
+    background: #ff6b35;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 14px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.25s, transform 0.2s;
+  }
+  .ia-btn-primary:hover {
+    background: #e55a2b;
+    transform: translateY(-2px);
+  }
+  .ia-btn-secondary {
+    display: inline-block;
+    background: transparent;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 14px 32px;
+    border-radius: 8px;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    text-decoration: none;
+    transition: border-color 0.25s, background 0.25s;
+  }
+  .ia-btn-secondary:hover {
+    border-color: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.05);
+  }
+
+  /* --- BENEFITS SECTION --- */
+  .ia-benefits-section {
+    background: #0f0f1a;
+    padding: 80px 20px;
+  }
+  .ia-benefits-container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .ia-benefits-header {
+    text-align: center;
+    margin-bottom: 52px;
+  }
+  .ia-benefits-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 14px;
+  }
+  .ia-benefits-subtitle {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.6);
+    max-width: 650px;
+    margin: 0 auto;
+  }
+  .ia-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 24px;
+  }
+  .ia-benefit-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 14px;
+    padding: 32px 24px;
+    text-align: center;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .ia-benefit-card:hover {
+    border-color: rgba(255,107,53,0.3);
+    transform: translateY(-4px);
+  }
+  .ia-benefit-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: rgba(255,107,53,0.1);
+    color: #ff6b35;
+    margin-bottom: 18px;
+  }
+  .ia-benefit-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 10px;
+  }
+  .ia-benefit-description {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.55);
+    margin: 0;
+  }
+
+  /* --- SERVICES SECTION --- */
+  .ia-services-section {
+    background: #0a0a0a;
+    padding: 80px 20px;
+  }
+  .ia-services-container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .ia-services-header {
+    text-align: center;
+    margin-bottom: 52px;
+  }
+  .ia-services-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 14px;
+  }
+  .ia-services-subtitle {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.6);
+    max-width: 650px;
+    margin: 0 auto;
+  }
+  .ia-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .ia-service-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 14px;
+    padding: 28px;
+    transition: border-color 0.3s;
+  }
+  .ia-service-card:hover {
+    border-color: rgba(255,107,53,0.25);
+  }
+  .ia-service-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+  .ia-service-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(99,102,241,0.1);
+    color: #818cf8;
+    flex-shrink: 0;
+  }
+  .ia-service-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 6px;
+  }
+  .ia-service-description {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.55);
+    margin: 0;
+  }
+  .ia-service-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .ia-service-features li {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.7);
+    background: rgba(255,255,255,0.05);
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* --- COMPARISON TABLE SECTION --- */
+  .ia-comparison-section {
+    background: #0f0f1a;
+    padding: 80px 20px;
+  }
+  .ia-comparison-container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .ia-comparison-header {
+    text-align: center;
+    margin-bottom: 44px;
+  }
+  .ia-comparison-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 14px;
+  }
+  .ia-comparison-subtitle {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.6);
+    max-width: 650px;
+    margin: 0 auto;
+  }
+  .ia-comparison-table-wrapper {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .ia-comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255,255,255,0.02);
+  }
+  .ia-comparison-table th {
+    background: rgba(255,255,255,0.04);
+    color: rgba(255,255,255,0.7);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 16px 18px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .ia-comparison-table td {
+    padding: 14px 18px;
+    color: rgba(255,255,255,0.75);
+    font-size: 0.92rem;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .ia-comparison-table tr:last-child td {
+    border-bottom: none;
+  }
+  .ia-comparison-table td strong {
+    color: #ffffff;
+  }
+  .ia-tag {
+    display: inline-block;
+    background: rgba(99,102,241,0.12);
+    color: #a5b4fc;
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 6px;
+  }
+  .ia-comparison-cta {
+    margin-top: 28px;
+    text-align: center;
+    background: rgba(255,107,53,0.06);
+    border: 1px solid rgba(255,107,53,0.15);
+    border-radius: 12px;
+    padding: 20px 24px;
+  }
+  .ia-comparison-cta p {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.6;
+  }
+  .ia-comparison-cta strong {
+    color: #ff6b35;
+  }
+
+  /* --- RISKS SECTION --- */
+  .ia-risks-section {
+    background: #0a0a0a;
+    padding: 80px 20px;
+  }
+  .ia-risks-container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .ia-risks-header {
+    text-align: center;
+    margin-bottom: 52px;
+  }
+  .ia-risks-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 14px;
+  }
+  .ia-risks-subtitle {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.6);
+    max-width: 650px;
+    margin: 0 auto;
+  }
+  .ia-risks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .ia-risk-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 14px;
+    padding: 28px;
+    transition: border-color 0.3s;
+  }
+  .ia-risk-card:hover {
+    border-color: rgba(239,68,68,0.25);
+  }
+  .ia-risk-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .ia-risk-icon-warning {
+    color: #ef4444;
+    flex-shrink: 0;
+  }
+  .ia-risk-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+  }
+  .ia-risk-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.55);
+    margin: 0 0 16px;
+  }
+  .ia-risk-solution {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: rgba(34,197,94,0.06);
+    border: 1px solid rgba(34,197,94,0.15);
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 0.87rem;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.65);
+  }
+  .ia-risk-icon-shield {
+    color: #22c55e;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .ia-risk-solution strong {
+    color: #22c55e;
+  }
+
+  /* --- FAQ SECTION --- */
+  .ia-faq-section {
+    background: #0f0f1a;
+    padding: 80px 20px;
+  }
+  .ia-faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .ia-faq-header {
+    text-align: center;
+    margin-bottom: 44px;
+  }
+  .ia-faq-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 14px;
+  }
+  .ia-faq-subtitle {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.6);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .ia-faq-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .ia-faq-item {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .ia-faq-item.active {
+    border-color: rgba(255,107,53,0.25);
+  }
+  .ia-faq-question {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 18px 20px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: #ffffff;
+    font-family: inherit;
+    transition: background 0.2s;
+  }
+  .ia-faq-question:hover {
+    background: rgba(255,255,255,0.03);
+  }
+  .ia-faq-icon {
+    color: #ff6b35;
+    flex-shrink: 0;
+  }
+  .ia-faq-chevron {
+    color: rgba(255,255,255,0.4);
+    margin-left: auto;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+  }
+  .ia-faq-item.active .ia-faq-chevron {
+    transform: rotate(180deg);
+  }
+  .ia-faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+  .ia-faq-item.active .ia-faq-answer {
+    max-height: 500px;
+  }
+  .ia-faq-answer p {
+    padding: 0 20px 18px;
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* --- RESPONSIVE --- */
+  @media (max-width: 768px) {
+    .ia-hero-title {
+      font-size: 1.8rem;
+    }
+    .ia-hero-description {
+      font-size: 1rem;
+    }
+    .ia-hero-section {
+      padding: 70px 18px 60px;
+    }
+    .ia-benefits-section,
+    .ia-services-section,
+    .ia-comparison-section,
+    .ia-risks-section,
+    .ia-faq-section {
+      padding: 60px 18px;
+    }
+    .ia-benefits-title,
+    .ia-services-title,
+    .ia-comparison-title,
+    .ia-risks-title,
+    .ia-faq-title {
+      font-size: 1.5rem;
+    }
+    .ia-benefits-grid {
+      grid-template-columns: 1fr;
+    }
+    .ia-services-grid,
+    .ia-risks-grid {
+      grid-template-columns: 1fr;
+    }
+    .ia-comparison-table th,
+    .ia-comparison-table td {
+      padding: 12px 14px;
+      font-size: 0.82rem;
+    }
+    .ia-faq-question {
+      font-size: 0.9rem;
+      padding: 14px 16px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .ia-hero-title {
+      font-size: 1.5rem;
+    }
+    .ia-hero-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    .ia-btn-primary,
+    .ia-btn-secondary {
+      width: 100%;
+      max-width: 320px;
+      text-align: center;
+    }
+  }
+  </style>
+</BaseLayout>

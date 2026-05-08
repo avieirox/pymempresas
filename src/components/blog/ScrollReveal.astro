@@ -1,0 +1,59 @@
+---
+interface Props {
+  direction?: 'up' | 'left' | 'right';
+  threshold?: number;
+  rootMargin?: string;
+  class?: string;
+}
+
+const {
+  direction = 'up',
+  threshold = 0.15,
+  rootMargin = '0px 0px -50px 0px',
+  class: extraClass = '',
+} = Astro.props;
+
+const dirMap = {
+  up: 'translateY(30px)',
+  left: 'translateX(-30px)',
+  right: 'translateX(30px)',
+};
+const initialTransform = dirMap[direction];
+---
+
+<div
+  class={`scroll-reveal ${extraClass}`}
+  style={`transform: ${initialTransform};`}
+  data-threshold={String(threshold)}
+  data-root-margin={rootMargin}
+>
+  <slot />
+</div>
+
+<script>
+  function setupScrollReveal() {
+    const elements = document.querySelectorAll('.scroll-reveal:not(.revealed)');
+    if (!elements.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: parseFloat(elements[0].getAttribute('data-threshold') || '0.15'),
+        rootMargin: elements[0].getAttribute('data-root-margin') || '0px 0px -50px 0px',
+      }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+  }
+
+  // Run on load + after Astro page transitions
+  document.addEventListener('astro:page-load', setupScrollReveal);
+  setupScrollReveal();
+</script>
