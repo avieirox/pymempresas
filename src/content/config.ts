@@ -10,7 +10,7 @@ const serviciosCollection = defineCollection({
     heroCtaHref: z.string().default('/consultoria/'),
     badge: z.string().optional(),
     heroChecks: z.array(z.string()).optional(),
-    heroBgImage: z.string().default('/images/hero-bg-DF654TP8.jpg'),
+    heroBgImage: z.string().default('/images/hero-bg-DF654TP8.webp'),
     features: z.array(
       z.object({
         title: z.string(),
