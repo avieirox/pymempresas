@@ -42,10 +42,27 @@ const blogSchema = isBlog ? {
   '@graph': [
     {
       '@type': 'BlogPosting',
+      '@id': `${SITE.url}/${entry.slug}/#article`,
       headline: data.title,
       description: data.description,
+      image: data.image ? `${SITE.url}${data.image}` : undefined,
       datePublished: data.date?.toISOString(),
-      author: { '@type': 'Organization', name: data.author },
+      dateModified: data.date?.toISOString(),
+      author: {
+        '@type': 'Person',
+        name: data.author,
+        ...(data.authorLinkedin ? { sameAs: data.authorLinkedin } : {}),
+        ...(data.authorImage ? { image: `${SITE.url}${data.authorImage}` } : {}),
+        ...(data.authorBio ? { description: data.authorBio } : {}),
+      },
+      publisher: {
+        '@type': 'Organization',
+        '@id': `${SITE.url}/#business`,
+        name: SITE.name,
+        url: SITE.url,
+        logo: { '@type': 'ImageObject', url: `${SITE.url}/images/logo-header.webp` },
+      },
+      mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE.url}/${entry.slug}/` },
     },
     {
       '@type': 'BreadcrumbList',
@@ -65,7 +82,34 @@ const serviceSchema = !isBlog ? {
     {
       '@type': 'Service',
       name: data.title,
-      provider: { '@type': 'LocalBusiness', name: SITE.name },
+      provider: {
+        '@type': 'ProfessionalService',
+        '@id': `${SITE.url}/#business`,
+        name: SITE.name,
+        url: SITE.url,
+        logo: `${SITE.url}/images/logo-header.webp`,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: 'C. Rodríguez San Pedro, 1, Centro',
+          addressLocality: 'Gijón',
+          addressRegion: 'Asturias',
+          postalCode: '33206',
+          addressCountry: 'ES',
+        },
+        telephone: '+34-697-71-13-44',
+        email: 'info@pymempresas.com',
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: 43.54124,
+          longitude: -5.66205,
+        },
+        areaServed: [
+          { '@type': 'City', name: 'Gijón' },
+          { '@type': 'City', name: 'Oviedo' },
+          { '@type': 'City', name: 'Avilés' },
+          { '@type': 'State', name: 'Asturias' },
+        ],
+      },
       description: data.description,
       areaServed: { '@type': 'City', name: 'Gijón' },
       ...(data.faq && {

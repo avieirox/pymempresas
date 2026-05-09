@@ -9,14 +9,14 @@ export const GET: APIRoute = async ({ site }) => {
     { url: '', lastmod: '2026-05-06' },
     { url: 'consultoria/', lastmod: '2026-05-06' },
     { url: 'contacto/', lastmod: '2026-05-06' },
-    { url: 'politica-privacidad/', lastmod: '2026-05-06' },
-    { url: 'aviso-legal/', lastmod: '2026-05-06' },
     { url: 'blog/', lastmod: '2026-05-06' },
   ];
 
   const servicioEntries = servicios.map((s) => ({
     url: `${s.slug}/`,
-    lastmod: '2026-05-06',
+    lastmod: s.data.updatedAt
+      ? new Date(s.data.updatedAt).toISOString().split('T')[0]
+      : '2026-05-06',
   }));
 
   const blogEntries = blogPosts.map((p) => {

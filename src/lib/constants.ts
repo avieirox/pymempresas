@@ -10,7 +10,7 @@ export const SITE = {
 
 export const CONTACT = {
   email: 'info@pymempresas.com',
-  phone: '+34 684 62 00 40',
+  phone: '+34 697 71 13 44',
   address: 'Spaces Coworking, C. Rodríguez San Pedro, 1, Centro, 33206 Gijón, Asturias',
   hours: 'Lun–Vie 9:00–18:00',
 } as const;
@@ -52,7 +52,6 @@ export const FOOTER_SERVICES = [
 export const FOOTER_LEGAL = [
   { label: 'Aviso Legal', href: '/aviso-legal/' },
   { label: 'Política de Privacidad', href: '/politica-privacidad/' },
-  { label: 'Política de Cookies', href: '/politica-privacidad/' },
 ] as const;
 
 export const WHY_CHOOSE_US = [

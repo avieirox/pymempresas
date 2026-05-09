@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit — pymempresas.com</title>
+<style>
+  :root {
+    --bg: #0A0A0A;
+    --surface: #141414;
+    --surface2: #1E1E1E;
+    --border: #2A2A2A;
+    --text: #E5E5E5;
+    --text2: #A0A0A0;
+    --orange: #F5A623;
+    --red: #E74C3C;
+    --yellow: #F39C12;
+    --green: #27AE60;
+    --blue: #3498DB;
+    --radius: 10px;
+  }
+  * { margin:0; padding:0; box-sizing:border-box }
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px }
+
+  /* Header */
+  .header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 32px 0;
+    position: sticky; top:0; z-index:100;
+  }
+  .header h1 { font-size: 1.8rem; color: #fff }
+  .header .sub { color: var(--text2); font-size: .9rem; margin-top:4px }
+  .header .badge {
+    display: inline-block; padding: 4px 12px; border-radius: 20px;
+    font-size: .75rem; font-weight: 600; margin-right: 8px;
+    background: var(--surface2); border: 1px solid var(--border);
+  }
+
+  /* Score ring */
+  .score-hero {
+    display: flex; align-items: center; gap: 48px; padding: 40px 0;
+    flex-wrap: wrap;
+  }
+  .ring-wrap { position: relative; width: 180px; height: 180px; flex-shrink:0 }
+  .ring-wrap svg { transform: rotate(-90deg) }
+  .ring-bg { fill:none; stroke:var(--surface2); stroke-width:12 }
+  .ring-fg { fill:none; stroke:var(--orange); stroke-width:12; stroke-linecap:round;
+    stroke-dasharray: 440; transition: stroke-dashoffset 1s ease }
+  .ring-text {
+    position: absolute; inset:0; display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+  }
+  .ring-text .big { font-size: 3rem; font-weight:800; color:#fff; line-height:1 }
+  .ring-text .small { font-size: .8rem; color: var(--text2) }
+  .quick-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap:16px; flex:1 }
+  .stat-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 16px;
+  }
+  .stat-card .label { font-size: .75rem; color: var(--text2); text-transform: uppercase; letter-spacing: .5px }
+  .stat-card .value { font-size: 1.5rem; font-weight: 700; color: #fff }
+
+  /* Score bar */
+  .score-bar { display:flex; height:8px; border-radius:4px; overflow:hidden; margin:12px 0 }
+  .score-bar span { height:100% }
+  .score-row {
+    display:flex; align-items:center; gap:12px; padding:6px 0;
+    font-size:.9rem;
+  }
+  .score-row .name { flex:0 0 180px; color: var(--text2) }
+  .score-row .bar-wrap { flex:1; background:var(--surface2); border-radius:3px; height:20px; overflow:hidden }
+  .score-row .bar-fill { height:100%; border-radius:3px; transition: width .6s ease }
+  .score-row .num { flex:0 0 48px; text-align:right; font-weight:700; font-size:1rem }
+
+  /* Section */
+  .section { padding: 40px 0; border-bottom: 1px solid var(--border) }
+  .section h2 { font-size: 1.3rem; color: #fff; margin-bottom: 20px; display:flex; align-items:center; gap:10px }
+  .section h3 { font-size: 1rem; color: #fff; margin: 24px 0 12px }
+  .section h4 { color: var(--text2); font-size: .8rem; text-transform: uppercase; letter-spacing: .5px; margin: 20px 0 8px }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; font-size: .88rem; margin: 12px 0 }
+  th { text-align: left; padding: 10px 12px; background: var(--surface); color: var(--text2);
+    font-size: .75rem; text-transform: uppercase; letter-spacing: .5px; border-bottom: 1px solid var(--border) }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top }
+  tr:hover td { background: rgba(255,255,255,.02) }
+
+  /* Severity tags */
+  .tag {
+    display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: .72rem;
+    font-weight: 700; text-transform: uppercase; letter-spacing: .3px;
+  }
+  .tag-crit { background: rgba(231,76,60,.18); color: var(--red) }
+  .tag-high { background: rgba(243,156,18,.18); color: var(--yellow) }
+  .tag-med  { background: rgba(52,152,219,.18); color: var(--blue) }
+  .tag-low  { background: rgba(160,160,160,.15); color: var(--text2) }
+  .tag-pass { background: rgba(39,174,96,.15); color: var(--green) }
+  .tag-fail { background: rgba(231,76,60,.15); color: var(--red) }
+  .tag-miss { background: rgba(231,76,60,.18); color: var(--red) }
+
+  /* Filters */
+  .filters { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px }
+  .filters button {
+    padding: 6px 16px; border-radius: 20px; font-size: .8rem; cursor: pointer;
+    border: 1px solid var(--border); background: var(--surface); color: var(--text2);
+    transition: all .15s;
+  }
+  .filters button:hover { border-color: var(--orange); color: #fff }
+  .filters button.active { background: var(--orange); color: #000; border-color: var(--orange); font-weight:600 }
+
+  /* E-E-A-T rings */
+  .eeat-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px }
+  .eeat-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:20px; text-align:center }
+  .eeat-card .mini-ring { width:80px; height:80px; margin:0 auto 12px; position:relative }
+  .eeat-card .mini-ring svg { transform:rotate(-90deg) }
+  .eeat-card .mini-ring .val { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.1rem; color:#fff }
+  .eeat-card h4 { margin:0 0 6px; color:#fff; font-size:.9rem }
+  .eeat-card p { font-size:.78rem; color:var(--text2); margin:0 }
+
+  /* Action items */
+  .action-group { margin-bottom: 32px }
+  .action-group h3 { display:flex; align-items:center; gap:8px; margin-bottom:12px }
+  .action-group h3 .count { font-size:.78rem; color:var(--text2); font-weight:400 }
+  .action-item {
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+    padding:16px 20px; margin-bottom:8px; position:relative; padding-left:48px;
+  }
+  .action-item .idx {
+    position:absolute; left:16px; top:16px; width:22px; height:22px; border-radius:50%;
+    background:var(--surface2); display:flex; align-items:center; justify-content:center;
+    font-size:.7rem; font-weight:700; color:var(--text2);
+  }
+  .action-item .effort { font-size:.75rem; color:var(--text2); margin-left:8px }
+  .action-item .impact { font-size:.82rem; color:#fff; margin:4px 0 }
+  .action-item code { background:var(--surface2); padding:2px 6px; border-radius:3px; font-size:.8rem; color:var(--orange) }
+  .action-item pre { background:var(--bg); padding:12px; border-radius:6px; overflow-x:auto; margin:8px 0; font-size:.78rem; border:1px solid var(--border) }
+
+  /* Summary bar */
+  .summary-bar { display:flex; gap:16px; flex-wrap:wrap; margin:24px 0 }
+  .summary-item { flex:1; min-width:140px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:16px; text-align:center }
+  .summary-item .num { font-size:2rem; font-weight:800; color:#fff }
+  .summary-item .lbl { font-size:.75rem; color:var(--text2); margin-top:4px }
+
+  .warn-box {
+    background:rgba(231,76,60,.08); border:1px solid rgba(231,76,60,.3);
+    border-radius:var(--radius); padding:16px 20px; margin:12px 0;
+  }
+  .warn-box strong { color:var(--red) }
+
+  /* Responsive */
+  @media(max-width:768px) {
+    .score-hero { flex-direction:column; align-items:flex-start; gap:24px }
+    .ring-wrap { width:140px; height:140px }
+    .ring-text .big { font-size:2.4rem }
+    .score-row .name { flex:0 0 120px; font-size:.8rem }
+  }
+
+  .toc { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px }
+  .toc a { color:var(--text2); text-decoration:none; font-size:.82rem; padding:4px 12px; border-radius:16px; border:1px solid var(--border); transition:all .15s }
+  .toc a:hover { color:#fff; border-color:var(--orange) }
+
+  .flex-gap { display:flex; gap:16px; flex-wrap:wrap }
+  .flex-gap > * { flex:1; min-width:280px }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="container">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px">
+      <div>
+        <h1>SEO Audit Report</h1>
+        <div class="sub">
+          <span>pymempresas.com</span> &middot;
+          <span>2026-05-09</span> &middot;
+          <span>16 pages crawled</span>
+        </div>
+        <div style="margin-top:10px">
+          <span class="badge">Local Service</span>
+          <span class="badge">Hybrid: B&M + SAB</span>
+          <span class="badge">Gijón, Asturias</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- SCORE HERO -->
+  <div class="score-hero">
+    <div class="ring-wrap">
+      <svg width="180" height="180" viewBox="0 0 180 180">
+        <circle class="ring-bg" cx="90" cy="90" r="70"/>
+        <circle class="ring-fg" cx="90" cy="90" r="70"
+          stroke-dashoffset="167"/>
+      </svg>
+      <div class="ring-text">
+        <span class="big">62</span>
+        <span class="small">/100</span>
+      </div>
+    </div>
+    <div class="quick-stats">
+      <div class="stat-card"><div class="label">Critical Issues</div><div class="value" style="color:var(--red)">5</div></div>
+      <div class="stat-card"><div class="label">High Priority</div><div class="value" style="color:var(--yellow)">7</div></div>
+      <div class="stat-card"><div class="label">Medium</div><div class="value" style="color:var(--blue)">11</div></div>
+      <div class="stat-card"><div class="label">Low / Backlog</div><div class="value" style="color:var(--text2)">7</div></div>
+      <div class="stat-card"><div class="label">Est. Total Effort</div><div class="value">~28h</div></div>
+      <div class="stat-card"><div class="label">Quickest Win</div><div class="value" style="font-size:1rem">5 fixes &lt;30min</div></div>
+    </div>
+  </div>
+
+  <!-- CATEGORY SCORES -->
+  <div class="section" style="padding-top:0">
+    <h2>Category Breakdown</h2>
+    <div class="score-row">
+      <span class="name">Performance (CWV)</span>
+      <div class="bar-wrap"><div class="bar-fill" style="width:92%;background:var(--green)"></div></div>
+      <span class="num" style="color:var(--green)">92</span>
+    </div>
+    <div class="score-row">
+      <span class="name">Images</span>
+      <div class="bar-wrap"><div class="bar-fill" style="width:70%;background:var(--blue)"></div></div>
+      <span class="num" style="color:var(--blue)">70</span>
+    </div>
+    <div class="score-row">
+      <span class="name">Technical SEO</span>
+      <div class="bar-wrap"><div class="bar-fill" style="width:68%;background:var(--blue)"></div></div>
+      <span class="num" style="color:var(--blue)">68</span>
+    </div>
+    <div class="score-row">
+      <span class="name">Schema / Structured Data</span>
+      <div class="bar-wrap"><div class="bar-fill" style="width:65%;background:var(--yellow)"></div></div>
+      <span class="num" style="color:var(--yellow)">65</span>
+    </div>
+    <div class="score-row">
+      <span class="name">Content Quality</span>
+      <div class="bar-wrap"><div class="bar-fill" style="width:58%;background:var(--yellow)"></div></div>
+      <span class="num" style="color:var(--yellow)">58</span>
+    </div>
+    <div class="score-row">
+      <span class="name">On-Page SEO</span>
+      <div class="bar-wrap"><div class="bar-fill" style="width:55%;background:var(--yellow)"></div></div>
+      <span class="num" style="color:var(--yellow)">55</span>
+    </div>
+    <div class="score-row">
+      <span class="name">AI Search Readiness</span>
+      <div class="bar-wrap"><div class="bar-fill" style="width:55%;background:var(--yellow)"></div></div>
+      <span class="num" style="color:var(--yellow)">55</span>
+    </div>
+    <div class="score-row">
+      <span class="name">Local SEO</span>
+      <div class="bar-wrap"><div class="bar-fill" style="width:45%;background:var(--red)"></div></div>
+      <span class="num" style="color:var(--red)">45</span>
+    </div>
+  </div>
+
+  <!-- TOC -->
+  <div class="section" style="padding:20px 0">
+    <div class="toc">
+      <a href="#critical">Critical Issues</a>
+      <a href="#technical">Technical SEO</a>
+      <a href="#content">Content Quality</a>
+      <a href="#onpage">On-Page SEO</a>
+      <a href="#schema">Schema</a>
+      <a href="#performance">Performance</a>
+      <a href="#images">Images</a>
+      <a href="#geo">AI/GEO</a>
+      <a href="#local">Local SEO</a>
+      <a href="#actions">Action Plan</a>
+    </div>
+  </div>
+
+  <!-- CRITICAL ISSUES -->
+  <div class="section" id="critical">
+    <h2>Top 5 Critical Issues</h2>
+    <div class="warn-box">
+      <strong>These issues block indexing or cause penalties. Fix immediately.</strong>
+    </div>
+    <table>
+      <tr><th>#</th><th>Issue</th><th>Impact</th><th>Fix</th></tr>
+      <tr>
+        <td>1</td>
+        <td><strong>www vs non-www duplicate</strong><br><span style="color:var(--text2)">Both www.pymempresas.com and pymempresas.com return 200. No redirect.</span></td>
+        <td>Splits link equity, duplicate content</td>
+        <td>Add 301 redirect in <code>.htaccess</code></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><strong>Gijón / Oviedo duplicate content</strong><br><span style="color:var(--text2)">~80% identical across city landing pages.</span></td>
+        <td>Doorway page penalty risk</td>
+        <td>Add unique local case studies, market data, testimonials per city</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><strong>NAP phone discrepancy</strong><br><span style="color:var(--text2)">Contact page shows +34 697 711 344 and +34 684 62 00 40.</span></td>
+        <td>#1 local ranking factor violated</td>
+        <td>Use only +34 684 62 00 40</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><strong>Two different GBP share links</strong><br><span style="color:var(--text2)">Schema sameAs ≠ visible page link.</span></td>
+        <td>Weakens entity identity</td>
+        <td>Audit both, keep active one, remove stale</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td><strong>Zero security headers</strong><br><span style="color:var(--text2)">No HSTS, X-Frame-Options, X-Content-Type-Options, CSP, Referrer-Policy.</span></td>
+        <td>Clickjacking/MIME-sniffing vulnerability</td>
+        <td>Add 4 headers in <code>.htaccess</code></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- QUICK WINS -->
+  <div class="section">
+    <h2>Top 5 Quick Wins <span style="font-size:.78rem;color:var(--green);font-weight:400"> — under 30 minutes total</span></h2>
+    <table>
+      <tr><th>#</th><th>Task</th><th>Effort</th></tr>
+      <tr><td>1</td><td>Add www → non-www 301 redirect in <code>.htaccess</code></td><td>5 min</td></tr>
+      <tr><td>2</td><td>Fix phone number on /contacto/</td><td>2 min</td></tr>
+      <tr><td>3</td><td>Consolidate GBP share links</td><td>10 min</td></tr>
+      <tr><td>4</td><td>Add security headers in <code>.htaccess</code></td><td>5 min</td></tr>
+      <tr><td>5</td><td>Replace <code>og-default.svg</code> with <code>og-default.jpg</code></td><td>30 min</td></tr>
+    </table>
+  </div>
+
+  <!-- TECHNICAL SEO -->
+  <div class="section" id="technical">
+    <h2>Technical SEO <span class="tag tag-med">68/100</span></h2>
+
+    <h3>Crawlability & Indexability</h3>
+    <table>
+      <tr><th>Check</th><th>Status</th><th>Detail</th></tr>
+      <tr><td>robots.txt</td><td><span class="tag tag-pass">PASS</span></td><td>Allows all, disallows /cdn-cgi/, sitemap declared</td></tr>
+      <tr><td>Sitemap completeness</td><td><span class="tag tag-pass">PASS</span></td><td>16 URLs, all valid, generated from Astro collections</td></tr>
+      <tr><td>www → non-www redirect</td><td><span class="tag tag-crit">CRITICAL</span></td><td>Both resolve 200, no redirect</td></tr>
+      <tr><td>Canonical tags</td><td><span class="tag tag-pass">PASS</span></td><td>Self-referencing canonicals on all pages</td></tr>
+      <tr><td>Meta robots</td><td><span class="tag tag-pass">PASS</span></td><td>index, follow on all content pages</td></tr>
+      <tr><td>Noindex in sitemap</td><td><span class="tag tag-high">HIGH</span></td><td>/aviso-legal/ and /politica-privacidad/ are noindex but in sitemap</td></tr>
+      <tr><td>Custom 404 page</td><td><span class="tag tag-med">MEDIUM</span></td><td>Bare &lt;title&gt;404 Not Found&lt;/title&gt;, no navigation</td></tr>
+      <tr><td>JavaScript dependency</td><td><span class="tag tag-pass">PASS</span></td><td>Static HTML from Astro, zero JS required</td></tr>
+      <tr><td>Page depth</td><td><span class="tag tag-pass">PASS</span></td><td>Max 2 clicks from homepage</td></tr>
+      <tr><td>URL structure</td><td><span class="tag tag-pass">PASS</span></td><td>Consistent trailing slashes, clean paths</td></tr>
+    </table>
+
+    <h3>Security Headers</h3>
+    <table>
+      <tr><th>Header</th><th>Status</th></tr>
+      <tr><td>HSTS</td><td><span class="tag tag-miss">MISSING</span></td></tr>
+      <tr><td>X-Frame-Options</td><td><span class="tag tag-miss">MISSING</span></td></tr>
+      <tr><td>X-Content-Type-Options</td><td><span class="tag tag-miss">MISSING</span></td></tr>
+      <tr><td>CSP</td><td><span class="tag tag-miss">MISSING</span></td></tr>
+      <tr><td>Referrer-Policy</td><td><span class="tag tag-miss">MISSING</span></td></tr>
+    </table>
+
+    <h3>Sitemap Issues</h3>
+    <ul style="color:var(--text2); padding-left:20px; font-size:.9rem">
+      <li>14/16 pages share identical lastmod (2026-05-06) — appears automated</li>
+      <li>All non-homepage pages have uniform priority 0.8 — no differentiation</li>
+      <li>No image sitemap for Google Images discovery</li>
+      <li>/seo-local-empresas-asturias/ lastmod is 2025-01-15 (16 months stale)</li>
+    </ul>
+  </div>
+
+  <!-- CONTENT QUALITY -->
+  <div class="section" id="content">
+    <h2>Content Quality & E-E-A-T <span class="tag tag-med">58/100</span></h2>
+
+    <h3>E-E-A-T Signals</h3>
+    <div class="eeat-grid">
+      <div class="eeat-card">
+        <div class="mini-ring">
+          <svg width="80" height="80" viewBox="0 0 80 80">
+            <circle fill="none" stroke="var(--surface2)" stroke-width="6" cx="40" cy="40" r="32"/>
+            <circle fill="none" stroke="var(--red)" stroke-width="6" cx="40" cy="40" r="32"
+              stroke-dasharray="201" stroke-dashoffset="90" stroke-linecap="round"/>
+          </svg>
+          <div class="val">55</div>
+        </div>
+        <h4>Experience</h4>
+        <p>Claims "10+ years, 150+ projects" but zero case studies, logos, or testimonials</p>
+      </div>
+      <div class="eeat-card">
+        <div class="mini-ring">
+          <svg width="80" height="80" viewBox="0 0 80 80">
+            <circle fill="none" stroke="var(--surface2)" stroke-width="6" cx="40" cy="40" r="32"/>
+            <circle fill="none" stroke="var(--yellow)" stroke-width="6" cx="40" cy="40" r="32"
+              stroke-dasharray="201" stroke-dashoffset="70" stroke-linecap="round"/>
+          </svg>
+          <div class="val">65</div>
+        </div>
+        <h4>Expertise</h4>
+        <p>Blog post shows analytical depth. No certifications or team credentials displayed.</p>
+      </div>
+      <div class="eeat-card">
+        <div class="mini-ring">
+          <svg width="80" height="80" viewBox="0 0 80 80">
+            <circle fill="none" stroke="var(--surface2)" stroke-width="6" cx="40" cy="40" r="32"/>
+            <circle fill="none" stroke="var(--red)" stroke-width="6" cx="40" cy="40" r="32"
+              stroke-dasharray="201" stroke-dashoffset="120" stroke-linecap="round"/>
+          </svg>
+          <div class="val">40</div>
+        </div>
+        <h4>Authoritativeness</h4>
+        <p>17K impressions, 0.01% CTR, positions 55-97. Zero backlinks or media mentions.</p>
+      </div>
+      <div class="eeat-card">
+        <div class="mini-ring">
+          <svg width="80" height="80" viewBox="0 0 80 80">
+            <circle fill="none" stroke="var(--surface2)" stroke-width="6" cx="40" cy="40" r="32"/>
+            <circle fill="none" stroke="var(--yellow)" stroke-width="6" cx="40" cy="40" r="32"
+              stroke-dasharray="201" stroke-dashoffset="70" stroke-linecap="round"/>
+          </svg>
+          <div class="val">65</div>
+        </div>
+        <h4>Trustworthiness</h4>
+        <p>Address, phone, email, legal pages present. Missing: NIF/CIF, office photos, T&C.</p>
+      </div>
+    </div>
+
+    <h3>Content Depth</h3>
+    <table>
+      <tr><th>Page</th><th>Words</th><th>Threshold</th><th>Status</th></tr>
+      <tr><td>Homepage</td><td>~1,080</td><td>500</td><td><span class="tag tag-pass">PASS</span></td></tr>
+      <tr><td>SEO Local Gijón</td><td>~2,250</td><td>800</td><td><span class="tag tag-pass">PASS</span></td></tr>
+      <tr><td>SEO Local Oviedo</td><td>~2,400</td><td>800</td><td><span class="tag tag-pass">PASS</span></td></tr>
+      <tr><td>Diseño Web Gijón</td><td>~2,230</td><td>800</td><td><span class="tag tag-pass">PASS</span></td></tr>
+      <tr><td>IA para Empresas</td><td>~700</td><td>800</td><td><span class="tag tag-fail">FAIL</span> — thin, no FAQ, no pricing</td></tr>
+      <tr><td>Blog: SEO Cost</td><td>~1,500</td><td>1,500</td><td><span class="tag tag-pass">PASS</span></td></tr>
+      <tr><td>Blog: SEO Asturias</td><td>~500</td><td>1,500</td><td><span class="tag tag-fail">FAIL</span> — below minimum</td></tr>
+    </table>
+
+    <div class="warn-box">
+      <strong>CRITICAL: Gijón/Oviedo duplicate content</strong><br>
+      ~80% identical: benefits, expert tasks, "4 types of SEO", pricing, FAQ answers, CTA — all with only city name swapped. Doorway page risk.
+    </div>
+  </div>
+
+  <!-- ON-PAGE SEO -->
+  <div class="section" id="onpage">
+    <h2>On-Page SEO <span class="tag tag-med">55/100</span></h2>
+    <div class="flex-gap">
+      <div>
+        <h4 style="margin-top:0">Strengths</h4>
+        <ul style="color:var(--text2); padding-left:20px; font-size:.88rem">
+          <li>All pages have unique, descriptive title tags</li>
+          <li>Meta descriptions on all pages (150-160 char range)</li>
+          <li>Clean heading hierarchy (H1 → H2 → H3)</li>
+          <li>Consistent service page structure: Hero → What Is → Benefits → Pricing → FAQ → CTA</li>
+          <li>Internal linking strategy documented with GSC keyword data</li>
+          <li>BreadcrumbList schema on most pages</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="margin-top:0">Issues</h4>
+        <table>
+          <tr><th>Issue</th><th>Severity</th></tr>
+          <tr><td>Duplicate city pages (80% overlap)</td><td><span class="tag tag-crit">CRITICAL</span></td></tr>
+          <tr><td>Generic CTA anchor text</td><td><span class="tag tag-med">MEDIUM</span></td></tr>
+          <tr><td>No visible breadcrumbs (JSON-LD only)</td><td><span class="tag tag-low">LOW</span></td></tr>
+          <tr><td>Thin IA page (700 words)</td><td><span class="tag tag-med">MEDIUM</span></td></tr>
+          <tr><td>Missing H1 on blog listing</td><td><span class="tag tag-low">LOW</span></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCHEMA -->
+  <div class="section" id="schema">
+    <h2>Schema & Structured Data <span class="tag tag-med">65/100</span></h2>
+
+    <h3>Current Implementation</h3>
+    <table>
+      <tr><th>Page</th><th>Schema Types</th><th>Status</th></tr>
+      <tr><td>Homepage</td><td>ProfessionalService, WebSite, BreadcrumbList</td><td><span class="tag tag-pass">GOOD</span></td></tr>
+      <tr><td>Service pages (4)</td><td>Service + FAQPage + BreadcrumbList</td><td><span class="tag tag-pass">GOOD</span></td></tr>
+      <tr><td>Google Negocios</td><td>Service + FAQPage</td><td><span class="tag tag-pass">GOOD</span></td></tr>
+      <tr><td>Formación IA</td><td>Organization, LocalBusiness</td><td><span class="tag tag-high">NEEDS FIX</span></td></tr>
+      <tr><td>IA Empresas</td><td>WebSite only</td><td><span class="tag tag-crit">CRITICAL</span></td></tr>
+      <tr><td>Contacto</td><td>ContactPage (minimal)</td><td><span class="tag tag-high">NEEDS FIX</span></td></tr>
+      <tr><td>Consultoría</td><td>Service (minimal)</td><td><span class="tag tag-high">NEEDS FIX</span></td></tr>
+      <tr><td>Blog listing</td><td>Blog</td><td><span class="tag tag-med">NEEDS FIX</span></td></tr>
+      <tr><td>Blog post</td><td>BlogPosting (incomplete)</td><td><span class="tag tag-med">NEEDS FIX</span></td></tr>
+    </table>
+
+    <div class="warn-box">
+      <strong>CRITICAL: Broken @id reference chain.</strong> Service pages reference #organization or #business via provider but those IDs aren't defined on those pages. Dead references.<br>
+      <strong>CRITICAL: IA Empresas has zero page-level schema</strong> — only global WebSite.
+    </div>
+
+    <h4>High-Priority Schema Gaps</h4>
+    <ul style="color:var(--text2); padding-left:20px; font-size:.88rem">
+      <li>Blog post missing @id, image, publisher, mainEntityOfPage</li>
+      <li>sameAs incomplete — only GBP link, no social profiles</li>
+      <li>Formación IA defines both #organization AND #localbusiness — duplicate identity nodes</li>
+      <li>Homepage OfferCatalog: third entry missing unitText in priceSpecification</li>
+      <li>Relative logo URLs on Formación IA page — must be absolute</li>
+    </ul>
+  </div>
+
+  <!-- PERFORMANCE -->
+  <div class="section" id="performance">
+    <h2>Performance (Core Web Vitals) <span class="tag tag-pass">92/100</span></h2>
+
+    <div class="flex-gap">
+      <div>
+        <h4 style="margin-top:0">Estimated Metrics</h4>
+        <table>
+          <tr><th>Metric</th><th>Estimate</th><th>Rating</th></tr>
+          <tr><td>LCP</td><td>0.8–1.5s</td><td><span class="tag tag-pass">GOOD</span></td></tr>
+          <tr><td>CLS</td><td>~0</td><td><span class="tag tag-pass">GOOD</span></td></tr>
+          <tr><td>INP</td><td>&lt;50ms</td><td><span class="tag tag-pass">GOOD</span></td></tr>
+          <tr><td>TTFB</td><td>~120ms</td><td><span class="tag tag-pass">GOOD</span></td></tr>
+          <tr><td>Lighthouse Desktop</td><td>90–98</td><td><span class="tag tag-pass">GOOD</span></td></tr>
+          <tr><td>Lighthouse Mobile</td><td>85–95</td><td><span class="tag tag-pass">GOOD</span></td></tr>
+        </table>
+      </div>
+      <div>
+        <h4 style="margin-top:0">Strengths</h4>
+        <ul style="color:var(--text2); padding-left:20px; font-size:.88rem">
+          <li>Zero third-party scripts</li>
+          <li>CSS inlined (no external stylesheet requests)</li>
+          <li>Fonts self-hosted in /_astro/</li>
+          <li>Hero image: fetchpriority="high" + loading="eager"</li>
+          <li>All images have width/height — zero CLS</li>
+          <li>Cache: max-age=31536000 on images/fonts</li>
+          <li>HTTP/3 enabled on LiteSpeed</li>
+        </ul>
+      </div>
+    </div>
+
+    <h4>Issues</h4>
+    <table>
+      <tr><th>Issue</th><th>Severity</th></tr>
+      <tr><td>~100KB Tailwind + custom CSS inlined in HTML</td><td><span class="tag tag-high">HIGH</span></td></tr>
+      <tr><td>6 Inter weights × all unicode ranges = ~1.5MB fonts (Spanish only needs Latin)</td><td><span class="tag tag-med">MEDIUM</span></td></tr>
+      <tr><td>101KB uncompressed HTML due to inline CSS</td><td><span class="tag tag-med">MEDIUM</span></td></tr>
+      <tr><td>No &lt;link rel="preload"&gt; for hero image</td><td><span class="tag tag-low">LOW</span></td></tr>
+      <tr><td>~24 unused image files (8.5MB) in public/images/</td><td><span class="tag tag-low">LOW</span></td></tr>
+    </table>
+  </div>
+
+  <!-- IMAGES -->
+  <div class="section" id="images">
+    <h2>Images <span class="tag tag-med">70/100</span></h2>
+    <table>
+      <tr><th>Issue</th><th>Severity</th></tr>
+      <tr><td>OG image is SVG (og-default.svg) — social platforms don't render it</td><td><span class="tag tag-high">HIGH</span></td></tr>
+      <tr><td>Legacy PNGs in build (~8.5MB) not referenced by any page</td><td><span class="tag tag-low">LOW</span></td></tr>
+      <tr><td>No image sitemap — images not declared with &lt;image:image&gt; tags</td><td><span class="tag tag-low">LOW</span></td></tr>
+      <tr><td>Logo file size should be verified (~20KB WebP target per CLAUDE.md)</td><td><span class="tag tag-low">LOW</span></td></tr>
+    </table>
+  </div>
+
+  <!-- GEO / AI -->
+  <div class="section" id="geo">
+    <h2>AI Search Readiness (GEO) <span class="tag tag-med">55/100</span></h2>
+
+    <div class="flex-gap">
+      <div>
+        <h4 style="margin-top:0">Dimension Scores</h4>
+        <table>
+          <tr><th>Dimension</th><th>Score</th></tr>
+          <tr><td>Citability</td><td>46/100</td></tr>
+          <tr><td>Structural Readability</td><td>75/100</td></tr>
+          <tr><td>Multi-Modal Content</td><td>40/100</td></tr>
+          <tr><td>Authority & Brand Signals</td><td>28/100</td></tr>
+          <tr><td>Technical Accessibility</td><td>84/100</td></tr>
+        </table>
+      </div>
+      <div>
+        <h4 style="margin-top:0">Platform Scores</h4>
+        <table>
+          <tr><th>Platform</th><th>Score</th></tr>
+          <tr><td>Google AI Overviews</td><td>45/100</td></tr>
+          <tr><td>ChatGPT</td><td>50/100</td></tr>
+          <tr><td>Perplexity</td><td>35/100</td></tr>
+          <tr><td>Bing Copilot</td><td>45/100</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="warn-box">
+      <strong>Key Gaps:</strong> Statistics without sources (AI citation systems require named sources). No author credentials. Passages too short (30-70 words vs optimal 134-167). No Wikipedia/Reddit/YouTube presence. Only 2 blog posts.
+    </div>
+    <p style="color:var(--green); font-size:.88rem">llms.txt exists and is well-structured. AI crawlers (GPTBot, ClaudeBot, PerplexityBot) implicitly allowed in robots.txt.</p>
+  </div>
+
+  <!-- LOCAL SEO -->
+  <div class="section" id="local">
+    <h2>Local SEO <span class="tag tag-crit">45/100</span></h2>
+
+    <table>
+      <tr><th>Dimension</th><th>Score</th></tr>
+      <tr><td>GBP Signals</td><td>45/100</td></tr>
+      <tr><td>Reviews & Reputation</td><td>15/100</td></tr>
+      <tr><td>Local On-Page SEO</td><td>60/100</td></tr>
+      <tr><td>NAP Consistency & Citations</td><td>50/100</td></tr>
+      <tr><td>Local Schema Markup</td><td>80/100</td></tr>
+      <tr><td>Local Link & Authority Signals</td><td>30/100</td></tr>
+    </table>
+
+    <h4>Critical Local Issues</h4>
+    <ol style="color:var(--text2); padding-left:20px; font-size:.88rem">
+      <li><strong style="color:var(--red)">Phone discrepancy</strong> on /contacto/ — two different numbers</li>
+      <li><strong style="color:var(--red)">Two GBP share links</strong> — schema sameAs ≠ visible link</li>
+      <li><strong style="color:var(--yellow)">Zero social media profiles</strong> anywhere on site</li>
+      <li><strong style="color:var(--yellow)">No reviews or testimonials</strong> — no aggregateRating, no star ratings</li>
+      <li><strong style="color:var(--blue)">No Google Maps embed</strong> despite listing physical address</li>
+    </ol>
+  </div>
+
+  <!-- ACTION PLAN -->
+  <div class="section" id="actions" style="border-bottom:none">
+    <h2>Action Plan — 30 Items</h2>
+
+    <div class="summary-bar">
+      <div class="summary-item"><div class="num" style="color:var(--red)">5</div><div class="lbl">Critical (~5h)</div></div>
+      <div class="summary-item"><div class="num" style="color:var(--yellow)">7</div><div class="lbl">High (~10h)</div></div>
+      <div class="summary-item"><div class="num" style="color:var(--blue)">11</div><div class="lbl">Medium (~8h)</div></div>
+      <div class="summary-item"><div class="num" style="color:var(--text2)">7</div><div class="lbl">Low (~5h+ongoing)</div></div>
+    </div>
+
+    <div class="filters">
+      <button class="active" onclick="filterActions('all')">All</button>
+      <button onclick="filterActions('critical')">Critical</button>
+      <button onclick="filterActions('high')">High</button>
+      <button onclick="filterActions('medium')">Medium</button>
+      <button onclick="filterActions('low')">Low</button>
+    </div>
+
+    <!-- CRITICAL -->
+    <div class="action-group" data-priority="critical">
+      <h3 style="color:var(--red)">CRITICAL — Fix Immediately <span class="count">5 items · ~5 hours</span></h3>
+
+      <div class="action-item" data-priority="critical">
+        <div class="idx">1</div>
+        <div class="impact"><strong>Add www → non-www 301 redirect</strong> <span class="effort">5 min</span></div>
+        <div style="color:var(--text2);font-size:.84rem">Prevents duplicate content, consolidates link equity. Both www and non-www currently return 200.</div>
+        <pre>RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.pymempresas\.com [NC]
+RewriteRule ^(.*)$ https://pymempresas.com/$1 [L,R=301]</pre>
+      </div>
+
+      <div class="action-item" data-priority="critical">
+        <div class="idx">2</div>
+        <div class="impact"><strong>De-duplicate Gijón and Oviedo landing pages</strong> <span class="effort">4-6 hours</span></div>
+        <div style="color:var(--text2);font-size:.84rem">~80% overlap currently. Add unique local case studies, city-specific market data, rewrite FAQ per city, add unique testimonials. Target: &lt;40% overlap.</div>
+      </div>
+
+      <div class="action-item" data-priority="critical">
+        <div class="idx">3</div>
+        <div class="impact"><strong>Fix phone number on contact page</strong> <span class="effort">2 min</span></div>
+        <div style="color:var(--text2);font-size:.84rem">On <code>/contacto/</code>, remove +34 697 711 344. Use only +34 684 62 00 40 (matches schema and all other pages).</div>
+      </div>
+
+      <div class="action-item" data-priority="critical">
+        <div class="idx">4</div>
+        <div class="impact"><strong>Consolidate GBP share links</strong> <span class="effort">10 min</span></div>
+        <div style="color:var(--text2);font-size:.84rem">Check both <code>PbUpboFKMelaHcNgg</code> and <code>HdcSxhMtHLihuMzAg</code>. Keep the active one, remove the other from schema sameAs and visible text.</div>
+      </div>
+
+      <div class="action-item" data-priority="critical">
+        <div class="idx">5</div>
+        <div class="impact"><strong>Add security headers</strong> <span class="effort">5 min</span></div>
+        <div style="color:var(--text2);font-size:.84rem">Protects users, signals trust to Google.</div>
+        <pre>Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set X-Content-Type-Options "nosniff"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"</pre>
+      </div>
+    </div>
+
+    <!-- HIGH -->
+    <div class="action-group" data-priority="high">
+      <h3 style="color:var(--yellow)">HIGH — Fix Within 1 Week <span class="count">7 items · ~10 hours</span></h3>
+
+      <div class="action-item" data-priority="high">
+        <div class="idx">6</div>
+        <div class="impact"><strong>Create og-default.jpg</strong> <span class="effort">30 min</span></div>
+        <div style="color:var(--text2);font-size:.84rem">Replace <code>/public/og-default.svg</code> with 1200×630px JPG (~30-50KB). Update references in SEO.astro and BaseLayout.astro.</div>
+      </div>
+      <div class="action-item" data-priority="high">
+        <div class="idx">7</div>
+        <div class="impact"><strong>Extract critical CSS, defer rest</strong> <span class="effort">2-4 hours</span></div>
+        <div style="color:var(--text2);font-size:.84rem">Inline only above-the-fold CSS. Load full Tailwind via deferred external stylesheet. HTML shrinks from 101KB to ~30KB.</div>
+      </div>
+      <div class="action-item" data-priority="high">
+        <div class="idx">8</div>
+        <div class="impact"><strong>Add schema to IA Empresas page</strong> <span class="effort">30 min</span></div>
+        <div style="color:var(--text2);font-size:.84rem">Currently zero page-level schema. Add Service + FAQPage + BreadcrumbList. Use ProfessionalService type (not ComputerRepair).</div>
+      </div>
+      <div class="action-item" data-priority="high">
+        <div class="idx">9</div>
+        <div class="impact"><strong>Create testimonials/reviews section</strong> <span class="effort">2-3 hours</span></div>
+        <div style="color:var(--text2);font-size:.84rem">Add 3-5 real client testimonials with full names. Add aggregateRating to ProfessionalService schema. Display on homepage + service pages.</div>
+      </div>
+      <div class="action-item" data-priority="high">
+        <div class="idx">10</div>
+        <div class="impact"><strong>Fix blog schema</strong> <span class="effort">30 min</span></div>
+        <div style="color:var(--text2);font-size:.84rem">Add to blog post template: @id, image, publisher, mainEntityOfPage, dateModified. Fix author type (Organization → Person).</div>
+      </div>
+      <div class="action-item" data-priority="high">
+        <div class="idx">11</div>
+        <div class="impact"><strong>Create and link social media profiles</strong> <span class="effort">1-2 hours</span></div>
+        <div style="color:var(--text2);font-size:.84rem">Create LinkedIn company page (minimum). Add to footer, contact page, and schema sameAs.</div>
+      </div>
+      <div class="action-item" data-priority="high">
+        <div class="idx">12</div>
+        <div class="impact"><strong>Fix broken schema @id references</strong> <span class="effort">1 hour</span></div>
+        <div style="color:var(--text2);font-size:.84rem">Embed Organization/ProfessionalService node with its @id on every service page. Dead provider references break entity linking.</div>
+      </div>
+    </div>
+
+    <!-- MEDIUM -->
+    <div class="action-group" data-priority="medium">
+      <h3 style="color:var(--blue)">MEDIUM — Fix Within 1 Month <span class="count">11 items · ~8 hours</span></h3>
+
+      <div class="action-item" data-priority="medium"><div class="idx">13</div><strong>Remove noindex pages from sitemap</strong> <span class="effort">5 min</span><br><span style="color:var(--text2);font-size:.84rem">Exclude /aviso-legal/ and /politica-privacidad/ from sitemap generation.</span></div>
+      <div class="action-item" data-priority="medium"><div class="idx">14</div><strong>Create custom 404 page</strong> <span class="effort">1 hour</span><br><span style="color:var(--text2);font-size:.84rem">src/pages/404.astro with branded design, navigation, and CTA.</span></div>
+      <div class="action-item" data-priority="medium"><div class="idx">15</div><strong>Thicken IA Empresas page</strong> <span class="effort">2-3 hours</span><br><span style="color:var(--text2);font-size:.84rem">Add pricing table, FAQ section, benefits cards. Target 1,500+ words.</span></div>
+      <div class="action-item" data-priority="medium"><div class="idx">16</div><strong>Prune Inter font variants</strong> <span class="effort">30 min</span><br><span style="color:var(--text2);font-size:.84rem">Load only Latin subset, weights 400/500/600/700. Removes ~200-300KB.</span></div>
+      <div class="action-item" data-priority="medium"><div class="idx">17</div><strong>Add Google Maps embed</strong> <span class="effort">10 min</span><br><span style="color:var(--text2);font-size:.84rem">Embed iframe on homepage and /contacto/ with "Get Directions" link.</span></div>
+      <div class="action-item" data-priority="medium"><div class="idx">18</div><strong>Fix duplicate footer cookie link</strong> <span class="effort">5 min</span><br><span style="color:var(--text2);font-size:.84rem">Both privacy and cookies link to /politica-privacidad/. Create dedicated page or merge labels.</span></div>
+      <div class="action-item" data-priority="medium"><div class="idx">19</div><strong>Add "Last updated" dates to service pages</strong> <span class="effort">30 min</span></div>
+      <div class="action-item" data-priority="medium"><div class="idx">20</div><strong>Differentiate sitemap lastmod dates</strong> <span class="effort">1 hour</span><br><span style="color:var(--text2);font-size:.84rem">Use per-page mtime instead of single hardcoded date in sitemap.xml.ts.</span></div>
+      <div class="action-item" data-priority="medium"><div class="idx">21</div><strong>Remove unused images from build</strong> <span class="effort">30 min</span><br><span style="color:var(--text2);font-size:.84rem">Audit public/images/, remove legacy PNGs (~8.5MB saved).</span></div>
+      <div class="action-item" data-priority="medium"><div class="idx">22</div><strong>Add contact details to ContactPage schema</strong> <span class="effort">10 min</span></div>
+      <div class="action-item" data-priority="medium"><div class="idx">23</div><strong>Add author bio to all blog posts</strong> <span class="effort">15 min</span><br><span style="color:var(--text2);font-size:.84rem">Use Person type for Arturo Vieiros Garcia, not Organization "PYMEMPRESAS".</span></div>
+    </div>
+
+    <!-- LOW -->
+    <div class="action-group" data-priority="low">
+      <h3 style="color:var(--text2)">LOW — Backlog <span class="count">7 items · ~5 hours + ongoing</span></h3>
+
+      <div class="action-item" data-priority="low"><div class="idx">24</div><strong>Add image sitemap</strong> <span class="effort">1-2 hours</span></div>
+      <div class="action-item" data-priority="low"><div class="idx">25</div><strong>Add &lt;link rel="preload"&gt; for hero image</strong> <span class="effort">5 min</span></div>
+      <div class="action-item" data-priority="low"><div class="idx">26</div><strong>Cite statistics with sources</strong> <span class="effort">1-2 hours</span><br><span style="color:var(--text2);font-size:.84rem">Add inline source links for factual claims. Critical for AI citation readiness.</span></div>
+      <div class="action-item" data-priority="low"><div class="idx">27</div><strong>Refine GeoCoordinates to 5+ decimal places</strong> <span class="effort">2 min</span></div>
+      <div class="action-item" data-priority="low"><div class="idx">28</div><strong>Build Tier 1 citations</strong> <span class="effort">Ongoing</span><br><span style="color:var(--text2);font-size:.84rem">Yelp, Páginas Amarillas, Infoempresa, Directorio de Empresas Asturias. Identical NAP on all.</span></div>
+      <div class="action-item" data-priority="low"><div class="idx">29</div><strong>Increase blog cadence to 1-2 posts/month</strong> <span class="effort">Ongoing</span></div>
+      <div class="action-item" data-priority="low"><div class="idx">30</div><strong>Create dedicated cookie policy page</strong> <span class="effort">30 min</span></div>
+    </div>
+
+  </div>
+
+  <!-- METHODOLOGY -->
+  <div class="section" style="border-bottom:none">
+    <h2>Methodology & Limitations</h2>
+    <div class="flex-gap">
+      <div>
+        <h4 style="margin-top:0">How This Audit Was Performed</h4>
+        <ul style="color:var(--text2);padding-left:20px;font-size:.85rem">
+          <li>Homepage HTML fetched and parsed via WebFetch</li>
+          <li>robots.txt and sitemap.xml fetched and validated</li>
+          <li>7 specialist subagents: technical, content, schema, sitemap, performance, GEO, local</li>
+          <li>Codebase cross-referenced against src/pages/, src/content/, src/components/</li>
+          <li>Date: 2026-05-09</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="margin-top:0">Limitations</h4>
+        <ul style="color:var(--text2);padding-left:20px;font-size:.85rem">
+          <li>No headless browser — Lighthouse/CWV are estimates, not measurements</li>
+          <li>No DataForSEO MCP — SERP positions/backlinks not live-checked</li>
+          <li>GBP review velocity and primary category not verified (requires dashboard access)</li>
+          <li>Citation accuracy on third-party directories not verified</li>
+          <li>Local pack rankings and competitor gap analysis not performed</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center; padding:40px 0; color:var(--text2); font-size:.8rem">
+    SEO Audit Report for pymempresas.com · Generated 2026-05-09 · Claude Code
+  </div>
+
+</div>
+
+<script>
+function filterActions(pri) {
+  document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.action-item').forEach(item => {
+    if (pri === 'all' || item.dataset.priority === pri) {
+      item.style.display = '';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+  document.querySelectorAll('.action-group').forEach(group => {
+    const visible = group.querySelectorAll('.action-item[style*="display: none"], .action-item[style=""]').length;
+    const hidden = group.querySelectorAll('.action-item[style*="display: none"]').length;
+    const total = group.querySelectorAll('.action-item').length;
+    if (pri === 'all') {
+      group.style.display = '';
+    } else if (group.dataset.priority === pri) {
+      group.style.display = '';
+    } else {
+      group.style.display = 'none';
+    }
+  });
+}
+</script>
+
+</body>
+</html>
