@@ -62,25 +62,18 @@ const webhookUrl = 'https://n8n.vieirox.es/webhook/consultoria-form';
   <div id="cform-status" class="cform-status" style="display:none;"></div>
 </form>
 
-<script>
-  const form = document.getElementById('consultoria-form') as HTMLFormElement;
-  const status = document.getElementById('cform-status')!;
+<script define:vars={{ webhookUrl }}>
+  const form = document.getElementById('consultoria-form');
+  const status = document.getElementById('cform-status');
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     status.style.display = 'none';
 
     const data = Object.fromEntries(new FormData(form));
-    const url = '${webhookUrl}';
-
-    if (!url) {
-      status.textContent = 'Error de configuración. Contacta por email.';
-      status.className = 'cform-status cform-status-error';
-      return;
-    }
 
     try {
-      const res = await fetch(url, {
+      const res = await fetch(webhookUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

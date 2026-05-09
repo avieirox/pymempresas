@@ -6,22 +6,93 @@ const schema = {
   '@context': 'https://schema.org',
   '@graph': [
     {
-      '@type': 'LocalBusiness',
+      '@type': 'ProfessionalService',
       '@id': `${SITE.url}/#business`,
       name: SITE.name,
       url: SITE.url,
       description: SITE.defaultDescription,
-      image: `${SITE.url}/images/cropped-pymempresas-logo-4k__1_-removebg-preview.png`,
+      image: `${SITE.url}/images/logo-header.webp`,
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'C. Rodríguez San Pedro, 12',
+        streetAddress: 'C. Rodríguez San Pedro, 1, Centro',
         addressLocality: 'Gijón',
         addressRegion: 'Asturias',
         postalCode: '33206',
         addressCountry: 'ES',
       },
-      telephone: '+34684620040',
-      email: 'info@pymempresas.com',
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: '+34-684-62-00-40',
+        email: 'info@pymempresas.com',
+        contactType: 'customer service',
+        availableLanguage: ['Spanish'],
+      },
+      priceRange: '€€€',
+      openingHoursSpecification: {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '09:00',
+        closes: '18:00',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 43.5412,
+        longitude: -5.662,
+      },
+      areaServed: [
+        { '@type': 'City', name: 'Gijón' },
+        { '@type': 'City', name: 'Oviedo' },
+        { '@type': 'City', name: 'Avilés' },
+        { '@type': 'State', name: 'Asturias' },
+      ],
+      sameAs: ['https://share.google/HdcSxhMtHLihuMzAg'],
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Servicios de Marketing Digital',
+        itemListElement: [
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Posicionamiento Web SEO',
+              description: 'Servicio de posicionamiento web con SEO Local para negocios y empresas. Optimización en Google, ChatGPT, Gemini y Perplexity. Mejora tu ficha Google My Business.',
+            },
+            priceSpecification: {
+              '@type': 'UnitPriceSpecification',
+              price: '397',
+              priceCurrency: 'EUR',
+              unitText: 'mes',
+            },
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'SEO Local para Negocios',
+              description: 'SEO local en Gijón para negocios físicos, profesionales y empresas. Posicionamiento en Google Maps y búsquedas locales.',
+            },
+            priceSpecification: {
+              '@type': 'UnitPriceSpecification',
+              price: '297',
+              priceCurrency: 'EUR',
+              unitText: 'mes',
+            },
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Automatización con Inteligencia Artificial',
+              description: 'Automatizaciones inteligentes para empresas de Gijón y Asturias. Ahorra tiempo, reduce errores y aumenta la productividad.',
+            },
+            priceSpecification: {
+              '@type': 'UnitPriceSpecification',
+              price: '995',
+              priceCurrency: 'EUR',
+            },
+          },
+        ],
+      },
     },
   ],
 };
@@ -51,7 +122,7 @@ const schema = {
           <span>Agencia de SEO Local en Asturias</span>
         </div>
 
-        <h1 class="hero-title">Posicionamiento WEB SEO en Gijón, Oviedo y Avilés: posicionamos tu negocio antes que tu competencia.</h1>
+        <h1 class="hero-title">Agencia de Posicionamiento Web SEO Local</h1>
 
         <p class="hero-subtitle">Si tienes un negocio local, esto es lo que importa: tus clientes buscan en Google, deciden rápido y llaman al que aparece primero en su ciudad. Nosotros te posicionamos ahí para que esas búsquedas se conviertan en llamadas.</p>
 
@@ -385,7 +456,7 @@ const schema = {
           </svg>
           <div class="cta-card-text">
             <span class="cta-card-label">Spaces Coworking</span>
-            <strong class="cta-card-value">C. Rodríguez San Pedro, 1, Centro, 33206 Gijón, Asturias</strong>
+            <strong class="cta-card-value">Spaces Coworking, C. Rodríguez San Pedro, 1, Centro, 33206 Gijón, Asturias</strong>
           </div>
         </div>
 

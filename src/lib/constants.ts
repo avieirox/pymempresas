@@ -1,17 +1,17 @@
 export const SITE = {
   name: 'PYMEMPRESAS',
   url: 'https://pymempresas.com',
-  defaultTitle: 'Posicionamiento WEB SEO ASTURIAS — PYMEMPRESAS',
+  defaultTitle: 'Agencia de Posicionamiento WEB SEO Local | PYMEMPRESAS',
   defaultDescription:
-    'Posicionamiento WEB SEO para Empresas. Impulsa tu negocio en Gijón y Asturias con estrategias de SEO Local e Inteligencia Artificial.',
-  ogImage: '/og-default.jpg',
+    'Agencia de SEO Local en Asturias con más de 10 años de experiencia. Posicionamos tu negocio en Google para que tus clientes te encuentren primero. Consultoría gratuita.',
+  ogImage: '/og-default.svg',
   locale: 'es_ES',
 } as const;
 
 export const CONTACT = {
   email: 'info@pymempresas.com',
   phone: '+34 684 62 00 40',
-  address: 'C. Rodríguez San Pedro, 12, 33206 Gijón, Asturias',
+  address: 'Spaces Coworking, C. Rodríguez San Pedro, 1, Centro, 33206 Gijón, Asturias',
   hours: 'Lun–Vie 9:00–18:00',
 } as const;
 

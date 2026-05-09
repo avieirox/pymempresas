@@ -1,12 +1,32 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ConsultoriaForm from '../components/ConsultoriaForm.astro';
+import { SITE } from '../lib/constants';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Service',
+      '@id': `${SITE.url}/consultoria/#service`,
+      name: 'Consultoría Gratuita de Negocio Digital',
+      description: 'Consultoría gratuita de marketing digital. Analizamos tu web, detectamos qué falla y te decimos qué tocar. Sin compromiso.',
+      url: `${SITE.url}/consultoria/`,
+      provider: { '@id': `${SITE.url}/#business` },
+      areaServed: [
+        { '@type': 'City', name: 'Gijón' },
+        { '@type': 'State', name: 'Asturias' },
+      ],
+    },
+  ],
+};
 ---
 
 <BaseLayout
   metaTitle="Consultoría Gratuita de tu Negocio Digital | PYMEMPRESAS"
   metaDescription="Solicita tu consultoría gratuita de marketing digital. Analizamos tu web, detectamos qué falla y te decimos qué tocar. Sin compromiso. Respuesta en menos de 24 horas."
   bodyTheme="light"
+  schema={schema}
 >
   <!-- Sección Consultoría Gratis - Fondo oscuro completo -->
   <section class="consultoria-gratis-section">

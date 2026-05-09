@@ -21,7 +21,7 @@ export const GET: APIRoute = async ({ site }) => {
     `## Contacto`,
     `- Email: info@pymempresas.com`,
     `- Teléfono: +34 684 62 00 40`,
-    `- Dirección: C. Rodríguez San Pedro, 12, 33206 Gijón, Asturias`,
+    `- Dirección: C. Rodríguez San Pedro, 1, Centro, 33206 Gijón, Asturias`,
     `- Horario: Lun–Vie 9:00–18:00`,
   ].join('\n');
 

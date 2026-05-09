@@ -263,25 +263,18 @@ const n8nUrl = 'https://n8n.vieirox.es/webhook/contact-form';
   }
 </style>
 
-<script>
-  const form = document.getElementById('contact-form') as HTMLFormElement;
-  const status = document.getElementById('form-status')!;
+<script define:vars={{ n8nUrl }}>
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     status.style.display = 'none';
 
     const data = Object.fromEntries(new FormData(form));
-    const url = '${n8nUrl}';
-
-    if (!url) {
-      status.textContent = 'Error de configuración. Contacta por email.';
-      status.className = 'form-status form-status-error';
-      return;
-    }
 
     try {
-      const res = await fetch(url, {
+      const res = await fetch(n8nUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...data, origen: window.location.href }),
