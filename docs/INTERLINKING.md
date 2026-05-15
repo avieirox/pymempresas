@@ -11,7 +11,7 @@ Basado en datos reales de Google Search Console. Actualizar con cada nuevo CSV.
 ## Clusters de keywords (ordenados por impresiones)
 
 ### Cluster 1 — SEO / Posicionamiento Web
-**Páginas:** `/posicionamiento-web-asturias/` `/seo-local-gijon/` `/seo-local-oviedo/`
+**Páginas:** `/posicionamiento-web-asturias/` `/seo-local-gijon/` `/seo-local-oviedo/` `/seo-gijon/`
 
 | Query | Impresiones | Posición | Página destino |
 |-------|------------|----------|----------------|

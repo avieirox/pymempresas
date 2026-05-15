@@ -3,7 +3,7 @@ export const SITE = {
   url: 'https://pymempresas.com',
   defaultTitle: 'Agencia de Posicionamiento WEB SEO Local | PYMEMPRESAS',
   defaultDescription:
-    'Agencia de SEO Local en Asturias con más de 10 años de experiencia. Posicionamos tu negocio en Google para que tus clientes te encuentren primero. Consultoría gratuita.',
+    'Agencia SEO Local en Asturias con más de 10 años de experiencia. Posicionamos tu negocio en Google. Consultoría gratuita sin compromiso.',
   ogImage: '/og-default.svg',
   locale: 'es_ES',
 } as const;
@@ -30,6 +30,7 @@ export const NAV_ITEMS = [
     href: '/#servicios',
     children: [
       { label: 'Posicionamiento Web', href: '/posicionamiento-web-asturias/' },
+      { label: 'Consultoría SEO Gijón', href: '/seo-gijon/' },
       { label: 'Diseño Web', href: '/diseno-web-gijon/' },
       { label: 'IA para Empresas', href: '/inteligencia-artificial-empresas/' },
       { label: 'Formación', href: '/formacion-ia-empresas/' },
@@ -42,6 +43,7 @@ export const NAV_ITEMS = [
 
 export const FOOTER_SERVICES = [
   { label: 'SEO Local', href: '/seo-local-gijon/' },
+  { label: 'Consultoría SEO Gijón', href: '/seo-gijon/' },
   { label: 'Diseño Web', href: '/diseno-web-gijon/' },
   { label: 'IA para Empresas', href: '/inteligencia-artificial-empresas/' },
   { label: 'Formación IA', href: '/formacion-ia-empresas/' },

@@ -1,7 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import HeroSection from '../components/HeroSection.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import FinalCTA from '../components/FinalCTA.astro';
 import ReadingProgress from '../components/blog/ReadingProgress.astro';
@@ -12,32 +11,21 @@ import RelatedArticles from '../components/blog/RelatedArticles.astro';
 import { SITE } from '../lib/constants';
 
 export async function getStaticPaths() {
-  const servicios = await getCollection('servicios');
   const blog = await getCollection('blog');
-
-  const servicePaths = servicios.map((s) => ({
-    params: { slug: s.slug },
-    props: { type: 'servicio' as const, entry: s },
-  }));
-
-  const blogPaths = blog.map((b) => ({
+  return blog.map((b) => ({
     params: { slug: b.slug },
-    props: { type: 'blog' as const, entry: b },
+    props: { entry: b },
   }));
-
-  return [...servicePaths, ...blogPaths];
 }
 
-const { type, entry } = Astro.props;
+const { entry } = Astro.props;
 const { data } = entry;
 const { Content: Body } = await entry.render();
 
-const isBlog = type === 'blog';
 const pageTitle = data.title;
 const pageDescription = data.description;
 
-// Blog schema
-const blogSchema = isBlog ? {
+const blogSchema = {
   '@context': 'https://schema.org',
   '@graph': [
     {
@@ -73,218 +61,56 @@ const blogSchema = isBlog ? {
       ],
     },
   ],
-} : undefined;
-
-// Service schema
-const serviceSchema = !isBlog ? {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'Service',
-      name: data.title,
-      provider: {
-        '@type': 'ProfessionalService',
-        '@id': `${SITE.url}/#business`,
-        name: SITE.name,
-        url: SITE.url,
-        logo: `${SITE.url}/images/logo-header.webp`,
-        address: {
-          '@type': 'PostalAddress',
-          streetAddress: 'C. Rodríguez San Pedro, 1, Centro',
-          addressLocality: 'Gijón',
-          addressRegion: 'Asturias',
-          postalCode: '33206',
-          addressCountry: 'ES',
-        },
-        telephone: '+34-697-71-13-44',
-        email: 'info@pymempresas.com',
-        geo: {
-          '@type': 'GeoCoordinates',
-          latitude: 43.54124,
-          longitude: -5.66205,
-        },
-        areaServed: [
-          { '@type': 'City', name: 'Gijón' },
-          { '@type': 'City', name: 'Oviedo' },
-          { '@type': 'City', name: 'Avilés' },
-          { '@type': 'State', name: 'Asturias' },
-        ],
-      },
-      description: data.description,
-      areaServed: { '@type': 'City', name: 'Gijón' },
-      ...(data.faq && {
-        hasFAQPage: {
-          '@type': 'FAQPage',
-          mainEntity: data.faq.map((f: { q: string; a: string }) => ({
-            '@type': 'Question',
-            name: f.q,
-            acceptedAnswer: { '@type': 'Answer', text: f.a },
-          })),
-        },
-      }),
-    },
-    {
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Inicio', item: SITE.url },
-        { '@type': 'ListItem', position: 2, name: data.title },
-      ],
-    },
-  ],
-} : undefined;
+};
 ---
 
 <BaseLayout
   metaTitle={pageTitle}
   metaDescription={pageDescription}
   ogImage={data.image || data.ogImage}
-  ogType={isBlog ? 'article' : 'website'}
+  ogType="article"
   canonicalURL={new URL(`/${entry.slug}/`, Astro.site).href}
-  schema={isBlog ? blogSchema : serviceSchema}
-  bodyTheme={isBlog ? 'light' : 'dark'}
+  schema={blogSchema}
+  bodyTheme="light"
 >
-  {
-    isBlog ? (
-      <>
-        <ReadingProgress />
-        <ArticleHero
-          title={data.title}
-          slug={entry.slug}
-          image={data.image}
-          tags={data.tags}
-          date={data.date ?? new Date()}
-          author={data.author ?? 'PYMEMPRESAS'}
-          authorImage={data.authorImage}
+  <ReadingProgress />
+  <ArticleHero
+    title={data.title}
+    slug={entry.slug}
+    image={data.image}
+    tags={data.tags}
+    date={data.date ?? new Date()}
+    author={data.author ?? 'PYMEMPRESAS'}
+    authorImage={data.authorImage}
+  />
+  <div class="bg-white">
+    <section class="section" style="padding-top:0;padding-bottom:40px;">
+      <div class="container" style="max-width:800px;">
+        <Breadcrumbs
+          items={[
+            { label: 'Inicio', href: '/' },
+            { label: 'Blog', href: '/blog/' },
+            { label: data.title },
+          ]}
         />
-        <div class="bg-white">
-          <section class="section" style="padding-top:0;padding-bottom:40px;">
-            <div class="container" style="max-width:800px;">
-              <Breadcrumbs
-                items={[
-                  { label: 'Inicio', href: '/' },
-                  { label: 'Blog', href: '/blog/' },
-                  { label: data.title },
-                ]}
-              />
-            </div>
-          </section>
-          <ArticleBody>
-            <Body />
-          </ArticleBody>
-          <ShareRow
-            url={new URL(`/${entry.slug}/`, Astro.site).href}
-            title={data.title}
-            author={data.author}
-            authorBio={data.authorBio}
-            authorLinkedin={data.authorLinkedin}
-            authorTwitter={data.authorTwitter}
-            authorImage={data.authorImage}
-          />
-        </div>
-        <RelatedArticles
-          currentSlug={entry.slug}
-          currentTags={data.tags ?? []}
-        />
-        <FinalCTA />
-      </>
-    ) : (
-      <>
-        <!-- Service Layout (existing) -->
-        <HeroSection
-          title={data.title}
-          subtitle={data.subtitle}
-          cta={data.heroCta}
-          ctaHref={data.heroCtaHref}
-          badge={data.badge}
-          checks={data.heroChecks}
-          bgImage={data.heroBgImage}
-        />
-
-        <div class="container">
-          <Breadcrumbs
-            items={[
-              { label: 'Inicio', href: '/' },
-              { label: data.title },
-            ]}
-          />
-        </div>
-
-        <section class="section bg-black">
-          <div class="container">
-            <h2 class="text-3xl font-bold text-white text-center mb-12">¿Qué incluye?</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {data.features.map((f: { title: string; description: string }) => (
-                <div class="bg-card rounded-xl p-6 border border-white/5">
-                  <div class="w-10 h-10 bg-orange/10 rounded-lg flex items-center justify-center mb-4">
-                    <svg class="w-5 h-5 text-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
-                    </svg>
-                  </div>
-                  <h3 class="font-bold text-white mb-2">{f.title}</h3>
-                  <p class="text-sm text-white/60 leading-relaxed">{f.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section class="section bg-gray-light">
-          <div class="container">
-            <h2 class="text-3xl font-bold text-black text-center mb-12">Beneficios</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-[800px] mx-auto">
-              {data.benefits.map((b: string) => (
-                <div class="flex items-start gap-3 bg-white rounded-xl p-4 shadow-sm">
-                  <svg class="w-5 h-5 text-orange shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>
-                  <span class="text-black/80 text-sm">{b}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {data.faq && data.faq.length > 0 && (
-          <section class="section bg-black">
-            <div class="container max-w-[800px]">
-              <h2 class="text-3xl font-bold text-white text-center mb-12">Preguntas Frecuentes</h2>
-              <div class="space-y-3">
-                {data.faq.map((item: { q: string; a: string }) => (
-                  <details class="bg-card rounded-xl border border-white/5 group">
-                    <summary class="px-6 py-4 cursor-pointer list-none font-medium text-white group-hover:text-orange transition-colors flex items-center justify-between">
-                      {item.q}
-                      <svg class="w-4 h-4 shrink-0 group-open:rotate-180 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                    </summary>
-                    <div class="px-6 pb-4 text-sm text-white/60 leading-relaxed">{item.a}</div>
-                  </details>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
-
-        {data.relatedServices && data.relatedServices.length > 0 && (
-          <section class="section bg-gray-light">
-            <div class="container">
-              <h2 class="text-3xl font-bold text-black text-center mb-10">Servicios relacionados</h2>
-              <div class="flex flex-wrap justify-center gap-4">
-                {data.relatedServices.map((slug: string) => (
-                  <a href={`/${slug}/`} class="inline-flex items-center bg-white rounded-xl px-5 py-3 border border-gray-200 hover:border-orange hover:text-orange transition-all text-sm font-medium text-black">
-                    {slug.split('-').map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
-                    <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
-
-        <section class="section bg-black">
-          <div class="container max-w-[800px] prose prose-invert prose-headings:text-white prose-p:text-white/70 prose-li:text-white/60 prose-strong:text-white prose-a:text-orange prose-table:text-white/70 prose-th:text-white prose-td:text-white/60">
-            <Body />
-          </div>
-        </section>
-
-        <FinalCTA />
-      </>
-    )
-  }
+      </div>
+    </section>
+    <ArticleBody>
+      <Body />
+    </ArticleBody>
+    <ShareRow
+      url={new URL(`/${entry.slug}/`, Astro.site).href}
+      title={data.title}
+      author={data.author}
+      authorBio={data.authorBio}
+      authorLinkedin={data.authorLinkedin}
+      authorTwitter={data.authorTwitter}
+      authorImage={data.authorImage}
+    />
+  </div>
+  <RelatedArticles
+    currentSlug={entry.slug}
+    currentTags={data.tags ?? []}
+  />
+  <FinalCTA />
 </BaseLayout>
