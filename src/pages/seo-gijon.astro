@@ -406,47 +406,47 @@ const schema = {
         <p class="advantages-subtitle">Cómo convertimos tu web invisible en una máquina de captar clientes en Gijón</p>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 50px;">
-        <div style="background: #fff; border: 1px solid #e8e6e1; border-radius: 16px; padding: 30px 24px; text-align: center;">
-          <div style="width: 56px; height: 56px; background: #FFF8E8; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+      <div class="proceso-grid">
+        <div class="proceso-card">
+          <div class="proceso-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2">
               <circle cx="11" cy="11" r="8"></circle>
               <path d="m21 21-4.35-4.35"></path>
             </svg>
           </div>
-          <h3 style="font-size: 18px; font-weight: 700; color: #1a1a1a; margin: 0 0 8px;">1. Auditoría</h3>
-          <p style="font-size: 14px; color: #666; line-height: 1.6; margin: 0;">Analizamos tu web, competencia y oportunidades en Gijón. Te entregamos un informe claro con prioridades.</p>
+          <h3 class="proceso-title">1. Auditoría</h3>
+          <p class="proceso-desc">Analizamos tu web, competencia y oportunidades en Gijón. Te entregamos un informe claro con prioridades.</p>
         </div>
 
-        <div style="background: #fff; border: 1px solid #e8e6e1; border-radius: 16px; padding: 30px 24px; text-align: center;">
-          <div style="width: 56px; height: 56px; background: #FFF8E8; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+        <div class="proceso-card">
+          <div class="proceso-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2">
               <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
             </svg>
           </div>
-          <h3 style="font-size: 18px; font-weight: 700; color: #1a1a1a; margin: 0 0 8px;">2. Estrategia</h3>
-          <p style="font-size: 14px; color: #666; line-height: 1.6; margin: 0;">Diseñamos un plan personalizado con las palabras clave y acciones que mejor resultado darán a tu negocio.</p>
+          <h3 class="proceso-title">2. Estrategia</h3>
+          <p class="proceso-desc">Diseñamos un plan personalizado con las palabras clave y acciones que mejor resultado darán a tu negocio.</p>
         </div>
 
-        <div style="background: #fff; border: 1px solid #e8e6e1; border-radius: 16px; padding: 30px 24px; text-align: center;">
-          <div style="width: 56px; height: 56px; background: #FFF8E8; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+        <div class="proceso-card">
+          <div class="proceso-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2">
               <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
               <polyline points="17 6 23 6 23 12"></polyline>
             </svg>
           </div>
-          <h3 style="font-size: 18px; font-weight: 700; color: #1a1a1a; margin: 0 0 8px;">3. Implementación</h3>
-          <p style="font-size: 14px; color: #666; line-height: 1.6; margin: 0;">Optimizamos tu web, creamos contenido SEO y trabajamos tu presencia en Google Business Profile.</p>
+          <h3 class="proceso-title">3. Implementación</h3>
+          <p class="proceso-desc">Optimizamos tu web, creamos contenido SEO y trabajamos tu presencia en Google Business Profile.</p>
         </div>
 
-        <div style="background: #fff; border: 1px solid #e8e6e1; border-radius: 16px; padding: 30px 24px; text-align: center;">
-          <div style="width: 56px; height: 56px; background: #FFF8E8; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+        <div class="proceso-card">
+          <div class="proceso-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
             </svg>
           </div>
-          <h3 style="font-size: 18px; font-weight: 700; color: #1a1a1a; margin: 0 0 8px;">4. Medición</h3>
-          <p style="font-size: 14px; color: #666; line-height: 1.6; margin: 0;">Cada mes recibes un informe con tus posiciones, tráfico y contactos generados. Sin letra pequeña.</p>
+          <h3 class="proceso-title">4. Medición</h3>
+          <p class="proceso-desc">Cada mes recibes un informe con tus posiciones, tráfico y contactos generados. Sin letra pequeña.</p>
         </div>
       </div>
     </div>
@@ -704,6 +704,13 @@ const schema = {
 .seo-type-features li span { font-size: 13px; color: #555; line-height: 1.4; }
 .seo-local-featured { border: 2px solid #F5A623; position: relative; }
 
+/* PROCESO */
+.proceso-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 50px; }
+.proceso-card { background: #fff; border: 1px solid #e8e6e1; border-radius: 16px; padding: 30px 24px; text-align: center; }
+.proceso-icon { width: 56px; height: 56px; background: #FFF8E8; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+.proceso-title { font-size: 18px; font-weight: 700; color: #1a1a1a; margin: 0 0 8px; }
+.proceso-desc { font-size: 14px; color: #666; line-height: 1.6; margin: 0; }
+
 /* FAQ */
 .seo-faq-section { padding: 80px 20px; background: #f5f7fa; }
 .seo-faq-container { max-width: 900px; margin: 0 auto; }
@@ -754,6 +761,7 @@ const schema = {
 /* RESPONSIVE */
 @media (max-width: 1024px) {
   .seo-types-grid { grid-template-columns: repeat(2, 1fr); }
+  .proceso-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
   .seo-hero-light { padding: 120px 16px 70px; }
@@ -765,6 +773,7 @@ const schema = {
   .seo-content-grid-new { grid-template-columns: 1fr; gap: 30px; }
   .seo-types-grid { grid-template-columns: 1fr; }
   .seo-business-grid { grid-template-columns: 1fr; }
+  .proceso-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 32px; }
   .about-pymempresas, .advantages-pymempresas, .seo-faq-section { padding: 60px 0; }
   .advantages-container { padding: 0 16px; }
   .seo-faq-question { padding: 20px; font-size: 0.95rem; gap: 12px; }
@@ -776,6 +785,7 @@ const schema = {
 }
 @media (max-width: 480px) {
   .seo-title { font-size: 1.8rem; }
+  .proceso-grid { grid-template-columns: 1fr; }
   .seo-faq-question { padding: 16px; gap: 10px; font-size: 0.9rem; }
   .seo-faq-answer p { padding: 0 16px 16px 44px; }
 }
