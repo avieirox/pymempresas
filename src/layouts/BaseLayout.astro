@@ -184,13 +184,18 @@ const siteSchema = {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="google-site-verification" content="Ov_nXnMus9U0JDxfJWYrkQDrLElrxvKOAibcavzwZzo" />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XJL99638S8"></script>
+    <!-- Google Analytics — deferred after load to remove from critical path -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-XJL99638S8');
+      window.addEventListener('load', function() {
+        var s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XJL99638S8';
+        s.async = true;
+        document.head.appendChild(s);
+        gtag('config', 'G-XJL99638S8');
+      });
     </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <SEO
