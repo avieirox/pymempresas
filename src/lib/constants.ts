@@ -4,7 +4,7 @@ export const SITE = {
   defaultTitle: 'Agencia de Posicionamiento WEB SEO Local | PYMEMPRESAS',
   defaultDescription:
     'Agencia SEO Local en Asturias con más de 10 años de experiencia. Posicionamos tu negocio en Google. Consultoría gratuita sin compromiso.',
-  ogImage: '/og-default.svg',
+  ogImage: '/og-default.jpg',
   locale: 'es_ES',
 } as const;
 

@@ -22,59 +22,159 @@ const bodyClass = bodyTheme === 'light'
   ? 'bg-white text-black'
   : 'bg-black text-white';
 
-const webSiteSchema = {
+const siteSchema = {
   '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  '@id': `${Astro.site}#website`,
-  url: Astro.site.href,
-  name: 'PYMEMPRESAS',
-  description: 'Agencia de Marketing Digital en Gijón — SEO Local, Diseño Web, IA para PYMES en Asturias.',
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: {
-      '@type': 'EntryPoint',
-      urlTemplate: `${Astro.site}search?q={search_term_string}`,
+  '@graph': [
+    {
+      '@type': ['LocalBusiness', 'ProfessionalService'],
+      '@id': `${Astro.site}#business`,
+      name: 'PYMEMPRESAS',
+      url: Astro.site.href,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${Astro.site}images/logo-header.webp`,
+        width: 320,
+        height: 99,
+      },
+      image: `${Astro.site}images/logo-header.webp`,
+      description: 'Agencia SEO Local en Asturias con más de 10 años de experiencia. Posicionamos tu negocio en Google. Consultoría gratuita sin compromiso.',
+      telephone: '+34697711344',
+      email: 'info@pymempresas.com',
+      foundingDate: '2017',
+      numberOfEmployees: {
+        '@type': 'QuantitativeValue',
+        value: 1,
+      },
+      priceRange: '€€',
+      currenciesAccepted: 'EUR',
+      paymentAccepted: 'Transferencia bancaria, Tarjeta de crédito',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'C. Rodríguez San Pedro, 1, Centro',
+        addressLocality: 'Gijón',
+        addressRegion: 'Asturias',
+        postalCode: '33206',
+        addressCountry: 'ES',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 43.54124,
+        longitude: -5.66205,
+      },
+      openingHoursSpecification: {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '09:00',
+        closes: '18:00',
+      },
+      areaServed: [
+        { '@type': 'City', 'name': 'Gijón' },
+        { '@type': 'City', 'name': 'Oviedo' },
+        { '@type': 'City', 'name': 'Avilés' },
+        { '@type': 'City', 'name': 'Langreo' },
+        { '@type': 'City', 'name': 'Siero' },
+        { '@type': 'State', 'name': 'Asturias' },
+      ],
+      knowsAbout: [
+        'SEO Local',
+        'Posicionamiento Web',
+        'Google My Business',
+        'Marketing Digital',
+        'Inteligencia Artificial para Empresas',
+        'Automatizaciones con IA',
+        'Diseño Web',
+        'GEO Generative Engine Optimization',
+      ],
+      sameAs: [
+        'https://www.google.com/maps/search/?api=1&query=PYMEMPRESAS&query_place_id=/g/11h_t5gpjk',
+        'https://share.google/Zd557hzjkKrsMluDf',
+        'https://www.linkedin.com/in/arturovieiros/',
+        'https://www.facebook.com/profile.php?id=100071080898119',
+      ],
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Servicios de Marketing Digital y SEO',
+        itemListElement: [
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'SEO Local para Negocios en Gijón',
+              description: 'SEO local en Gijón para negocios físicos, profesionales y empresas. Posicionamiento en Google Maps y búsquedas locales en Asturias.',
+              url: `${Astro.site}seo-local-gijon/`,
+              serviceType: 'SEO Local',
+              areaServed: { '@type': 'City', 'name': 'Gijón' },
+            },
+            priceSpecification: {
+              '@type': 'UnitPriceSpecification',
+              price: '297',
+              priceCurrency: 'EUR',
+              unitText: 'mes',
+            },
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Posicionamiento Web SEO + IA en Asturias',
+              description: 'Servicio de posicionamiento web con SEO Local para negocios y empresas. Optimización en Google, ChatGPT, Gemini y Perplexity.',
+              url: `${Astro.site}posicionamiento-web-asturias/`,
+              serviceType: 'Posicionamiento Web',
+              areaServed: { '@type': 'State', 'name': 'Asturias' },
+            },
+            priceSpecification: {
+              '@type': 'UnitPriceSpecification',
+              price: '397',
+              priceCurrency: 'EUR',
+              unitText: 'mes',
+            },
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Automatización con Inteligencia Artificial',
+              description: 'Automatizaciones inteligentes para empresas de Gijón y Asturias con n8n e IA. Ahorra tiempo, reduce errores y aumenta la productividad.',
+              url: `${Astro.site}automatizaciones-con-ia/`,
+              serviceType: 'Automatización IA',
+            },
+            priceSpecification: {
+              '@type': 'UnitPriceSpecification',
+              price: '995',
+              priceCurrency: 'EUR',
+            },
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Diseño Web en Gijón',
+              description: 'Páginas web profesionales, rápidas y optimizadas para convertir visitantes en clientes. Diseño responsive enfocado en resultados.',
+              url: `${Astro.site}diseno-web-gijon/`,
+              serviceType: 'Diseño Web',
+              areaServed: { '@type': 'City', 'name': 'Gijón' },
+            },
+          },
+        ],
+      },
+      founder: {
+        '@type': 'Person',
+        name: 'Arturo Vieiros',
+        url: 'https://www.linkedin.com/in/arturovieiros/',
+        sameAs: 'https://www.linkedin.com/in/arturovieiros/',
+      },
     },
-    'query-input': 'required name=search_term_string',
-  },
-};
-
-const localBusinessSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  '@id': `${Astro.site}#business`,
-  name: 'PYMEMPRESAS',
-  url: Astro.site.href,
-  logo: `${Astro.site}images/logo-header.webp`,
-  image: `${Astro.site}images/logo-header.webp`,
-  description: 'Agencia de Marketing Digital en Gijón — SEO Local, Diseño Web, IA para PYMES en Asturias.',
-  telephone: '+34 697 71 13 44',
-  email: 'info@pymempresas.com',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'C. Rodríguez San Pedro, 1, Centro',
-    addressLocality: 'Gijón',
-    addressRegion: 'Asturias',
-    postalCode: '33206',
-    addressCountry: 'ES',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: 43.54124,
-    longitude: -5.66205,
-  },
-  priceRange: '€€€',
-  openingHoursSpecification: {
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-    opens: '09:00',
-    closes: '18:00',
-  },
-  areaServed: [
-    { '@type': 'City', 'name': 'Gijón' },
-    { '@type': 'City', 'name': 'Oviedo' },
-    { '@type': 'City', 'name': 'Avilés' },
-    { '@type': 'State', 'name': 'Asturias' },
+    {
+      '@type': 'WebSite',
+      '@id': `${Astro.site}#website`,
+      url: Astro.site.href,
+      name: 'PYMEMPRESAS',
+      description: 'Agencia de Marketing Digital en Gijón — SEO Local, Diseño Web, IA para PYMES en Asturias.',
+      publisher: {
+        '@id': `${Astro.site}#business`,
+      },
+      inLanguage: 'es-ES',
+    },
   ],
 };
 ---
@@ -102,8 +202,7 @@ const localBusinessSchema = {
       noindex={Astro.props.noindex}
       schema={Astro.props.schema}
     />
-    <script type="application/ld+json" set:html={JSON.stringify(webSiteSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(siteSchema)} />
   </head>
   <body class={bodyClass}>
     <a href="#main-content" class="skip-link">Saltar al contenido</a>

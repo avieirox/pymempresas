@@ -1,109 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE } from '../lib/constants';
-
-const schema = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'ProfessionalService',
-      '@id': `${SITE.url}/#business`,
-      name: SITE.name,
-      url: SITE.url,
-      description: SITE.defaultDescription,
-      image: `${SITE.url}/images/logo-header.webp`,
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: 'C. Rodríguez San Pedro, 1, Centro',
-        addressLocality: 'Gijón',
-        addressRegion: 'Asturias',
-        postalCode: '33206',
-        addressCountry: 'ES',
-      },
-      contactPoint: {
-        '@type': 'ContactPoint',
-        telephone: '+34-697-71-13-44',
-        email: 'info@pymempresas.com',
-        contactType: 'customer service',
-        availableLanguage: ['Spanish'],
-      },
-      priceRange: '€€€',
-      openingHoursSpecification: {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        opens: '09:00',
-        closes: '18:00',
-      },
-      geo: {
-        '@type': 'GeoCoordinates',
-        latitude: 43.54124,
-        longitude: -5.66205,
-      },
-      areaServed: [
-        { '@type': 'City', name: 'Gijón' },
-        { '@type': 'City', name: 'Oviedo' },
-        { '@type': 'City', name: 'Avilés' },
-        { '@type': 'State', name: 'Asturias' },
-      ],
-      sameAs: [],
-      hasOfferCatalog: {
-        '@type': 'OfferCatalog',
-        name: 'Servicios de Marketing Digital',
-        itemListElement: [
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Posicionamiento Web SEO',
-              description: 'Servicio de posicionamiento web con SEO Local para negocios y empresas. Optimización en Google, ChatGPT, Gemini y Perplexity. Mejora tu ficha Google My Business.',
-            },
-            priceSpecification: {
-              '@type': 'UnitPriceSpecification',
-              price: '397',
-              priceCurrency: 'EUR',
-              unitText: 'mes',
-            },
-          },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'SEO Local para Negocios',
-              description: 'SEO local en Gijón para negocios físicos, profesionales y empresas. Posicionamiento en Google Maps y búsquedas locales.',
-            },
-            priceSpecification: {
-              '@type': 'UnitPriceSpecification',
-              price: '297',
-              priceCurrency: 'EUR',
-              unitText: 'mes',
-            },
-          },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Automatización con Inteligencia Artificial',
-              description: 'Automatizaciones inteligentes para empresas de Gijón y Asturias. Ahorra tiempo, reduce errores y aumenta la productividad.',
-            },
-            priceSpecification: {
-              '@type': 'UnitPriceSpecification',
-              price: '995',
-              priceCurrency: 'EUR',
-            },
-          },
-        ],
-      },
-    },
-  ],
-};
 ---
 
 <BaseLayout
   metaTitle={SITE.defaultTitle}
   metaDescription={SITE.defaultDescription}
-  ogImage={SITE.ogImage}
   ogType="website"
-  schema={schema}
 >
   <!-- HERO SECTION -->
   <div class="hero-pymempresas-wrapper">
