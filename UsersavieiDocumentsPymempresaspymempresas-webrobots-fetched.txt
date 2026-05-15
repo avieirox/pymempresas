@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Sitemap: https://pymempresas.com/sitemap.xml
+
+Disallow: /cdn-cgi/

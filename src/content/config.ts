@@ -11,6 +11,7 @@ const serviciosCollection = defineCollection({
     badge: z.string().optional(),
     heroChecks: z.array(z.string()).optional(),
     heroBgImage: z.string().default('/images/hero-bg-DF654TP8.webp'),
+    updatedAt: z.date().optional(),
     features: z.array(
       z.object({
         title: z.string(),
@@ -83,6 +84,7 @@ const blogCollection = defineCollection({
     title: z.string(),
     description: z.string(),
     date: z.date(),
+    updatedAt: z.date().optional(),
     author: z.string().default('PYMEMPRESAS'),
     image: z.string().optional(),
     tags: z.array(z.string()).optional(),

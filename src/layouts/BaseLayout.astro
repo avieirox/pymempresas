@@ -38,6 +38,45 @@ const webSiteSchema = {
     'query-input': 'required name=search_term_string',
   },
 };
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': `${Astro.site}#business`,
+  name: 'PYMEMPRESAS',
+  url: Astro.site.href,
+  logo: `${Astro.site}images/logo-header.webp`,
+  image: `${Astro.site}images/logo-header.webp`,
+  description: 'Agencia de Marketing Digital en Gijón — SEO Local, Diseño Web, IA para PYMES en Asturias.',
+  telephone: '+34 697 71 13 44',
+  email: 'info@pymempresas.com',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'C. Rodríguez San Pedro, 1, Centro',
+    addressLocality: 'Gijón',
+    addressRegion: 'Asturias',
+    postalCode: '33206',
+    addressCountry: 'ES',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 43.54124,
+    longitude: -5.66205,
+  },
+  priceRange: '€€€',
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '09:00',
+    closes: '18:00',
+  },
+  areaServed: [
+    { '@type': 'City', 'name': 'Gijón' },
+    { '@type': 'City', 'name': 'Oviedo' },
+    { '@type': 'City', 'name': 'Avilés' },
+    { '@type': 'State', 'name': 'Asturias' },
+  ],
+};
 ---
 <!doctype html>
 <html lang="es">
@@ -64,6 +103,7 @@ const webSiteSchema = {
       schema={Astro.props.schema}
     />
     <script type="application/ld+json" set:html={JSON.stringify(webSiteSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
   </head>
   <body class={bodyClass}>
     <a href="#main-content" class="skip-link">Saltar al contenido</a>

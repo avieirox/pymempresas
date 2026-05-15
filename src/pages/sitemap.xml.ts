@@ -5,22 +5,28 @@ export const GET: APIRoute = async ({ site }) => {
   const servicios = await getCollection('servicios');
   const blogPosts = await getCollection('blog');
 
+  const today = new Date().toISOString().split('T')[0];
   const pages = [
-    { url: '', lastmod: '2026-05-06' },
-    { url: 'consultoria/', lastmod: '2026-05-06' },
-    { url: 'contacto/', lastmod: '2026-05-06' },
-    { url: 'blog/', lastmod: '2026-05-06' },
+    { url: '', lastmod: today },
+    { url: 'consultoria/', lastmod: today },
+    { url: 'contacto/', lastmod: today },
+    { url: 'blog/', lastmod: today },
+    { url: 'seo-gijon/', lastmod: today },
   ];
 
   const servicioEntries = servicios.map((s) => ({
     url: `${s.slug}/`,
     lastmod: s.data.updatedAt
       ? new Date(s.data.updatedAt).toISOString().split('T')[0]
-      : '2026-05-06',
+      : today,
   }));
 
   const blogEntries = blogPosts.map((p) => {
-    const d = p.data.date ? new Date(p.data.date) : new Date('2026-05-06');
+    const d = p.data.updatedAt
+      ? new Date(p.data.updatedAt)
+      : p.data.date
+        ? new Date(p.data.date)
+        : new Date();
     return {
       url: `${p.slug}/`,
       lastmod: d.toISOString().split('T')[0],

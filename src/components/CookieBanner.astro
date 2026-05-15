@@ -1,4 +1,4 @@
-<div id="cookie-overlay" class="cookie-overlay hidden">
+<div id="cookie-banner" class="cookie-banner hidden">
   <div class="cookie-modal">
     <div class="cookie-head">
       <div class="cookie-head-icon">
@@ -66,18 +66,16 @@
 
 <script>
   const COOKIE_KEY = 'pymempresas-cookie-consent';
-  const overlay = document.getElementById('cookie-overlay')!;
+  const banner = document.getElementById('cookie-banner')!;
   const analyticsCheck = document.getElementById('cookie-analytics') as HTMLInputElement;
   const marketingCheck = document.getElementById('cookie-marketing') as HTMLInputElement;
 
   if (!localStorage.getItem(COOKIE_KEY)) {
-    overlay.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
+    banner.classList.remove('hidden');
   }
 
   function closeCookies() {
-    overlay.classList.add('hidden');
-    document.body.style.overflow = '';
+    banner.classList.add('hidden');
   }
 
   function savePreferences(prefs: Record<string, boolean>) {
@@ -103,20 +101,23 @@
 </script>
 
 <style>
-  .cookie-overlay {
+  .cookie-banner {
     position: fixed;
-    inset: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     z-index: 99999;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
-    background: rgba(10, 10, 10, 0.55);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    padding: 20px;
-    animation: overlayIn 0.2s ease-out;
+    padding: 16px;
+    animation: bannerIn 0.3s ease-out;
+    pointer-events: none;
   }
-  @keyframes overlayIn { from { opacity: 0; } to { opacity: 1; } }
+  .cookie-banner > * {
+    pointer-events: auto;
+  }
+  @keyframes bannerIn { from { opacity: 0; transform: translateY(100%); } to { opacity: 1; transform: translateY(0); } }
 
   .cookie-modal {
     background: #fff;
@@ -324,9 +325,8 @@
   .hidden { display: none !important; }
 
   @media (max-width: 480px) {
-    .cookie-overlay {
-      padding: 16px;
-      align-items: flex-end;
+    .cookie-banner {
+      padding: 12px;
     }
     .cookie-modal {
       padding: 24px 18px 20px;
